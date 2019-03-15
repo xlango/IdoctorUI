@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.AddressMapper">
+
+
+    <select id="getCityByProvice" resultType="string">
+        SELECT city FROM tb_addr WHERE provice LIKE "%${provice}%" GROUP BY city
+    </select>
+
+    <select id="getAreaByProviceAndCity" resultType="string">
+        SELECT area FROM tb_addr WHERE provice LIKE "%${provice}%" AND city LIKE "%${city}%"
+    </select>
+
+    <select id="allProvice" resultType="string">
+        SELECT provice FROM tb_provice
+    </select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.KeshiMapper">
+
+    <select id="getAllOne" resultType="string">
+        SELECT distinct one FROM tb_keshi
+    </select>
+
+    <select id="getAllTwoByOne" resultType="string" parameterType="string">
+        select two from tb_keshi where one=#{one}
+    </select>
+</mapper>

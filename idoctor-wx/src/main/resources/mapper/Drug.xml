@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.DrugMapper">
+
+    <select id="allDrugOne" resultType="string">
+        SELECT one FROM tb_drug_type GROUP BY one
+    </select>
+
+    <select id="getDrugTwoByOne" resultType="string">
+        SELECT two FROM tb_drug_type WHERE one = #{one}
+    </select>
+
+    <select id="getByIf" resultType="com.xx.entity.Drug">
+        SELECT * FROM tb_drug
+        <where>
+            <if test="drug.name!=null">
+                and to_pinyin(name) LIKE to_pinyin("%${drug.name}%")
+            </if>
+            <if test="drug.chufang!=null">
+                and chufang LIKE "%${drug.chufang}%"
+            </if>
+            <if test="drug.changuo!=null">
+                and changuo LIKE "%${drug.changuo}%"
+            </if>
+            <if test="drug.jb!=null">
+                and jb LIKE "%${drug.jb}%"
+            </if>
+            <if test="drug.zhongxi!=null">
+                and zhongxi LIKE "%${drug.zhongxi}%"
+            </if>
+            <if test="drug.yibao!=null">
+                and yibao LIKE "%${drug.yibao}%"
+            </if>
+        </where>
+        LIMIT #{pageNum},#{pageSize}
+    </select>
+
+    <select id="totel" resultType="int">
+        SELECT count(*) FROM tb_drug
+        <where>
+            <if test="drug.name!=null">
+                and to_pinyin(name) LIKE to_pinyin("%${drug.name}%")
+            </if>
+            <if test="drug.chufang!=null">
+                and chufang LIKE "%${drug.chufang}%"
+            </if>
+            <if test="drug.changuo!=null">
+                and changuo LIKE "%${drug.changuo}%"
+            </if>
+            <if test="drug.jb!=null">
+                and jb LIKE "%${drug.jb}%"
+            </if>
+            <if test="drug.zhongxi!=null">
+                and zhongxi LIKE "%${drug.zhongxi}%"
+            </if>
+            <if test="drug.yibao!=null">
+                and yibao LIKE "%${drug.yibao}%"
+            </if>
+        </where>
+    </select>
+</mapper>

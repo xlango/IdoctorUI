@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.DiseaseMapper">
+
+    <select id="all" resultType="com.xx.entity.Disease">
+        SELECT * FROM tb_disease  limit #{pageNum},#{pageSize}
+    </select>
+
+    <select id="totel" resultType="int">
+        SELECT count(*) FROM tb_disease
+        <where>
+            <if test="name!=null">
+                and name LIKE "%${name}%"
+            </if>
+            <if test="buwei!=null">
+                and buwei LIKE "%${buwei}%"
+            </if>
+            <if test="keshi!=null">
+                and keshi LIKE "%${keshi}%"
+            </if>
+        </where>
+    </select>
+
+    <select id="getByIfLike" resultType="com.xx.entity.Disease">
+        SELECT * FROM tb_disease
+        <where>
+            <if test="name!=null">
+                and name LIKE "%${name}%"
+            </if>
+            <if test="buwei!=null">
+                and buwei LIKE "%${buwei}%"
+            </if>
+            <if test="keshi!=null">
+                and keshi LIKE "%${keshi}%"
+            </if>
+        </where>
+        LIMIT #{pageNum},#{pageSize}
+    </select>
+</mapper>

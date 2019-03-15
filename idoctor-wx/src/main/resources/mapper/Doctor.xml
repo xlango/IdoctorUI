@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.DoctorMapper">
+
+    <select id="getByIf" resultType="com.xx.entity.Doctor">
+        SELECT * FROM tb_doctor
+        <where>
+            <if test="doctor.hospital!=null">
+                and to_pinyin(hospital)LIKE to_pinyin("%${doctor.hospital}%")
+            </if>
+            <if test="doctor.ks!=null">
+                and ks LIKE "%${doctor.ks}%"
+            </if>
+            <if test="doctor.zc!=null">
+                and zc LIKE "%${doctor.zc}%"
+            </if>
+            <if test="doctor.addr!=null">
+                and addr LIKE "%${doctor.addr}%"
+            </if>
+        </where>
+        LIMIT #{pageNum},#{pageSize}
+    </select>
+
+    <select id="totel" resultType="int">
+        SELECT count(*) FROM tb_doctor
+        <where>
+            <if test="doctor.hospital!=null">
+                and to_pinyin(hospital)LIKE to_pinyin("%${doctor.hospital}%")
+            </if>
+            <if test="doctor.ks!=null">
+                and ks LIKE "%${doctor.ks}%"
+            </if>
+            <if test="doctor.zc!=null">
+                and zc LIKE "%${doctor.zc}%"
+            </if>
+            <if test="doctor.addr!=null">
+                and addr LIKE "%${doctor.addr}%"
+            </if>
+        </where>
+    </select>
+
+</mapper>

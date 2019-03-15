@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.HospitalMapper">
+
+    <select id="getByIf" resultType="com.xx.entity.Hospital">
+        SELECT * FROM tb_hos
+        <where>
+            <if test="hospital.hosName!=null">
+                and to_pinyin(hosName)LIKE to_pinyin("%${hospital.hosName}%")
+            </if>
+            <if test="hospital.keshi!=null">
+                and keshi LIKE "%${hospital.keshi}%"
+            </if>
+            <if test="hospital.manage!=null">
+                and manage LIKE "%${hospital.manage}%"
+            </if>
+            <if test="hospital.isAuth!=null">
+                and isAuth LIKE "%${hospital.isAuth}%"
+            </if>
+            <if test="hospital.level!=null">
+                and level LIKE "%${hospital.level}%"
+            </if>
+            <if test="hospital.isinsurance!=null">
+                and isinsurance LIKE "%${hospital.isinsurance}%"
+            </if>
+            <if test="hospital.type!=null">
+                and type LIKE "%${hospital.type}%"
+            </if>
+            <if test="hospital.addr!=null">
+                and addr LIKE "%${hospital.addr}%"
+            </if>
+        </where>
+        LIMIT #{pageNum},#{pageSize}
+    </select>
+
+    <select id="allType" resultType="string">
+        SELECT * FROM tb_hospital_type
+    </select>
+
+    <select id="allLevel" resultType="string">
+        SELECT * FROM tb_hospital_level
+    </select>
+
+    <select id="totel" resultType="int">
+        SELECT count(*) FROM tb_hos
+        <where>
+            <if test="hospital.hosName!=null">
+                and to_pinyin(hosName)LIKE to_pinyin("%${hospital.hosName}%")
+            </if>
+            <if test="hospital.keshi!=null">
+                and keshi LIKE "%${hospital.keshi}%"
+            </if>
+            <if test="hospital.manage!=null">
+                and manage LIKE "%${hospital.manage}%"
+            </if>
+            <if test="hospital.isAuth!=null">
+                and isAuth LIKE "%${hospital.isAuth}%"
+            </if>
+            <if test="hospital.level!=null">
+                and level LIKE "%${hospital.level}%"
+            </if>
+            <if test="hospital.isinsurance!=null">
+                and isinsurance LIKE "%${hospital.isinsurance}%"
+            </if>
+            <if test="hospital.type!=null">
+                and type LIKE "%${hospital.type}%"
+            </if>
+            <if test="hospital.addr!=null">
+                and addr LIKE "%${hospital.addr}%"
+            </if>
+        </where>
+    </select>
+
+</mapper>
