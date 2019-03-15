@@ -1,0 +1,95 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+	<!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Ela Admin - HTML5 Admin Template</title>
+		<meta name="description" content="Ela Admin - HTML5 Admin Template">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="assets/css/normalize.css">
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/themify-icons.css">
+		<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+		<link rel="stylesheet" href="assets/css/flag-icon.min.css">
+		<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+	</head>
+
+	<body class="bg-dark">
+
+		<div class="sufee-login d-flex align-content-center flex-wrap">
+			<div class="container">
+				<div class="login-content">
+					<div class="login-logo">
+						<a href="index.html">
+							<img class="align-content" src="images/logo.png" alt="">
+						</a>
+					</div>
+					<div class="login-form">
+						<div class="form-group">
+							<label>原密码</label>
+							<input type="password" class="form-control" placeholder="Old password" id="old-pwd">
+						</div>
+						<div class="form-group">
+							<label>新密码</label>
+							<input type="password" class="form-control" placeholder="New password" id="new-pwd">
+						</div>
+						<button type="submit" class="btn btn-primary btn-flat m-b-15" onclick="updatePwd()">确定修改</button>
+						<div class="social-login-content">
+                            <div class="social-button">
+                                <a href="index.html" class="btn btn-success btn-flat m-b-30 m-t-30">返回主页</a>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/jquery.matchHeight.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/md5.js"></script>
+		<script src="assets/js/cookieutils.js"></script>
+		<script>
+			var $ = jQuery.noConflict();
+
+			function updatePwd() {
+				var username=getCookie("admin-username");
+				var oldpwd = $("#old-pwd").val();
+				var newpwd = $("#new-pwd").val();
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/user/admin/updateAdminPwd",
+					data: {
+						username: username,
+						password: hex_md5(oldpwd),
+						newpwd: hex_md5(newpwd)
+					},
+					type: 'POST',
+					dataType: "json",
+					success: function(d) {
+						console.log(d);
+						if(d) {
+							alert("修改成功");
+						}else{
+							alert("原密码错误");
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>
