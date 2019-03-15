@@ -302,19 +302,23 @@
 						<div class="col-lg-4">
 							<ul class="pagination">
 								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button">上一页</button>
+									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(-1)">上一页</button>
 								</li>
 								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button">首页</button>
+									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(0)">首页</button>
 								</li>
 								<li>
-									<button id="now-page" class="btn btn-outline-secondary btn-sm" type="button">3</button>
+									<button id="now-page" class="btn btn-outline-secondary btn-sm" type="button">1</button>
 								</li>
 								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button">尾页</button>
+									<button class="btn btn-outline-secondary btn-sm" type="button" value="" id="end-page" onclick="">尾页</button>
 								</li>
 								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button">下一页</button>
+									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(1)">下一页</button>
+								</li>
+								<li>
+									<input oninput = "value=value.replace(/[^\d]/g,'')"  style="width: 30px;margin-left: 10px;" id="input-pageNum"></input>
+									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(2)">跳转</button>
 								</li>
 							</ul>
 						</div>
@@ -441,7 +445,7 @@
 				$("#" + container).append(el);
 			}
 
-			function publicSearch() {
+			function publicSearch(pageNum) {
 				var body = $("#select-body").val();
 				var name = $("#input-name").val();
 				var ks = $("#select-ks").val();
@@ -463,6 +467,37 @@
 			$("#select-ks").change(function() {
 				publicSearch(1);
 			});
+			
+			//翻页
+			function turnPage(type){
+				var nowpage=$("#now-page").html();
+				console.log(parseInt(nowpage));
+				if(parseInt(type)==1){
+					publicSearch(parseInt(nowpage)+1);
+					$("#now-page").html(parseInt(nowpage)+1);
+				}
+				if(parseInt(type)==-1){
+					if(parseInt(nowpage)==1){
+						publicSearch(1);
+						$("#now-page").html(1);
+					}else{
+						publicSearch(parseInt(nowpage)-1);
+						$("#now-page").html(parseInt(nowpage)-1);
+					}
+				}
+				if(parseInt(type)==0){
+					publicSearch(1);
+					$("#now-page").html(1);
+				}
+				
+				if(parseInt(type)==2){
+					var pagenum=$("#input-pageNum").val();
+					if(pagenum!=""){
+						publicSearch(pagenum);
+						$("#now-page").html(pagenum);
+					}	
+				}
+			}
 		</script>
 	</body>
 
