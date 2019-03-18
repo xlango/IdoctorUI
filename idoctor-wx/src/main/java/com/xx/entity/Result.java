@@ -7,4 +7,5 @@ public class Result {
 
     String type;
     String content;
+
 }

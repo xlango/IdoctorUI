@@ -72,5 +72,14 @@
             </if>
         </where>
     </select>
+    <!-- 批量删除 -->
+    <delete id="delete" parameterType="int[]">
+        delete from tb_hos where id in
+        <foreach collection="array" item="ids" index="no" open="("
+                 separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
 
 </mapper>

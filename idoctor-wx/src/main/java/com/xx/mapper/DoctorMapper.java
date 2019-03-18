@@ -11,4 +11,6 @@ public interface DoctorMapper {
 
     List<Doctor> getByIf(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("doctor")Doctor doctor);
     int totel(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("doctor")Doctor doctor);
+
+    int delete(int[] ids);
 }

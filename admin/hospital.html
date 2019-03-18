@@ -34,7 +34,7 @@
 			<nav class="navbar navbar-expand-sm navbar-default">
 				<div id="main-menu" class="main-menu collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li>
+						<li class="active">
 							<a href="index.html"><i class="menu-icon fa fa-laptop"></i>后台管理 </a>
 						</li>
 						<li class="menu-item-has-children dropdown">
@@ -44,7 +44,7 @@
 									<a href="ui-cards.html">个人信息</a>
 								</li>
 								<li><i class="fa fa-file-word-o"></i>
-									<a href="ui-typgraphy.html">修改密码</a>
+									<a href="forget.html">修改密码</a>
 								</li>
 							</ul>
 						</li>
@@ -67,45 +67,25 @@
 							</ul>
 						</li>
 
-						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
-							<ul class="sub-menu children dropdown-menu">
-								<li><i class="menu-icon fa fa-line-chart"></i>
-									<a href="charts-chartjs.html">Chart JS</a>
-								</li>
-								<li><i class="menu-icon fa fa-area-chart"></i>
-									<a href="charts-flot.html">Flot Chart</a>
-								</li>
-								<li><i class="menu-icon fa fa-pie-chart"></i>
-									<a href="charts-peity.html">Peity Chart</a>
-								</li>
-							</ul>
+						<li>
+							<a href="disease.html"><i class="menu-icon fa fa-street-view"></i>疾病管理</a>
+						</li>
+						<!-- /.menu-title -->
+						<li>
+							<a href="drug.html"> <i class="menu-icon fa fa-glass"></i>药品管理</a>
 						</li>
 
 						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
+							<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
 							<ul class="sub-menu children dropdown-menu">
-								<li><i class="menu-icon fa fa-map-o"></i>
-									<a href="maps-gmap.html">Google Maps</a>
+								<li><i class="menu-icon fa fa-line-chart"></i>
+									<a href="charts.html">医院统计</a>
 								</li>
-								<li><i class="menu-icon fa fa-street-view"></i>
-									<a href="maps-vector.html">Vector Maps</a>
+								<li><i class="menu-icon fa fa-area-chart"></i>
+									<a href="charts-flot.html">医生统计</a>
 								</li>
-							</ul>
-						</li>
-						<li class="menu-title">Extras</li>
-						<!-- /.menu-title -->
-						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-							<ul class="sub-menu children dropdown-menu">
-								<li><i class="menu-icon fa fa-sign-in"></i>
-									<a href="page-login.html">Login</a>
-								</li>
-								<li><i class="menu-icon fa fa-sign-in"></i>
-									<a href="page-register.html">Register</a>
-								</li>
-								<li><i class="menu-icon fa fa-paper-plane"></i>
-									<a href="pages-forget.html">Forget Pass</a>
+								<li><i class="menu-icon fa fa-pie-chart"></i>
+									<a href="charts-peity.html">疾病统计</a>
 								</li>
 							</ul>
 						</li>
@@ -267,26 +247,26 @@
 						<input type="text" id="input-hos" class="form-control-success form-control" placeholder="医院名称" />
 					</div>
 					<div class="col-lg-2">
-						<select  id="select-isAuth" class="form-control">
+						<select id="select-isAuth" class="form-control">
 							<option value="">是否认证</option>
 							<option value="已认证">已认证</option>
 							<option value="未认证">未认证</option>
 						</select>
 					</div>
 					<div class="col-lg-2">
-						<select  id="select-level" class="form-control">
+						<select id="select-level" class="form-control">
 							<option value="">等级</option>
 							<!--此处填充所有医院等级-->
 						</select>
 					</div>
 					<div class="col-lg-2">
-						<select  id="select-type" class="form-control">
+						<select id="select-type" class="form-control">
 							<option value="">类型</option>
 							<!--此处填充所有医院类型-->
 						</select>
 					</div>
 					<div class="col-lg-2">
-						<select  id="select-manage" class="form-control">
+						<select id="select-manage" class="form-control">
 							<option value="">经营</option>
 							<option value="公立">公立</option>
 							<option value="民营">民营</option>
@@ -324,7 +304,9 @@
 								<!-- /.table-stats -->
 							</div>
 						</div>
-						<div class="col-lg-8"></div>
+						<div class="col-lg-8">
+							<button class="btn btn-outline-danger" type="submit" id="btn-delete">删除</button>
+						</div >
 						<div class="col-lg-4">
 							<ul class="pagination">
 								<li>
@@ -343,7 +325,7 @@
 									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(1)">下一页</button>
 								</li>
 								<li>
-									<input oninput = "value=value.replace(/[^\d]/g,'')"  style="width: 30px;margin-left: 10px;" id="input-pageNum"></input>
+									<input oninput="value=value.replace(/[^\d]/g,'')" style="width: 30px;margin-left: 10px;" id="input-pageNum"></input>
 									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(2)">跳转</button>
 								</li>
 							</ul>
@@ -386,36 +368,36 @@
 			var $ = jQuery.noConflict();
 
 			//获取医生列表
-			getHosList(1,"", "","", "","", "","");
+			getHosList(1, "", "", "", "", "", "", "");
 
 			//获取所有科室列表
 			getLevelAll();
-			
+
 			//获取所有省
 			getProvAll();
-			
+
 			//获取所有类型
 			getTypeAll();
 
-			function getHosList(pageNum, hos,prov,isAuth,level,type,manage) {
+			function getHosList(pageNum, hos, prov, isAuth, level, type, manage) {
 				jQuery.ajax({
 					url: "http://127.0.0.1:8000/hospital/getByIf",
 					data: {
 						pageNum: pageNum,
 						pageSize: 5,
 						hosName: hos,
-						manage:manage,
-						isAuth:isAuth,
-						level:level,
-						type:type,
-						addr:prov
+						manage: manage,
+						isAuth: isAuth,
+						level: level,
+						type: type,
+						addr: prov
 					},
 					type: 'POST',
 					dataType: "json",
 					//async: false,
 					success: function(d) {
 						$("#table-list").empty();
-						$("#end-page").val(d.length-1);
+						$("#end-page").val(d.length - 1);
 						for(i = 0; i < d.length; i++) {
 							addElHosList(d[i]);
 							//console.log(d[i].name);
@@ -426,7 +408,7 @@
 
 			function addElHosList(obj) {
 				var el = '<tr>' +
-					'	<td class="serial"><input type="checkbox" /></td>' +
+					'	<td class="serial"><input type="checkbox"  name="doctor" value="' + obj.id + '"/></td>' +
 					'	<td class="serial">' + obj.id + '</td>' +
 					'	<td class="avatar">' +
 					'		<div class="round-img">' +
@@ -439,7 +421,7 @@
 					'	<td><span class="count">' + obj.type + '</span></td>' +
 					'	<td><span class="count">' + obj.manage + '</span></td>' +
 					'	<td>' +
-					'		<span class="badge badge-complete">Complete</span>' +
+					'		<span class="badge badge-complete" id="btn_update_'+obj.id+'">更新</span>' +
 					'	</td>' +
 					'</tr>';
 				$("#table-list").append(el);
@@ -460,7 +442,7 @@
 					}
 				});
 			}
-			
+
 			//等级
 			function getTypeAll() {
 				jQuery.ajax({
@@ -484,12 +466,12 @@
 					dataType: "json",
 					success: function(d) {
 						for(i = 0; i < d.length; i++) {
-							if(d[i]=="直辖市"){
+							if(d[i] == "直辖市") {
 								addElOption("select-prov", "北京市");
 								addElOption("select-prov", "上海市");
 								addElOption("select-prov", "天津市");
 								addElOption("select-prov", "重庆市");
-							}else{
+							} else {
 								addElOption("select-prov", d[i]);
 							}
 							//console.log(d[i]);
@@ -503,7 +485,7 @@
 				$("#" + container).append(el);
 			}
 
-			function publicSearch(pageNum){
+			function publicSearch(pageNum) {
 				var hos = $("#input-hos").val();
 				var prov = $("#select-prov").val();
 				var isAuth = $("#select-isAuth").val();
@@ -511,7 +493,7 @@
 				var type = $("#select-type").val();
 				var manage = $("#select-manage").val();
 				//console.log(ks, hos,prov,isAuth,level,type,manage);
-				getHosList(pageNum, hos,prov,isAuth,level,type,manage);
+				getHosList(pageNum, hos, prov, isAuth, level, type, manage);
 			}
 
 			//选择科室
@@ -522,11 +504,11 @@
 			//输入医院
 			$("#input-hos").blur(function() {
 				var hos = $("#input-hos").val();
-				if(hos!=""){
+				if(hos != "") {
 					publicSearch(1);
 				}
 			});
-			
+
 			//选择省
 			$("#select-prov").change(function() {
 				publicSearch(1);
@@ -543,36 +525,63 @@
 			$("#select-manage").change(function() {
 				publicSearch(1);
 			});
-			
+
 			//翻页
-			function turnPage(type){
-				var nowpage=$("#now-page").html();
+			function turnPage(type) {
+				var nowpage = $("#now-page").html();
 				console.log(parseInt(nowpage));
-				if(parseInt(type)==1){
-					publicSearch(parseInt(nowpage)+1);
-					$("#now-page").html(parseInt(nowpage)+1);
+				if(parseInt(type) == 1) {
+					publicSearch(parseInt(nowpage) + 1);
+					$("#now-page").html(parseInt(nowpage) + 1);
 				}
-				if(parseInt(type)==-1){
-					if(parseInt(nowpage)==1){
+				if(parseInt(type) == -1) {
+					if(parseInt(nowpage) == 1) {
 						publicSearch(1);
 						$("#now-page").html(1);
-					}else{
-						publicSearch(parseInt(nowpage)-1);
-						$("#now-page").html(parseInt(nowpage)-1);
+					} else {
+						publicSearch(parseInt(nowpage) - 1);
+						$("#now-page").html(parseInt(nowpage) - 1);
 					}
 				}
-				if(parseInt(type)==0){
+				if(parseInt(type) == 0) {
 					publicSearch(1);
 					$("#now-page").html(1);
 				}
-				
-				if(parseInt(type)==2){
-					var pagenum=$("#input-pageNum").val();
-					if(pagenum!=""){
+
+				if(parseInt(type) == 2) {
+					var pagenum = $("#input-pageNum").val();
+					if(pagenum != "") {
 						publicSearch(pagenum);
 						$("#now-page").html(pagenum);
-					}	
+					}
 				}
+			}
+
+			$("#btn-delete").click(function() {
+				var ids = new Array();
+				$('input:checkbox[name=doctor]:checked').each(function(k) {
+					ids.push($(this).val());
+				});
+				//alert(ids);
+				if(ids != null) {
+					deleteButh(ids);
+				}
+			})
+
+			//删除
+			function deleteButh(ids) {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/hospital/delete",
+					traditional: true,
+					data: {
+						ids: ids
+					},
+					type: 'POST',
+					dataType: "json",
+					success: function(d) {
+						alert("删除数量：" + d);
+					}
+				});
 			}
 		</script>
 	</body>

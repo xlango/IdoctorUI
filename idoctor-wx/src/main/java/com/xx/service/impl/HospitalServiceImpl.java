@@ -29,4 +29,9 @@ public class HospitalServiceImpl implements IHospitalService {
         return hospitalMapper.allLevel();
     }
 
+    @Override
+    public int delete(int[] ids) {
+        return hospitalMapper.delete(ids);
+    }
+
 }

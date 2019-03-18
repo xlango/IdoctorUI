@@ -34,7 +34,7 @@
 			<nav class="navbar navbar-expand-sm navbar-default">
 				<div id="main-menu" class="main-menu collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li>
+						<li class="active">
 							<a href="index.html"><i class="menu-icon fa fa-laptop"></i>后台管理 </a>
 						</li>
 						<li class="menu-item-has-children dropdown">
@@ -44,11 +44,11 @@
 									<a href="ui-cards.html">个人信息</a>
 								</li>
 								<li><i class="fa fa-file-word-o"></i>
-									<a href="ui-typgraphy.html">修改密码</a>
+									<a href="forget.html">修改密码</a>
 								</li>
 							</ul>
 						</li>
-						<li class="active">
+						<li>
 							<a href="hospital.html"> <i class="menu-icon fa fa-table"></i>医院管理</a>
 						</li>
 						<li>
@@ -67,45 +67,26 @@
 							</ul>
 						</li>
 
+
+						<li class="active">
+							<a href="disease.html"><i class="menu-icon fa fa-street-view"></i>疾病管理</a>
+						</li>
+						<!-- /.menu-title -->
+						<li>
+							<a href="drug.html" > <i class="menu-icon fa fa-glass"></i>药品管理</a>
+						</li>
+						
 						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
+							<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
 							<ul class="sub-menu children dropdown-menu">
 								<li><i class="menu-icon fa fa-line-chart"></i>
-									<a href="charts-chartjs.html">Chart JS</a>
+									<a href="charts.html">医院统计</a>
 								</li>
 								<li><i class="menu-icon fa fa-area-chart"></i>
-									<a href="charts-flot.html">Flot Chart</a>
+									<a href="charts-flot.html">医生统计</a>
 								</li>
 								<li><i class="menu-icon fa fa-pie-chart"></i>
-									<a href="charts-peity.html">Peity Chart</a>
-								</li>
-							</ul>
-						</li>
-
-						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-area-chart"></i>Maps</a>
-							<ul class="sub-menu children dropdown-menu">
-								<li><i class="menu-icon fa fa-map-o"></i>
-									<a href="maps-gmap.html">Google Maps</a>
-								</li>
-								<li><i class="menu-icon fa fa-street-view"></i>
-									<a href="maps-vector.html">Vector Maps</a>
-								</li>
-							</ul>
-						</li>
-						<li class="menu-title">Extras</li>
-						<!-- /.menu-title -->
-						<li class="menu-item-has-children dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-							<ul class="sub-menu children dropdown-menu">
-								<li><i class="menu-icon fa fa-sign-in"></i>
-									<a href="page-login.html">Login</a>
-								</li>
-								<li><i class="menu-icon fa fa-sign-in"></i>
-									<a href="page-register.html">Register</a>
-								</li>
-								<li><i class="menu-icon fa fa-paper-plane"></i>
-									<a href="pages-forget.html">Forget Pass</a>
+									<a href="charts-peity.html">疾病统计</a>
 								</li>
 							</ul>
 						</li>
@@ -298,7 +279,9 @@
 								<!-- /.table-stats -->
 							</div>
 						</div>
-						<div class="col-lg-8"></div>
+						<div class="col-lg-8">
+							<button class="btn btn-outline-danger" type="submit" id="btn-delete">删除</button>
+						</div>
 						<div class="col-lg-4">
 							<ul class="pagination">
 								<li>
@@ -394,7 +377,7 @@
 
 			function addElDiseaseList(obj) {
 				var el = '<tr>' +
-					'	<td class="serial"><input type="checkbox" /></td>' +
+					'	<td class="serial"><input type="checkbox" name="doctor" value="'+obj.id+'"/></td>' +
 					'	<td class="serial">' + obj.id + '</td>' +
 					'	<td class="avatar">' +
 					'		<div class="round-img">' +
@@ -404,7 +387,7 @@
 					'	<td> ' + obj.name + ' </td>' +
 					'	<td> <span class="name">' + obj.buwei + '</span> </td>' +
 					'	<td> <span class="name">' + obj.keshi + '</span> </td>' +
-					'	<td><span class="badge badge-complete">Complete</span>' +
+					'	<td><span class="badge badge-complete"id="btn_update_'+obj.id+'">更新</span>' +
 					'	</td>' +
 					'</tr>';
 				$("#table-list").append(el);
@@ -497,6 +480,33 @@
 						$("#now-page").html(pagenum);
 					}	
 				}
+			}
+			
+			$("#btn-delete").click(function() {
+				var ids=new Array();
+				$('input:checkbox[name=doctor]:checked').each(function(k) {
+						ids.push($(this).val());
+				});
+				//alert(ids);
+				if(ids != null) {
+					deleteButh(ids);
+				}
+			})
+
+			//删除
+			function deleteButh(ids) {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/disease/delete",
+					traditional:true,
+					data: {
+						ids: ids
+					},
+					type: 'POST',
+					dataType: "json",
+					success: function(d) {
+						alert("删除数量：" + d);
+					}
+				});
 			}
 		</script>
 	</body>

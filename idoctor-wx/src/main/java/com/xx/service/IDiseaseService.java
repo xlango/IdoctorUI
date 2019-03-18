@@ -9,4 +9,5 @@ public interface IDiseaseService {
 
     List<Disease> all(int pageNum, int pageSize);
     List<Disease> getByIfLike(int pageNum,int pageSize,String buwei,String keshi,String name);
+    int delete(int[] ids);
 }

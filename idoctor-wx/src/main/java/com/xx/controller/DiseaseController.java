@@ -32,4 +32,10 @@ public class DiseaseController {
     public List<Disease> getByIfLike(int pageNum, int pageSize,String buwei,String keshi,String name){
         return diseaseService.getByIfLike(pageNum,pageSize,buwei,keshi,name);
     }
+
+    @ApiOperation(value="删除疾病", notes="删除疾病")
+    @PostMapping("/delete")
+    public int delete(int[] ids){
+        return diseaseService.delete(ids);
+    }
 }

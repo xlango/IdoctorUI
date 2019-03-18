@@ -17,4 +17,5 @@ public interface DrugMapper {
 
     List<Drug> getByIf(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("drug") Drug drug);
     int totel(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("drug") Drug drug);
+    int delete(int[] ids);
 }

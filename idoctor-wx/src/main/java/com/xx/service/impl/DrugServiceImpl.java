@@ -28,4 +28,9 @@ public class DrugServiceImpl implements IDrugService {
     public List<Drug> getByIf(int pageNum, int pageSize, Drug drug) {
         return drugMapper.getByIf((pageNum-1)*pageSize,pageSize,drug);
     }
+    @Override
+    public int delete(int[] ids) {
+        return drugMapper.delete(ids);
+    }
+
 }

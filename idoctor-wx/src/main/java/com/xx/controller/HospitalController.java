@@ -35,4 +35,10 @@ public class HospitalController {
     public List<String> level(){
         return hospitalService.allLevel();
     }
+
+    @ApiOperation(value="删除医院", notes="删除医院")
+    @PostMapping("/delete")
+    public int delete(int[] ids){
+        return hospitalService.delete(ids);
+    }
 }

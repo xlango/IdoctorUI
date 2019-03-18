@@ -11,4 +11,5 @@ public interface IDrugService {
     List<String> getDrugTwoByOne(String one);
 
     List<Drug> getByIf(int pageNum, int pageSize, Drug drug);
+    int delete(int[] ids);
 }

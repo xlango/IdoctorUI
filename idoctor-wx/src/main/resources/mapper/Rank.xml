@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.RankMapper">
+
+    <resultMap type="com.xx.entity.Result" id="map">
+        <id column="level" property="type" />
+        <result column="count" property="content"/>
+    </resultMap>
+
+    <select id="level" resultType="map">
+        SELECT level,COUNT(level) as 'count'  FROM tb_hos GROUP BY level
+    </select>
+</mapper>

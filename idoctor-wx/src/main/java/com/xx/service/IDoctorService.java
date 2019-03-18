@@ -7,5 +7,5 @@ import java.util.List;
 public interface IDoctorService {
 
     List<Doctor> getByIf(int pageNum, int pageSize, Doctor doctor);
-
+    int delete(int[] ids);
 }

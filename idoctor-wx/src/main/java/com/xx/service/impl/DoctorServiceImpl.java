@@ -18,4 +18,9 @@ public class DoctorServiceImpl implements IDoctorService {
     public List<Doctor> getByIf(int pageNum, int pageSize, Doctor doctor) {
         return doctorMapper.getByIf((pageNum-1)*pageSize,pageSize,doctor);
     }
+
+    @Override
+    public int delete(int[] ids) {
+        return doctorMapper.delete(ids);
+    }
 }

@@ -26,4 +26,10 @@ public class DoctorController {
     public List<Doctor> getByIf(int pageNum, int pageSize, Doctor doctor){
         return doctorService.getByIf(pageNum,pageSize,doctor);
     }
+
+    @ApiOperation(value="删除医生", notes="删除医生")
+    @PostMapping("/delete")
+    public int delete(int[] ids){
+        return doctorService.delete(ids);
+    }
 }

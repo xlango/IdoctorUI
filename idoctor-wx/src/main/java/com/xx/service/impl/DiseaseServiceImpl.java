@@ -23,4 +23,9 @@ public class DiseaseServiceImpl implements IDiseaseService {
     public List<Disease> getByIfLike(int pageNum, int pageSize, String buwei, String keshi,String name) {
         return diseaseMapper.getByIfLike((pageNum-1)*pageSize,pageSize,buwei,keshi,name);
     }
+
+    @Override
+    public int delete(int[] ids) {
+        return diseaseMapper.delete(ids);
+    }
 }

@@ -36,4 +36,10 @@ public class DrugController {
     public List<Drug> getByIf(int pageNum, int pageSize, Drug drug){
         return drugService.getByIf(pageNum,pageSize,drug);
     }
+    @ApiOperation(value="删除药品", notes="删除药品")
+    @PostMapping("/delete")
+    public int delete(int[] ids){
+        return drugService.delete(ids);
+    }
+
 }
