@@ -8,6 +8,9 @@ import java.util.Map;
 
 public interface IRankService {
 
-    List<Result> level();
-
+    List<Object> level();
+    List<Object> isAuth();
+    List<Object> manage();
+    List<Object> hosViewTop(String type);
+    List<Object> doctorTop(String ks);
 }

@@ -4,12 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xx.mapper.RankMapper">
 
-    <resultMap type="com.xx.entity.Result" id="map">
-        <id column="level" property="type" />
-        <result column="count" property="content"/>
-    </resultMap>
 
     <select id="level" resultType="map">
         SELECT level,COUNT(level) as 'count'  FROM tb_hos GROUP BY level
+    </select>
+
+    <select id="isAuth" resultType="map">
+        SELECT isAuth,COUNT(isAuth) as 'count' from tb_hos  GROUP BY isAuth
+    </select>
+
+    <select id="manage" resultType="map">
+        SELECT manage,COUNT(manage) as 'count' from tb_hos  GROUP BY manage
+    </select>
+
+    <select id="hosViewTop" resultType="map">
+        SELECT b.hosName as 'hosName',a.views as 'views' FROM tb_hos b JOIN tb_hos_rank_data a ON a.hosId=b.id
+        <where>
+            <if test="type!=null">
+                AND b.type LIKE "%${type}%"
+            </if>
+        </where>
+       ORDER BY a.views DESC LIMIT 10
+    </select>
+
+    <select id="doctorTop" resultType="map">
+        SELECT a.name,b.praiseNum FROM tb_doctor a JOIN tb_doctor_rank_data b ON a.id=b.dId
+        <where>
+            <if test="ks!=null">
+                AND a.ks LIKE "%${ks}%"
+            </if>
+        </where>
+        ORDER BY b.praiseNum DESC LIMIT 10
     </select>
 </mapper>

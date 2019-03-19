@@ -16,7 +16,27 @@ public class RankServiceImpl implements IRankService  {
     private RankMapper rankMapper;
 
     @Override
-    public List<Result> level() {
+    public List<Object> level() {
         return rankMapper.level();
+    }
+
+    @Override
+    public List<Object> isAuth() {
+        return rankMapper.isAuth();
+    }
+
+    @Override
+    public List<Object> manage() {
+        return rankMapper.manage();
+    }
+
+    @Override
+    public List<Object> hosViewTop(String type) {
+        return rankMapper.hosViewTop(type);
+    }
+
+    @Override
+    public List<Object> doctorTop(String ks) {
+        return rankMapper.doctorTop(ks);
     }
 }

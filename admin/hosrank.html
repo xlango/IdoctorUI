@@ -16,13 +16,7 @@
 		<link rel="stylesheet" href="assets/css/normalize.css">
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/themify-icons.css">
-		<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
-		<link rel="stylesheet" href="assets/css/flag-icon.min.css">
-		<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-		<link href="assets/css/charts/chartist.min.css" rel="stylesheet">
 		<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 	</head>
 
@@ -77,7 +71,7 @@
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
 							<ul class="sub-menu children dropdown-menu">
 								<li><i class="menu-icon fa fa-line-chart"></i>
-									<a href="charts.html">医院统计</a>
+									<a href="hosrank.html">医院统计</a>
 								</li>
 								<li><i class="menu-icon fa fa-area-chart"></i>
 									<a href="charts-flot.html">医生统计</a>
@@ -207,7 +201,7 @@
 						<div class="col-sm-4">
 							<div class="page-header float-left">
 								<div class="page-title">
-									<h1>Dashboard</h1>
+									<h1>医院统计排行</h1>
 								</div>
 							</div>
 						</div>
@@ -216,12 +210,12 @@
 								<div class="page-title">
 									<ol class="breadcrumb text-right">
 										<li>
-											<a href="#">Dashboard</a>
+											<a href="#">后台管理</a>
 										</li>
 										<li>
-											<a href="#">Charts</a>
+											<a href="#">统计排行</a>
 										</li>
-										<li class="active">Float Chart</li>
+										<li class="active">医院</li>
 									</ol>
 								</div>
 							</div>
@@ -234,29 +228,16 @@
 			<div class="content">
 				<div class="animated fadeIn">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-12">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="mb-3">Real Chart</h4>
-									<div class="flot-container">
-										<div id="cpu-load" class="cpu-load"></div>
-									</div>
+									<h4 class="mb-3">医院等级统计</h4>
+									<div id="count-hos-level" style="height: 400px;width: 100%;"></div>
 								</div>
 							</div>
 						</div>
 						<!-- /# column -->
 
-						<div class="col-lg-6">
-							<div class="card">
-								<div class="card-body">
-									<h4 class="mb-3">Line Chart</h4>
-									<div class="flot-container">
-										<div id="flot-line" class="flot-line"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- /# column -->
 					</div>
 					<!-- /# row -->
 
@@ -264,10 +245,8 @@
 						<div class="col-lg-6">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="mb-3">Pie Chart</h4>
-									<div class="flot-container">
-										<div id="flot-pie" class="flot-pie-container"></div>
-									</div>
+									<h4 class="mb-3">医院认证比较</h4>
+									<div id="count-hos-isAuth" style="height: 300px;width: 100%;"></div>
 								</div>
 							</div>
 							<!-- /# card -->
@@ -277,10 +256,8 @@
 						<div class="col-lg-6">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="mb-3">Line Chart</h4>
-									<div class="flot-container">
-										<div id="chart1" style="width:100%;height:275px;"></div>
-									</div>
+									<h4 class="mb-3">医院经营类型统计</h4>
+									<div id="count-hos-manage" style="height: 300px;width: 100%;"></div>
 								</div>
 							</div>
 							<!-- /# card -->
@@ -292,10 +269,14 @@
 						<div class="col-lg-6">
 							<div class="card">
 								<div class="card-body">
-									<h4 class="mb-3">Bar Chart</h4>
-									<div class="flot-container">
-										<div id="flotBar" style="width:100%;height:275px;"></div>
+									<h4 class="mb-3">医院访问量排行</h4>
+									<div class="col-lg-12">
+										<select id="select-type" class="form-control">
+											<option value="">医院类型</option>
+											<!--此处填充所有医院类型-->
+										</select>
 									</div>
+									<div id="top-hos-views" style="height: 400px;width: 100%;"></div>
 								</div>
 							</div>
 							<!-- /# card -->
@@ -346,40 +327,277 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 		<script src="assets/js/jquery.matchHeight.min.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/flot-charts@0.8.3/excanvas.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/flot-charts@0.8.3/jquery.flot.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.pie.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.time.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.stack.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.resize.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.crosshair.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/flot.curvedlines@1.1.1/curvedLines.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jquery.flot.tooltip@0.9.0/js/jquery.flot.tooltip.min.js"></script>
-		<script src="assets/js/init/flot-chart-init.js"></script>
-		<!--  Chart js
-    <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
-    <script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>-->
+
+		<script type="text/javascript" src="assets/js/echarts.min.js"></script>
 
 		<script>
 			var $ = jQuery.noConflict();
-			//获取管理员信息
-			getAdminInfo();
+			//获取医院等级排行
+			getHosLevelRank();
+			//获取医院认证统计
+			getCountHosIsAuth();
 
-			function getAdminInfo() {
+			getCountHosManage();
+
+			function getHosLevelRank() {
 				jQuery.ajax({
 					url: "http://127.0.0.1:8000/rank/level",
 					type: 'GET',
 					dataType: "json",
 					success: function(d) {
-						console.log(d);
-						for (var i=0;i<d.length;i++) {
-							console.log(d[i].level);
-							console.log(d[i].count);
+						var x = new Array();
+						var y = new Array();
+						for(var i = 0; i < d.length; i++) {
+							x.push(d[i].level);
+							y.push(d[i].count);
+						}
+						countHosLevel(x, y);
+					}
+				});
+			}
+
+			function countHosLevel(x, y) {
+				var dom = document.getElementById("count-hos-level");
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				app.title = '坐标轴刻度与标签对齐';
+
+				option = {
+					color: ['#3398DB'],
+					tooltip: {
+						trigger: 'axis',
+						axisPointer: { // 坐标轴指示器，坐标轴触发有效
+							type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+						}
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					xAxis: [{
+						type: 'category',
+						data: x,
+						axisTick: {
+							alignWithLabel: true
+						}
+					}],
+					yAxis: [{
+						type: 'value'
+					}],
+					series: [{
+						name: '该等级数量',
+						type: 'bar',
+						barWidth: '60%',
+						data: y
+					}]
+				};;
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+			}
+
+			function getCountHosIsAuth() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/rank/isAuth",
+					type: 'GET',
+					dataType: "json",
+					success: function(d) {
+						var x = new Array();
+						var y = new Array();
+						for(var i = 0; i < d.length; i++) {
+							x.push(d[i].isAuth);
+							obj = new Object();
+							obj.name = d[i].isAuth;
+							obj.value = d[i].count;
+							y.push(obj);
+						}
+						//						console.log(x);
+						//						console.log(y);
+						countHosPie("count-hos-isAuth", '医院认证', x, y);
+					}
+				});
+			}
+
+			function getCountHosManage() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/rank/manage",
+					type: 'GET',
+					dataType: "json",
+					success: function(d) {
+						var x = new Array();
+						var y = new Array();
+						for(var i = 0; i < d.length; i++) {
+							x.push(d[i].manage);
+							obj = new Object();
+							obj.name = d[i].manage;
+							obj.value = d[i].count;
+							y.push(obj);
+						}
+						//						console.log(x);
+						//						console.log(y);
+						countHosPie("count-hos-manage", '经营类型', x, y);
+					}
+				});
+			}
+
+			function countHosPie(type, name, x, y) {
+				var dom = document.getElementById(type);
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				option = {
+					title: {
+						text: '',
+						subtext: '',
+						x: 'center'
+					},
+					tooltip: {
+						trigger: 'item',
+						formatter: "{a} <br/>{b} : {c} ({d}%)"
+					},
+					legend: {
+						orient: 'vertical',
+						left: 'left',
+						data: x
+					},
+					series: [{
+						name: name,
+						type: 'pie',
+						radius: '55%',
+						center: ['50%', '60%'],
+						data: y,
+						itemStyle: {
+							emphasis: {
+								shadowBlur: 10,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						}
+					}]
+				};;
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+			}
+
+			getcountHosTopViews("");
+
+			function getcountHosTopViews(type) {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/rank/hosViewTop",
+					type: 'POST',
+					data: {
+						type: type
+					},
+					dataType: "json",
+					success: function(d) {
+						var source = new Array();
+						var title = new Array();
+						title.push("score");
+						title.push("views");
+						title.push("hosName");
+						source.push(title);
+						for(var i = d.length - 1; i >= 0; i--) {
+							var rd = randomNum(10, 100)
+							var content = new Array();
+							content.push(rd);
+
+							content.push(d[i].views);
+							content.push(d[i].hosName);
+							source.push(content);
+						}
+						countHosTopViews(source);
+					}
+				});
+			}
+
+			function countHosTopViews(source) {
+				var dom = document.getElementById("top-hos-views");
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				var option = {
+					dataset: {
+						source: source
+					},
+					grid: {
+						containLabel: true
+					},
+					xAxis: {
+						name: 'amount'
+					},
+					yAxis: {
+						type: 'category'
+					},
+					visualMap: {
+						orient: 'horizontal',
+						left: 'center',
+						min: 10,
+						max: 100,
+						//						text: ['High Score', 'Low Score'],
+						// Map the score column to color
+						dimension: 0,
+						inRange: {
+							color: ['#D7DA8B', '#E15457']
+						}
+					},
+					series: [{
+						type: 'bar',
+						encode: {
+							// Map the "amount" column to X axis.
+							x: 'views',
+							// Map the "product" column to Y axis
+							y: 'hosName'
+						}
+					}]
+				};;
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+			}
+
+			//生成从minNum到maxNum的随机数
+			function randomNum(minNum, maxNum) {
+				switch(arguments.length) {
+					case 1:
+						return parseInt(Math.random() * minNum + 1, 10);
+						break;
+					case 2:
+						return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+						break;
+					default:
+						return 0;
+						break;
+				}
+			}
+			
+			 getTypeAll();
+			//类型
+			function getTypeAll() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/hospital/allType",
+					type: 'GET',
+					dataType: "json",
+					success: function(d) {
+						for(i = 0; i < d.length; i++) {
+							addElOption("select-type", d[i]);
+							//console.log(d[i]);
 						}
 					}
 				});
 			}
+			function addElOption(container, obj) {
+				var el = '<option value="' + obj + '">' + obj + '</option>';
+				$("#" + container).append(el);
+			}
+			//选择类型
+			$("#select-type").change(function() {
+				var type=$("#select-type").val();
+				getcountHosTopViews(type);
+			});
 		</script>
 	</body>
 
