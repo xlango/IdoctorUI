@@ -14,5 +14,7 @@ public interface RankMapper {
     List<Object> isAuth();
     List<Object> manage();
     List<Object> hosViewTop(@Param("type") String type);
-    List<Object> doctorTop(@Param("ks") String ks);
+    List<Object> doctorPraiseTop(@Param("ks") String ks);
+    List<Object> doctorDiagTop(@Param("ks") String ks);
+    List<Object> diseaseViewTop(@Param("keshi") String ks,@Param("buwei") String buwei);
 }

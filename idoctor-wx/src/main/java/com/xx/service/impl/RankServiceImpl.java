@@ -36,7 +36,17 @@ public class RankServiceImpl implements IRankService  {
     }
 
     @Override
-    public List<Object> doctorTop(String ks) {
-        return rankMapper.doctorTop(ks);
+    public List<Object> doctorPraiseTop(String ks) {
+        return rankMapper.doctorPraiseTop(ks);
+    }
+
+    @Override
+    public List<Object> doctorDiagTop(String ks) {
+        return rankMapper.doctorDiagTop(ks);
+    }
+
+    @Override
+    public List<Object> diseaseViewTop(String ks, String buwei) {
+        return rankMapper.diseaseViewTop(ks,buwei);
     }
 }

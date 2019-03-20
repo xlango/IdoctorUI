@@ -12,5 +12,7 @@ public interface IRankService {
     List<Object> isAuth();
     List<Object> manage();
     List<Object> hosViewTop(String type);
-    List<Object> doctorTop(String ks);
+    List<Object> doctorPraiseTop(String ks);
+    List<Object> doctorDiagTop(String ks);
+    List<Object> diseaseViewTop(String ks,String buwei);
 }

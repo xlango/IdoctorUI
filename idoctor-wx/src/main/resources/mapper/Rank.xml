@@ -27,8 +27,8 @@
        ORDER BY a.views DESC LIMIT 10
     </select>
 
-    <select id="doctorTop" resultType="map">
-        SELECT a.name,b.praiseNum FROM tb_doctor a JOIN tb_doctor_rank_data b ON a.id=b.dId
+    <select id="doctorPraiseTop" resultType="map">
+        SELECT a.name as 'name',b.praiseNum as 'views' FROM tb_doctor a JOIN tb_doctor_rank_data b ON a.id=b.dId
         <where>
             <if test="ks!=null">
                 AND a.ks LIKE "%${ks}%"
@@ -36,4 +36,28 @@
         </where>
         ORDER BY b.praiseNum DESC LIMIT 10
     </select>
+
+    <select id="doctorDiagTop" resultType="map">
+        SELECT a.name as 'name',b.diagNum as 'views' FROM tb_doctor a JOIN tb_doctor_rank_data b ON a.id=b.dId
+        <where>
+            <if test="ks!=null">
+                AND a.ks LIKE "%${ks}%"
+            </if>
+        </where>
+        ORDER BY b.diagNum DESC LIMIT 10
+    </select>
+
+    <select id="diseaseViewTop" resultType="map">
+        SELECT b.`name` as 'name',a.views as 'views' FROM tb_disease b JOIN tb_disease_rank_data a ON a.disId=b.id
+        <where>
+            <if test="keshi!=null">
+                AND b.keshi LIKE  "%${keshi}%"
+            </if>
+            <if test="buwei!=null">
+                AND b.buwei LIKE  "%${buwei}%"
+            </if>
+        </where>
+        GROUP BY a.views LIMIT 10
+    </select>
+
 </mapper>

@@ -1,19 +1,17 @@
 package com.xx.controller;
 
 import com.xx.entity.DiseaseSearchLog;
-import com.xx.entity.Result;
 import com.xx.service.IDiseaseSearchLogService;
-import com.xx.service.IDiseaseService;
 import com.xx.service.IRankService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Api(value = "/rank", tags = "统计排行接口")
 @RestController
@@ -59,8 +57,21 @@ public class RankController {
     }
 
     @ApiOperation(value = "根据好评数获取前十医生排行", notes = "根据好评数获取前十医生排行")
-    @PostMapping("/doctorTop")
-    public List<Object> doctorTop(String ks) {
-        return rankService.doctorTop(ks);
+    @PostMapping("/doctorPraiseTop")
+    public List<Object> doctorPraiseTop(String ks) {
+        return rankService.doctorPraiseTop(ks);
     }
+
+    @ApiOperation(value = "根据就诊数获取前十医生排行", notes = "根据就诊数获取前十医生排行")
+    @PostMapping("/doctorDiagTop")
+    public List<Object> doctorDiagTop(String ks) {
+        return rankService.doctorDiagTop(ks);
+    }
+
+    @ApiOperation(value = "根据浏览量获取前十疾病排行", notes = "根据浏览量获取前十疾病排行")
+    @PostMapping("/diseaseViewTop")
+    public List<Object> diseaseViewTop(String ks,String buwei) {
+        return rankService.diseaseViewTop(ks,buwei);
+    }
+
 }

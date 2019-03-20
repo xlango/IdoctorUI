@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class IdoctorApplication {
 
     public static void main(String[] args) {
+
+        //解决netty冲突
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(IdoctorApplication.class, args);
 
         //起socket服务

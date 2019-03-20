@@ -16,16 +16,8 @@
 		<link rel="stylesheet" href="assets/css/normalize.css">
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/themify-icons.css">
-		<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
-		<link rel="stylesheet" href="assets/css/flag-icon.min.css">
-		<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
 		<link rel="stylesheet" href="assets/css/style.css">
-
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
-		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
+		<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 	</head>
 
 	<body>
@@ -48,7 +40,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="active">
+						<li>
 							<a href="hospital.html"> <i class="menu-icon fa fa-table"></i>医院管理</a>
 						</li>
 						<li>
@@ -75,7 +67,7 @@
 							<a href="drug.html"> <i class="menu-icon fa fa-glass"></i>药品管理</a>
 						</li>
 
-						<li class="menu-item-has-children dropdown">
+						<li class="menu-item-has-children dropdown active">
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
 							<ul class="sub-menu children dropdown-menu">
 								<li><i class="menu-icon fa fa-line-chart"></i>
@@ -95,11 +87,8 @@
 			</nav>
 		</aside>
 		<!-- /#left-panel -->
-
 		<!-- Right Panel -->
-
 		<div id="right-panel" class="right-panel">
-
 			<!-- Header-->
 			<header id="header" class="header">
 				<div class="top-left">
@@ -191,28 +180,28 @@
 							</a>
 
 							<div class="user-menu dropdown-menu">
-								<a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
+								<a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
-								<a class="nav-link" href="#"><i class="fa fa-bell-o"></i>Notifications <span class="count">13</span></a>
+								<a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
 
-								<a class="nav-link" href="#"><i class="fa fa-cog"></i>Settings</a>
+								<a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-								<a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
+								<a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</header>
-			<!-- /header -->
-			<!-- Header-->
-
+			<!-- /#header -->
+			<!-- Breadcrumbs-->
 			<div class="breadcrumbs">
 				<div class="breadcrumbs-inner">
 					<div class="row m-0">
 						<div class="col-sm-4">
 							<div class="page-header float-left">
 								<div class="page-title">
-									<h1>疾病</h1>
+									<h1>医生统计排行</h1>
 								</div>
 							</div>
 						</div>
@@ -224,9 +213,9 @@
 											<a href="#">后台管理</a>
 										</li>
 										<li>
-											<a href="#">疾病</a>
+											<a href="#">统计排行</a>
 										</li>
-										<li class="active">列表</li>
+										<li class="active">医生</li>
 									</ol>
 								</div>
 							</div>
@@ -234,116 +223,60 @@
 					</div>
 				</div>
 			</div>
-
+			<!-- /.breadcrumbs-->
+			<!-- Content -->
 			<div class="content">
-				<div class="row" style="margin-bottom: 20px;">
-					<div class="col-lg-2">
-						<select id="select-prov" class="form-control">
-							<option value="">省</option>
-							<!--此处填充所有省-->
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<input type="text" id="input-hos" class="form-control-success form-control" placeholder="医院名称" />
-					</div>
-					<div class="col-lg-2">
-						<select id="select-isAuth" class="form-control">
-							<option value="">是否认证</option>
-							<option value="已认证">已认证</option>
-							<option value="未认证">未认证</option>
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-level" class="form-control">
-							<option value="">等级</option>
-							<!--此处填充所有医院等级-->
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-type" class="form-control">
-							<option value="">类型</option>
-							<!--此处填充所有医院类型-->
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-manage" class="form-control">
-							<option value="">经营</option>
-							<option value="公立">公立</option>
-							<option value="民营">民营</option>
-							<option value="外资">外资</option>
-							<option value="合资">合资</option>
-							<option value="个体户">个体户</option>
-							<option value="其他">其他</option>
-						</select>
-					</div>
-				</div>
 				<div class="animated fadeIn">
+					<!-- /# row -->
 					<div class="row">
-						<div class="col-lg-12">
+						<div class="col-lg-6">
 							<div class="card">
-								<div class="table-stats order-table ov-h">
-									<table class="table ">
-										<thead>
-											<tr>
-												<th class="serial"><input type="checkbox" /></th>
-												<th class="serial">ID</th>
-												<th class="avatar">图片</th>
-												<th>名称</th>
-												<th>认证</th>
-												<th>等级</th>
-												<th>类型</th>
-												<th>经营</th>
-												<th>操作</th>
-											</tr>
-										</thead>
-										<tbody id="table-list">
-											<!--此处填充医生列表-->
-										</tbody>
-									</table>
+								<div class="card-body">
+									<h4 class="mb-3">医生好评排行</h4>
+									<div class="col-lg-6">
+										<select id="select-praise-keshi" class="form-control">
+											<option value="">科室</option>
+											<!--此处填充所有科室-->
+										</select>
+									</div>
+									<div id="top-doctor-praise" style="height: 400px;width: 100%;"></div>
 								</div>
-								<!-- /.table-stats -->
 							</div>
+							<!-- /# card -->
 						</div>
-						<div class="col-lg-8">
-							<button class="btn btn-outline-danger" type="submit" id="btn-delete">删除</button>
-						</div >
-						<div class="col-lg-4">
-							<ul class="pagination">
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(-1)">上一页</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(0)">首页</button>
-								</li>
-								<li>
-									<button id="now-page" class="btn btn-outline-secondary btn-sm" type="button">1</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" value="" id="end-page" onclick="">尾页</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(1)">下一页</button>
-								</li>
-								<li>
-									<input oninput="value=value.replace(/[^\d]/g,'')" style="width: 30px;margin-left: 10px;" id="input-pageNum"></input>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(2)">跳转</button>
-								</li>
-							</ul>
+						<!-- /# column -->
+
+						<div class="col-lg-6">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="mb-3">医生就诊排行</h4>
+									<div class="col-lg-6">
+										<select id="select-diag-keshi" class="form-control">
+											<option value="">科室</option>
+											<!--此处填充所有科室-->
+										</select>
+									</div>
+									<div id="top-doctor-diag" style="height: 400px;width: 100%;"></div>
+								</div>
+							</div>
+							<!-- /# card -->
 						</div>
+						<!-- /# column -->
 					</div>
+					<!-- /# row -->
+
 				</div>
 				<!-- .animated -->
 			</div>
-			<!-- .content -->
-
+			<!-- /.content -->
 			<div class="clearfix"></div>
-
+			<!-- Footer -->
 			<footer class="site-footer">
 				<div class="footer-inner bg-white">
 					<div class="row">
 						<div class="col-sm-6">
-							Copyright &copy; 2018 XX Admin. More Templates
-							<a href="http://www.cssmoban.com/" target="_blank" title="XX">XX</a> - Collect from
+							Copyright &copy; 2018 Ela Admin. More Templates
+							<a href="http://www.cssmoban.com/" target="_blank" title="XX"></a> - Collect from
 							<a href="http://www.cssmoban.com/" title="XX" target="_blank">XX</a>
 						</div>
 						<div class="col-sm-6 text-right"> Designed by Colorlib
@@ -351,11 +284,9 @@
 					</div>
 				</div>
 			</footer>
-
+			<!-- /.site-footer -->
 		</div>
 		<!-- /#right-panel -->
-
-		<!-- Right Panel -->
 
 		<!-- Scripts -->
 		<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -364,225 +295,207 @@
 		<script src="assets/js/jquery.matchHeight.min.js"></script>
 		<script src="assets/js/main.js"></script>
 
+		<script type="text/javascript" src="assets/js/echarts.min.js"></script>
+
 		<script>
 			var $ = jQuery.noConflict();
+			
+			getcountDoctorTopPraise("");
 
-			//获取医生列表
-			getHosList(1, "", "", "", "", "", "", "");
-
-			//获取所有科室列表
-			getLevelAll();
-
-			//获取所有省
-			getProvAll();
-
-			//获取所有类型
-			getTypeAll();
-
-			function getHosList(pageNum, hos, prov, isAuth, level, type, manage) {
+			function getcountDoctorTopPraise(keshi) {
 				jQuery.ajax({
-					url: "http://127.0.0.1:8000/hospital/getByIf",
-					data: {
-						pageNum: pageNum,
-						pageSize: 5,
-						hosName: hos,
-						manage: manage,
-						isAuth: isAuth,
-						level: level,
-						type: type,
-						addr: prov
-					},
+					url: "http://127.0.0.1:8000/rank/doctorPraiseTop",
 					type: 'POST',
+					data: {
+						ks: keshi
+					},
 					dataType: "json",
-					//async: false,
 					success: function(d) {
-						$("#table-list").empty();
-						$("#end-page").val(d.length - 1);
-						for(i = 0; i < d.length; i++) {
-							addElHosList(d[i]);
-							//console.log(d[i].name);
+						var source = new Array();
+						var title = new Array();
+						title.push("score");
+						title.push("views");
+						title.push("name");
+						source.push(title);
+						for(var i = d.length - 1; i >= 0; i--) {
+							var rd = randomNum(10, 100)
+							var content = new Array();
+							content.push(rd);
+
+							content.push(d[i].views);
+							content.push(d[i].name);
+							source.push(content);
 						}
+						countDoctorTopPraise(source);
 					}
 				});
 			}
 
-			function addElHosList(obj) {
-				var el = '<tr>' +
-					'	<td class="serial"><input type="checkbox"  name="doctor" value="' + obj.id + '"/></td>' +
-					'	<td class="serial">' + obj.id + '</td>' +
-					'	<td class="avatar">' +
-					'		<div class="round-img">' +
-					'			<a href="#"><img class="rounded-circle" src="' + obj.img + '" alt=""></a>' +
-					'		</div>' +
-					'	</td>' +
-					'	<td> ' + obj.hosName + ' </td>' +
-					'	<td> <span class="name">' + obj.isAuth + '</span> </td>' +
-					'	<td> <span class="product">' + obj.level + '</span> </td>' +
-					'	<td><span class="count">' + obj.type + '</span></td>' +
-					'	<td><span class="count">' + obj.manage + '</span></td>' +
-					'	<td>' +
-					'		<span class="badge badge-complete" id="btn_update_'+obj.id+'">更新</span>' +
-					'	</td>' +
-					'</tr>';
-				$("#table-list").append(el);
-
+			function countDoctorTopPraise(source) {
+				var dom = document.getElementById("top-doctor-praise");
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				var option = {
+					dataset: {
+						source: source
+					},
+					grid: {
+						containLabel: true
+					},
+					xAxis: {
+						name: 'amount'
+					},
+					yAxis: {
+						type: 'category'
+					},
+					visualMap: {
+						orient: 'horizontal',
+						left: 'center',
+						min: 10,
+						max: 100,
+						//						text: ['High Score', 'Low Score'],
+						// Map the score column to color
+						dimension: 0,
+						inRange: {
+							color: ['#D7DA8B', '#E15457']
+						}
+					},
+					series: [{
+						type: 'bar',
+						encode: {
+							// Map the "amount" column to X axis.
+							x: 'views',
+							// Map the "product" column to Y axis
+							y: 'name'
+						}
+					}]
+				};;
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
 			}
 
-			//等级
-			function getLevelAll() {
+
+			getcountDoctorTopDiag("");
+
+			function getcountDoctorTopDiag(keshi) {
 				jQuery.ajax({
-					url: "http://127.0.0.1:8000/hospital/allLevel",
+					url: "http://127.0.0.1:8000/rank/doctorDiagTop",
+					type: 'POST',
+					data: {
+						ks: keshi
+					},
+					dataType: "json",
+					success: function(d) {
+						var source = new Array();
+						var title = new Array();
+						title.push("score");
+						title.push("views");
+						title.push("name");
+						source.push(title);
+						for(var i = d.length - 1; i >= 0; i--) {
+							var rd = randomNum(10, 100)
+							var content = new Array();
+							content.push(rd);
+
+							content.push(d[i].views);
+							content.push(d[i].name);
+							source.push(content);
+						}
+						countDoctorTopDiag(source);
+					}
+				});
+			}
+
+			function countDoctorTopDiag(source) {
+				var dom = document.getElementById("top-doctor-diag");
+				var myChart = echarts.init(dom);
+				var app = {};
+				option = null;
+				var option = {
+					dataset: {
+						source: source
+					},
+					grid: {
+						containLabel: true
+					},
+					xAxis: {
+						name: 'amount'
+					},
+					yAxis: {
+						type: 'category'
+					},
+					visualMap: {
+						orient: 'horizontal',
+						left: 'center',
+						min: 10,
+						max: 100,
+						//						text: ['High Score', 'Low Score'],
+						// Map the score column to color
+						dimension: 0,
+						inRange: {
+							color: ['#D7DA8B', '#E15457']
+						}
+					},
+					series: [{
+						type: 'bar',
+						encode: {
+							// Map the "amount" column to X axis.
+							x: 'views',
+							// Map the "product" column to Y axis
+							y: 'name'
+						}
+					}]
+				};;
+				if(option && typeof option === "object") {
+					myChart.setOption(option, true);
+				}
+			}
+
+			//生成从minNum到maxNum的随机数
+			function randomNum(minNum, maxNum) {
+				switch(arguments.length) {
+					case 1:
+						return parseInt(Math.random() * minNum + 1, 10);
+						break;
+					case 2:
+						return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+						break;
+					default:
+						return 0;
+						break;
+				}
+			}
+			
+			 getKsAllOne();
+			//一级科室
+			function getKsAllOne() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/keshi/getAllOne",
 					type: 'GET',
 					dataType: "json",
 					success: function(d) {
 						for(i = 0; i < d.length; i++) {
-							addElOption("select-level", d[i]);
-							//console.log(d[i]);
+							addElOption("select-praise-keshi", d[i]);
+							addElOption("select-diag-keshi", d[i]);
 						}
 					}
 				});
 			}
-
-			//类型
-			function getTypeAll() {
-				jQuery.ajax({
-					url: "http://127.0.0.1:8000/hospital/allType",
-					type: 'GET',
-					dataType: "json",
-					success: function(d) {
-						for(i = 0; i < d.length; i++) {
-							addElOption("select-type", d[i]);
-							//console.log(d[i]);
-						}
-					}
-				});
-			}
-
-			//省
-			function getProvAll() {
-				jQuery.ajax({
-					url: "http://127.0.0.1:8000/addr/allProvice",
-					type: 'GET',
-					dataType: "json",
-					success: function(d) {
-						for(i = 0; i < d.length; i++) {
-							if(d[i] == "直辖市") {
-								addElOption("select-prov", "北京市");
-								addElOption("select-prov", "上海市");
-								addElOption("select-prov", "天津市");
-								addElOption("select-prov", "重庆市");
-							} else {
-								addElOption("select-prov", d[i]);
-							}
-							//console.log(d[i]);
-						}
-					}
-				});
-			}
-
 			function addElOption(container, obj) {
 				var el = '<option value="' + obj + '">' + obj + '</option>';
 				$("#" + container).append(el);
 			}
-
-			function publicSearch(pageNum) {
-				var hos = $("#input-hos").val();
-				var prov = $("#select-prov").val();
-				var isAuth = $("#select-isAuth").val();
-				var level = $("#select-level").val();
-				var type = $("#select-type").val();
-				var manage = $("#select-manage").val();
-				//console.log(ks, hos,prov,isAuth,level,type,manage);
-				getHosList(pageNum, hos, prov, isAuth, level, type, manage);
-			}
-
-			//选择科室
-			$("#select-isAuth").change(function() {
-				publicSearch(1);
+			
+			$("#select-praise-keshi").change(function() {
+				var keshi=$("#select-praise-keshi").val();
+				getcountDoctorTopPraise(keshi);
 			});
-
-			//输入医院
-			$("#input-hos").blur(function() {
-				var hos = $("#input-hos").val();
-				if(hos != "") {
-					publicSearch(1);
-				}
+			$("#select-diag-keshi").change(function() {
+				var keshi=$("#select-diag-keshi").val();
+				getcountDoctorTopDiag(keshi);
 			});
-
-			//选择省
-			$("#select-prov").change(function() {
-				publicSearch(1);
-			});
-			//选择等级
-			$("#select-level").change(function() {
-				publicSearch(1);
-			});
-			//选择类型
-			$("#select-type").change(function() {
-				publicSearch(1);
-			});
-			//选择经营
-			$("#select-manage").change(function() {
-				publicSearch(1);
-			});
-
-			//翻页
-			function turnPage(type) {
-				var nowpage = $("#now-page").html();
-				console.log(parseInt(nowpage));
-				if(parseInt(type) == 1) {
-					publicSearch(parseInt(nowpage) + 1);
-					$("#now-page").html(parseInt(nowpage) + 1);
-				}
-				if(parseInt(type) == -1) {
-					if(parseInt(nowpage) == 1) {
-						publicSearch(1);
-						$("#now-page").html(1);
-					} else {
-						publicSearch(parseInt(nowpage) - 1);
-						$("#now-page").html(parseInt(nowpage) - 1);
-					}
-				}
-				if(parseInt(type) == 0) {
-					publicSearch(1);
-					$("#now-page").html(1);
-				}
-
-				if(parseInt(type) == 2) {
-					var pagenum = $("#input-pageNum").val();
-					if(pagenum != "") {
-						publicSearch(pagenum);
-						$("#now-page").html(pagenum);
-					}
-				}
-			}
-
-			$("#btn-delete").click(function() {
-				var ids = new Array();
-				$('input:checkbox[name=doctor]:checked').each(function(k) {
-					ids.push($(this).val());
-				});
-				//alert(ids);
-				if(ids != null) {
-					deleteButh(ids);
-				}
-			})
-
-			//删除
-			function deleteButh(ids) {
-				jQuery.ajax({
-					url: "http://127.0.0.1:8000/hospital/delete",
-					traditional: true,
-					data: {
-						ids: ids
-					},
-					type: 'POST',
-					dataType: "json",
-					success: function(d) {
-						alert("删除数量：" + d);
-					}
-				});
-			}
 		</script>
 	</body>
 
