@@ -1,0 +1,30 @@
+
+.navigation {
+  width: 750rpx;
+  height: 160rpx;
+  background: #fff;
+  margin: 50rpx 0 60rpx 0;
+}
+
+.navigation >navigator {
+  float: left;
+  height: 170rpx;
+  width: 187.5rpx;
+}
+
+.navigation >navigator >image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: 0 auto 20rpx auto;
+  border-radius: 50%;
+}
+
+.navigation >navigator >text {
+  width: 187.5rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 29rpx;
+  text-align: center;
+  display: block;
+}

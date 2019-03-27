@@ -1,0 +1,29 @@
+<view class='header'>
+  <view class="top">
+    <image src="{{_src?_src:'/image/weidenglu.png'}}" class="user" mode="aspectFill" />
+    <!-- <image src="/image/photo.png" class="photo" bind:tap="chooseImg" /> -->
+  </view>
+  <view class='login-btn'>
+  <button class='btn1' size='mini' bindtap='login'>登录</button>
+  </view>
+</view>
+<view class='block'>
+  <view class='row'>
+    <text class='dot'>●</text>我的地址
+    <text class='jump'>跳转</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>消息中心
+    <text class='jump'>跳转</text>
+  </view>
+</view>
+<view class='block'>
+  <view class='row'>
+    <text class='dot'>●</text>关注公众号
+    <text class='jump'>跳转</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>联系我们
+    <text class='jump'>跳转</text>
+  </view>
+</view>

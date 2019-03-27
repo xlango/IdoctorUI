@@ -1,32 +1,59 @@
 {
   "pages": [
-    "pages/logs/logs",
     "pages/index/index",
-    "pages/my/my",
-    "pages/search/search"
+    "pages/detail/index",
+    "pages/order/index",
+    "pages/list/index",
+    "pages/collect/index",
+    "pages/homes/home/home",
+    "pages/calendar/index",
+    "pages/search/index",
+    "pages/citys/index",
+    "pages/favorite/index",
+    "pages/test/test",
+    "pages/location/splash/splash",
+    "pages/location/event/event",
+    "pages/location/event/poster/poster",
+    "pages/location/event/action/action",
+    "pages/location/event/schedule/schedule",
+    "pages/location/location",
+    "pages/location/category/category",
+    "pages/location/select-city/select-city",
+    "pages/homes/phonelogin/phonelogin",
+    "pages/homes/selectlogin/selectlogin"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "idoctor",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color": "#cacaca",
-    "selectedColor": "#f40",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "image/home.png",
-        "selectedIconPath": "image/home.png"
+        "iconPath": "res/toolbar/icon_home@3x.png",
+        "selectedIconPath": "res/toolbar/icon_home_h@3x.png",
+        "text": "首页"
       },
       {
-        "pagePath": "pages/my/my",
-        "iconPath": "image/icon-user.png",
-        "selectedIconPath": "image/icon-user.png"
+        "pagePath": "pages/location/splash/splash",
+        "iconPath": "res/toolbar/icon_collection@3x.png",
+        "selectedIconPath": "res/toolbar/icon_collection_h@3x.png",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/homes/home/home",
+        "iconPath": "res/toolbar/icon_my@3x.png",
+        "selectedIconPath": "res/toolbar/icon_my_h@3x.png",
+        "text": "我的"
       }
-    ]
+    ],
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#AB956D",
+    "color": "#989898",
+    "borderStyle": "white",
+    "position": "bottom"
   }
 }

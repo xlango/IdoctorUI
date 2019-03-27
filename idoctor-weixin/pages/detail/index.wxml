@@ -1,0 +1,82 @@
+<!-- 头部 -->
+<view class='header'>
+  <!-- <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" /> -->
+  <view class='row row1'>
+    <text class='name'>赵炳旭</text>
+    <view class='hot'>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+    </view>
+  </view>
+  <view class='row row2'>
+    <text>达康医护</text>
+    <text class='gold'>金牌陪护</text>
+  </view>
+  <view class='row row3'>
+    <text>年龄20/护龄10</text>
+  </view>
+  <view class='row row4'>
+    <text>北京大兴人</text>
+    <text class='price'>¥200/天</text>
+  </view>
+</view>
+<!-- 个人介绍 -->
+<view class='introduction'>
+  <text class='title'>个人介绍</text>
+  <textarea>个人特点: 正直忠诚、勤奋求实的人，会不断追求人格的自我完善；明显的特点是</textarea>
+  <textarea>工作能力: 正直忠诚、勤奋求实的人，会不断追求人格的自我完善；明显的特点是乐观自信、温和开朗、稳重宽</textarea>
+</view>
+<view class='work'>
+  <text class='title'>工作范围</text>
+  <view class='row'>
+    <text class='dot'>●</text>
+    <text>医疗陪诊</text>
+    <text class='times'>21 次</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>
+    <text>医疗陪诊</text>
+    <text class='times'>21 次</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>
+    <text>医疗陪诊</text>
+    <text class='times'>21 次</text>
+  </view>
+</view>
+<view class='certificate'>
+  <text class='title'>健康证明</text>
+  <text class='show'>查看</text>
+</view>
+<view class='comment'>
+  <text class='title'>服务评价</text>
+  <text class='good'>(好评率85%)</text>
+  <text class='total'>25条评论</text>
+  <view class='item' wx:for="{{comment}}">
+    <view class='row1'>
+      <text>张女士</text>
+      <view class='hot'>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+      </view>
+    </view>
+    <view class='row2'>
+      大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生
+    </view>
+    <view class='row1'>
+      <text>医疗陪护</text>
+      <text>2018.6.12</text>
+    </view>
+  </view>
+</view>
+<view class='footer'>
+  <text class='freeTime' bindtap='freeTime'>空闲日历</text>
+  <text class='collect'>加入收藏</text>
+  <text class='appointment' bindtap='orderTap'>立即预约</text>
+</view>

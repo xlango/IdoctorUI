@@ -1,0 +1,13 @@
+.tabBar{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 750rpx;
+}
+.tabBar >navigator{
+  width:249rpx;
+  float: left;
+  text-align: center
+}

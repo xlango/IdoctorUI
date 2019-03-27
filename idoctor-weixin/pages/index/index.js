@@ -1,50 +1,79 @@
-var WxAutoImage = require('../../js/wxAutoImageCal.js');
-var app = getApp();
-
 Page({
-  data: {
-    iconArray: [{
-        "iconUrl": '../../image/icon-qiandao.png',
-        "iconText": '签到'
-      },
-      {
-        "iconUrl": '../../image/icon-fujin.png',
-        "iconText": '附近'
-      },
-      {
-        "iconUrl": '../../image/icon-zhanhui.png',
-        "iconText": '游展'
-      },
-      {
-        "iconUrl": '../../image/icon-fuli.png',
-        "iconText": '福利'
-      },
-      {
-        "iconUrl": '../../image/icon-muma.png',
-        "iconText": '玩乐'
-      },
-      {
-        "iconUrl": '../../image/icon-xingxing.png',
-        "iconText": '周边'
-      },
-      {
-        "iconUrl": '../../image/icon-tiyu.png',
-        "iconText": '体育'
-      },
-      {
-        "iconUrl": '../../image/icon-qinzi.png',
-        "iconText": '亲子'
-      },
-    ],
-  },
-  // 跳转到搜索页面
-  search: function () {
+
+  /**
+   * 页面的初始数据
+   */
+  data: {},
+
+  //跳转详情页
+  showDetail: function(e) {
+    let id = e.detail.id;
     wx.navigateTo({
-      url: '../search/search',
+      url: '../detail/index?id=' + id
     })
   },
-  cusImageLoad: function(e) {
-    var that = this;
-    that.setData(WxAutoImage.wxAutoImageCal(e));
+
+  //隐藏筛选
+  rightHide:function(){
+    console.log('完成');
+    this.filter.hide();
+  },
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+    this.filter = this.selectComponent("#filter");
+    this.selectComponent("#login").canIUse();
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: () => {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: () => {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: () => {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: () => {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: () => {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: () => {
+
   }
 })
