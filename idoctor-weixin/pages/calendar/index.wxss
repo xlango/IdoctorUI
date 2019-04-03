@@ -1,0 +1,64 @@
+/* pages/calendar/calendar.wxss */
+.title {
+  font-size: 37rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  float: left;
+  width: 100%;
+}
+.remark{
+margin-top: 20rpx;
+margin-left: 10rpx;
+color: #bdc5d4;
+}
+.remark>.text{
+  float: right;
+  border: 1rpx solid #bdc5d4;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+.table {
+  width: 98%;
+}
+.week-head {
+  display: flex;
+}
+.tr-day{
+   display: flex;
+}
+.day{
+   display: flex;
+  width: 14%;
+  justify-content: space-around;
+}
+.box1 .dateBox{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40rpx;
+}
+
+.box1{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.box1>view{
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.dateOn{
+  border-radius: 50%;
+  background-color: hotpink;
+  color: #fff;
+}

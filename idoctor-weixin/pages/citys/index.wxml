@@ -1,0 +1,17 @@
+<view class='title'><text class='text'>当前开通城市</text></view>
+<view class='citys'>
+<block wx:key="index" wx:for='{{ citys }}'>
+<view class='city' id='{{index}}'bindtap='changeColor'>
+<block wx:if="{{index==clickId}}" >
+<button class='btn' style='color:black' >
+{{ item }}
+</button>
+</block>
+<block wx:else>
+<button class='btn' style='color:red'>
+{{ item }}
+</button>
+</block>
+</view>
+</block>
+</view>

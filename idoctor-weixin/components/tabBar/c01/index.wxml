@@ -1,0 +1,3 @@
+<view class='tabBar'>
+  <navigator wx:for="{{tab}}" wx:key="{{item}}" url="{{item.url}}?title={{item.title}}" open-type="redirect">{{item.name}}</navigator >
+</view>

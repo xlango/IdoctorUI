@@ -1,0 +1,39 @@
+<view class='header'>
+  <image src="http://cdf30088.xuanxueyl.cn/images/icon_user@3x.png" />
+ <!-- <button class='noLogin'>点击登录</button> -->
+   <text class='name'>张先生</text>
+  <text class='phone'>15166077180</text> 
+</view>
+<view class='order'>
+  <text class='my'>我的订单</text>
+  <text class='all'>全部订单</text>
+</view>
+<view class='progress'>
+  <view class='item' wx:for='{{progress}}' bindtap='progressTap'>
+    <view class='icon'>
+      <text class='num'>2</text>
+      <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" />
+    </view>
+    <text>待付款</text>
+  </view>
+</view>
+<view class='block'>
+  <view class='row'>
+    <text class='dot'>●</text>我的地址
+    <text class='jump'>跳转</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>消息中心
+    <text class='jump'>跳转</text>
+  </view>
+</view>
+<view class='block'>
+  <view class='row'>
+    <text class='dot'>●</text>关注公众号
+    <text class='jump'>跳转</text>
+  </view>
+  <view class='row'>
+    <text class='dot'>●</text>联系我们
+    <text class='jump'>跳转</text>
+  </view>
+</view>

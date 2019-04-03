@@ -1,0 +1,33 @@
+<view class='info'>服务说明</view>
+<view class='order'>
+  <view class='row'>
+    <text class='title'>姓名</text>
+    <input class='input' placeholder="请输入姓名" />
+  </view>
+  <view class='row'>
+    <text class='title'>手机号</text>
+    <input class='input' placeholder="请输入手机号" />
+  </view>
+  <view class='row'>
+    <text class='title'>服务时间</text>
+    <picker mode="date" value='{{date}}' start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <view class='input'>{{date}}</view>
+    </picker>
+  </view>
+  <view class='row'>
+    <text class='title'>服务地点</text>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+    <view class="input">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
+  </view>
+  <view class='row'>
+    <text class='title'>护工</text>
+    <view class='input' bindtap='listTap'>请先选择'服务时间'和'服务地点'</view>
+  </view>
+</view>
+<view class='footer'>
+  <text class='amount'>—— ——</text>
+  <text class='pay'>支付费用</text>
+</view>
