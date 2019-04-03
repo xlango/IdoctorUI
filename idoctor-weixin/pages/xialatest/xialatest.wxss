@@ -1,0 +1,24 @@
+.uploader-img {
+  /* display: block; */
+
+  top: 0;
+  left: 0;
+  width: 636rpx;
+  height: 180rpx;
+  opacity: 1;
+  background-color: firebrick;
+}
+
+.weui-uploader__input {
+  /* margin-left: 168rpx; */
+  margin-top: 62rpx;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  text-align: center;
+  background: cadetblue;
+}

@@ -10,6 +10,9 @@ import java.util.List;
 public interface DoctorMapper {
 
     List<Doctor> getByIf(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("doctor")Doctor doctor);
+
+    List<Doctor> getByHos(@Param("hos")String hos);
+
     int totel(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("doctor")Doctor doctor);
 
     int delete(int[] ids);

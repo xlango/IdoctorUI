@@ -1,23 +1,16 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
+	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
-		"autoAudits": false
+		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
-	"appid": "wx4024f753ea58edaf",
-	"projectname": "idoctor",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
+	"libVersion": "2.1.1",
+	"appid": "wx1c16cbfedca1b7e6",
+	"projectname": "nurse",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -37,20 +30,68 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
-					"name": "search",
-					"pathName": "pages/search/search",
+					"name": "citys",
+					"pathName": "pages/citys/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "hoslist",
+					"pathName": "pages/hoslist/hoslist",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "test",
-					"pathName": "pages/index/index",
+					"name": "xialatest",
+					"pathName": "pages/xialatest/xialatest",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "doctorlist",
+					"pathName": "pages/doctorlist/doctorlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "hosdetail",
+					"pathName": "pages/hosdetail/hosdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "docdetail",
+					"pathName": "pages/doctordetail/doctordetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "dislist",
+					"pathName": "pages/dislist/dislist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "disdetail",
+					"pathName": "pages/disdetail/disdetail",
 					"scene": null
 				}
 			]

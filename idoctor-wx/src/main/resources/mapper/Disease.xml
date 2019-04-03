@@ -11,13 +11,13 @@
     <select id="totel" resultType="int">
         SELECT count(*) FROM tb_disease
         <where>
-            <if test="name!=null">
+            <if test="name!=''">
                 and name LIKE "%${name}%"
             </if>
-            <if test="buwei!=null">
+            <if test="buwei!=''">
                 and buwei LIKE "%${buwei}%"
             </if>
-            <if test="keshi!=null">
+            <if test="keshi!=''">
                 and keshi LIKE "%${keshi}%"
             </if>
         </where>
@@ -26,14 +26,17 @@
     <select id="getByIfLike" resultType="com.xx.entity.Disease">
         SELECT * FROM tb_disease
         <where>
-            <if test="name!=null">
-                and name LIKE "%${name}%"
+            <if test="dis.id!=0">
+                and id =#{dis.id}
             </if>
-            <if test="buwei!=null">
-                and buwei LIKE "%${buwei}%"
+            <if test="dis.name!=''">
+                and name LIKE "%${dis.name}%"
             </if>
-            <if test="keshi!=null">
-                and keshi LIKE "%${keshi}%"
+            <if test="dis.buwei!=''">
+                and buwei LIKE "%${dis.buwei}%"
+            </if>
+            <if test="dis.keshi!=''">
+                and keshi LIKE "%${dis.keshi}%"
             </if>
         </where>
         LIMIT #{pageNum},#{pageSize}

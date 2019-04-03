@@ -105,13 +105,17 @@
             <artifactId>spring-data-elasticsearch</artifactId>
         </dependency>
 
-
-
         <!--springboot对redis依赖包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.apache.httpcomponents</groupId>-->
+            <!--<artifactId>httpclient</artifactId>-->
+            <!--<version>4.5.7</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 

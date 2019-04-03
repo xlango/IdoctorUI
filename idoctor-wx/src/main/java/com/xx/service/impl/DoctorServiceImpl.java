@@ -20,6 +20,11 @@ public class DoctorServiceImpl implements IDoctorService {
     }
 
     @Override
+    public List<Doctor> getByHos(String hos) {
+        return doctorMapper.getByHos(hos);
+    }
+
+    @Override
     public int delete(int[] ids) {
         return doctorMapper.delete(ids);
     }

@@ -15,22 +15,22 @@
     <select id="getByIf" resultType="com.xx.entity.Drug">
         SELECT * FROM tb_drug
         <where>
-            <if test="drug.name!=null">
+            <if test="drug.name!=''">
                 and to_pinyin(name) LIKE to_pinyin("%${drug.name}%")
             </if>
-            <if test="drug.chufang!=null">
+            <if test="drug.chufang!=''">
                 and chufang LIKE "%${drug.chufang}%"
             </if>
-            <if test="drug.changuo!=null">
+            <if test="drug.changuo!=''">
                 and changuo LIKE "%${drug.changuo}%"
             </if>
-            <if test="drug.jb!=null">
+            <if test="drug.jb!=''">
                 and jb LIKE "%${drug.jb}%"
             </if>
-            <if test="drug.zhongxi!=null">
+            <if test="drug.zhongxi!=''">
                 and zhongxi LIKE "%${drug.zhongxi}%"
             </if>
-            <if test="drug.yibao!=null">
+            <if test="drug.yibao!=''">
                 and yibao LIKE "%${drug.yibao}%"
             </if>
         </where>
@@ -40,22 +40,22 @@
     <select id="totel" resultType="int">
         SELECT count(*) FROM tb_drug
         <where>
-            <if test="drug.name!=null">
+            <if test="drug.name!=''">
                 and to_pinyin(name) LIKE to_pinyin("%${drug.name}%")
             </if>
-            <if test="drug.chufang!=null">
+            <if test="drug.chufang!=''">
                 and chufang LIKE "%${drug.chufang}%"
             </if>
-            <if test="drug.changuo!=null">
+            <if test="drug.changuo!=''">
                 and changuo LIKE "%${drug.changuo}%"
             </if>
-            <if test="drug.jb!=null">
+            <if test="drug.jb!=''">
                 and jb LIKE "%${drug.jb}%"
             </if>
-            <if test="drug.zhongxi!=null">
+            <if test="drug.zhongxi!=''">
                 and zhongxi LIKE "%${drug.zhongxi}%"
             </if>
-            <if test="drug.yibao!=null">
+            <if test="drug.yibao!=''">
                 and yibao LIKE "%${drug.yibao}%"
             </if>
         </where>

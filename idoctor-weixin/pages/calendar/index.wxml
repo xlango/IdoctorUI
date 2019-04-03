@@ -1,0 +1,17 @@
+<!--pages/calendar/calendar.wxml-->
+<text class='title'>护工空闲日历</text>
+<view class='remark'>
+  <text>未标记的日子，表示整日空闲。</text>
+  <text>标记‘上午’或‘下午’的日子，表示上午或者下午空闲。</text>
+</view>
+<view class="main">
+  <view class='box1' style='width: {{ sysW * 7 }}px'>
+    <view class='dateBox'>{{ year }} - {{ month}}</view>
+    <block wx:key="index" wx:for='{{ weekArr }}'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'>{{ item }}</view>
+    </block>
+    <block wx:key="index" wx:for='{{ arr }}'>
+      <view style='{{ index == 0 ? "margin-left:" + sysW * marLet + "px;" : "" }}width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' class='{{ item ==  getDate ? "dateOn" : ""}}'>{{ item }}</view>
+    </block>
+  </view>
+</view>

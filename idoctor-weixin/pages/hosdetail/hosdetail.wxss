@@ -1,0 +1,184 @@
+.header, .introduction, .work, .certificate, .comment {
+  border-bottom: 1rpx solid #d7d7d7;
+  margin: 25rpx 25rpx 30rpx 25rpx;
+  width: 700rpx;
+  padding-bottom: 36rpx;
+  overflow: hidden;
+}
+
+.header > image {
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  float: left;
+}
+
+.header > .row {
+  float: right;
+  height: 46rpx;
+  line-height: 46rpx;
+  width: 480rpx;
+}
+
+.header > .row.row1 {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.header > .row.row1 >.name {
+  font-size: 37rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+  float: left;
+}
+
+.header > .row.row1 >.hot {
+  float: right;
+  color: #bdc5d4;
+}
+
+.header > .row.row1 >.hot text {
+  font-size: 23rpx;
+}
+
+.header > .row.row2 {
+  color: #bdc5d4;
+}
+
+.header > .row.row2 > .gold {
+  float: right;
+  border: 1rpx solid #bdc5d4;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+  font-size: 25rpx;
+  line-height: 40rpx;
+}
+
+.header > .row.row3 {
+  color: #bdc5d4;
+}
+
+.header > .row.row4 {
+  color: #bdc5d4;
+}
+
+.header > .row.row4 >.price {
+  color: #e93547;
+  float: right;
+  font-weight: bold;
+}
+
+.introduction >.title, .work >.title, .certificate >.title,.comment >.title {
+  font-size: 35rpx;
+  float: left;
+}
+
+/*个人介绍*/
+
+.introduction >textarea {
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 20rpx;
+}
+
+/*工作范围*/
+
+.work >.row {
+  width: 100%;
+  float: left;
+  margin-top: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.work >.row > .dot {
+  padding-right: 15rpx;
+  color: #bdc5d4;
+}
+
+.work >.row > .times {
+  float: right;
+}
+
+/*健康证明*/
+
+.certificate >.show {
+  float: right;
+  line-height: 40rpx;
+  color: #bdc5d4;
+}
+
+/*评价*/
+.comment{
+  padding-bottom: 60rpx;
+}
+.comment>.good, .comment>.good {
+  padding-left: 10rpx;
+}
+
+.comment>.good, .comment>.total {
+  line-height: 55rpx;
+  color: #bdc5d4;
+}
+
+.comment>.total {
+  float: right;
+}
+
+.comment>.item {
+  margin-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #f8f8fa;
+}
+
+.comment>.item >.row1 {
+  color: #bdc5d4;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.comment>.item >.row1 >.hot {
+  float: right;
+  font-size: 23rpx;
+}
+
+.comment>.item >.row1 >.hot > text {
+  font-size: 23rpx;
+}
+
+/*底部*/
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background: #bdc5d4;
+  width: 750rpx;
+  height: 95rpx;
+  line-height: 95rpx;
+}
+
+.footer > text {
+  text-align: center;
+  font-size: 32rpx;
+}
+.footer>.freeTime {
+  display: block;
+  width: 140rpx;
+  float: left;
+  background: #ffffff;
+}
+.footer>.collect {
+  display: block;
+  width: 140rpx;
+  float: left;
+  background: #d0d5dd;
+}
+
+.footer > .appointment {
+  display: block;
+  width: 470rpx;
+  float: right;
+  background: #bdc5d4;
+}

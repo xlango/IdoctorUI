@@ -7,31 +7,35 @@
     <select id="getByIf" resultType="com.xx.entity.Hospital">
         SELECT * FROM tb_hos
         <where>
-            <if test="hospital.hosName!=null">
-                and to_pinyin(hosName)LIKE to_pinyin("%${hospital.hosName}%")
+            <if test="hospital.id!=0">
+                and id =#{hospital.id}
             </if>
-            <if test="hospital.keshi!=null">
+            <if test="hospital.hosName!=''">
+                and to_pinyin(hosName) LIKE to_pinyin("%${hospital.hosName}%")
+            </if>
+            <if test="hospital.keshi!=''">
                 and keshi LIKE "%${hospital.keshi}%"
             </if>
-            <if test="hospital.manage!=null">
+            <if test="hospital.manage!=''">
                 and manage LIKE "%${hospital.manage}%"
             </if>
-            <if test="hospital.isAuth!=null">
+            <if test="hospital.isAuth!=''">
                 and isAuth LIKE "%${hospital.isAuth}%"
             </if>
-            <if test="hospital.level!=null">
+            <if test="hospital.level!=''">
                 and level LIKE "%${hospital.level}%"
             </if>
-            <if test="hospital.isinsurance!=null">
+            <if test="hospital.isinsurance!=''">
                 and isinsurance LIKE "%${hospital.isinsurance}%"
             </if>
-            <if test="hospital.type!=null">
+            <if test="hospital.type!=''">
                 and type LIKE "%${hospital.type}%"
             </if>
-            <if test="hospital.addr!=null">
+            <if test="hospital.addr!=''">
                 and addr LIKE "%${hospital.addr}%"
             </if>
         </where>
+        ORDER BY sorce DESC
         LIMIT #{pageNum},#{pageSize}
     </select>
 
@@ -46,6 +50,9 @@
     <select id="totel" resultType="int">
         SELECT count(*) FROM tb_hos
         <where>
+            <if test="hospital.id!=null">
+                and to_pinyin(id)LIKE to_pinyin("%${hospital.id}%")
+            </if>
             <if test="hospital.hosName!=null">
                 and to_pinyin(hosName)LIKE to_pinyin("%${hospital.hosName}%")
             </if>

@@ -8,6 +8,6 @@ import java.util.List;
 public interface IDiseaseService {
 
     List<Disease> all(int pageNum, int pageSize);
-    List<Disease> getByIfLike(int pageNum,int pageSize,String buwei,String keshi,String name);
+    List<Disease> getByIfLike(int pageNum,int pageSize,Disease disease);
     int delete(int[] ids);
 }

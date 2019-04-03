@@ -1,0 +1,309 @@
+/*搜索框*/
+
+.search-box {
+  width: 690rpx;
+  margin: 10rpx 0 10rpx 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  /* position: absolute;
+  z-index: 2;
+  top: 15rpx;
+  left: 75rpx; */
+  background: #f8f8fa;
+  border-radius: 35rpx;
+  padding: 15rpx 0;
+}
+
+/* 地区选择 */
+
+.search-box >.district {
+  border-right: 1rpx solid #d7d7d7;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #000;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  padding: 0 15rpx 0 40rpx;
+  float: left;
+}
+
+/* 搜索框 */
+
+.search-box >.search-input {
+  width: 500rpx;
+  color: #999;
+  font-size: 26rpx;
+  float: left;
+  padding: 0 20rpx;
+}
+
+/*筛选*/
+
+.filter {
+  border: 1rpx solid #f8f8fa;
+  width: 680rpx;
+  margin: 0 0 0 25rpx;
+  border-left: none;
+  border-right: none;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+}
+
+.filter > text {
+  width: 169.5rpx;
+  display: block;
+  float: left;
+}
+
+.filter > text.more {
+  border-left: 5rpx solid #f8f8fa;
+  padding-left: 40rpx;
+  width: 130rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  margin-top: 23rpx;
+}
+
+/*内容*/
+
+.content {
+  font-size: 27rpx;
+}
+
+.content >.item {
+  width: 690rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #f8f8fa;
+  padding: 40rpx 0 0 0;
+  margin: 0 30rpx;
+}
+
+.content >.item >image {
+  height: 130rpx;
+  width: 130rpx;
+  float: left;
+  border-radius: 15rpx;
+  margin: 5rpx 20rpx 5rpx 5rpx;
+}
+
+.content > .item >.row {
+  width: 530rpx;
+  float: right;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.content > .item > .row >text {
+  display: block;
+  float: left;
+}
+
+.content > .item > .row.row1 {
+}
+
+.content > .item > .row.row1 >.name {
+  width: 120rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.content > .item > .row.row1 .hot {
+  width: 200rpx;
+  float: left;
+  line-height: 30rpx;
+  margin-top: 8rpx;
+  height: 30rpx;
+}
+
+.content > .item > .row.row1 .hot .iconfont {
+  font-size: 25rpx;
+  color: #bdc5d4;
+}
+
+.content > .item > .row.row1 .loc {
+  float: right;
+}
+
+.content > .item > .row.row2 {
+  color: #bdc9d5;
+}
+
+.content > .item > .row.row2 >.info-loc {
+  width: 300rpx;
+}
+
+.content > .item > .row.row2 >.info-age,
+.content > .item > .row.row2 >.info-work-age {
+  width: 100rpx;
+  float: right;
+  text-align: right;
+}
+
+.content > .item > .row.row3 {
+  font-size: 28rpx;
+}
+
+.content > .item > .row.row3 >.grade {
+  width: 180rpx;
+  float: left;
+}
+
+.content > .item > .row.row3 >.sum {
+  float: right;
+  text-align: right;
+}
+
+.content > .item > .row.row4 {
+  margin-top: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #bdc9d5;
+  border-top: 1rpx solid #f8f8fa;
+}
+
+.content > .item > .row.row4 >text {
+  width: 132rpx;
+  text-align: center;
+  float: left;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  background: #F8F8F9;
+  width: 750rpx;
+  height: 95rpx;
+  line-height: 95rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+@keyframes fieldShow {
+  to {
+    right: 0;
+  }
+}
+
+.filterRight {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.filterRight >.field {
+  width: 500rpx;
+  padding: 0 40rpx;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  right: -580rpx;
+}
+
+.fieldShow {
+  animation: fieldShow .5s forwards;
+}
+
+.filterRight >.field >.block {
+  border-bottom: 2rpx solid #f8f8fa;
+  width: 500rpx;
+  overflow: hidden;
+  margin-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.filterRight >.field >.block >.title {
+  font-size: 28rpx;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.filterRight >.field >.block.b1 >.content>text,
+.filterRight >.field >.block.b2 >.content>input {
+  border: 2rpx solid #bdc5d4;
+  color: #bdc5d4;
+  display: block;
+  width: 165rpx;
+  height: 55rpx;
+  font-size: 27rpx;
+  line-height: 55rpx;
+  border-radius: 8rpx;
+  margin: 20rpx 30rpx 0 0;
+  text-align: center;
+  float: left;
+}
+
+.filterRight >.field >.block.b2 >.content>input {
+  width: 180rpx;
+}
+
+.filterRight >.field >.block.b2 >.content>text {
+  float: left;
+  height: 55rpx;
+  display: block;
+  margin: 20rpx 30rpx 0 0;
+  line-height: 55rpx;
+  color: #bdc5d4;
+}
+
+.filterRight >.field >.block.b2 >.content .placeholdercolor {
+  color: #bdc5d4;
+}
+
+
+@keyframes bottomShow{
+  to {
+    bottom: 0;
+  }
+}
+
+.filterRight >.back {
+  width:170rpx;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.filterRight >.bottom {
+  position: absolute;
+  bottom: -80rpx;
+  right: 0;
+  width: 580rpx;
+  background: #bdc5d4;
+  height: 80rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.bottomShow {
+  animation: bottomShow .5s forwards;
+}
+
+.filterRight >.bottom>.reset, .filterRight >.bottom>.finish {
+  display: block;
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  float: left;
+  background: #f8f8fa;
+  text-align: center;
+}
+
+.filterRight >.bottom>.finish {
+  background: #bdc5d4;
+  width: 420rpx;
+}
+
+.filterRight >.bottom>.finish > text {
+  font-size: 25rpx;
+  font-weight: normal;
+}

@@ -7,35 +7,42 @@
     <select id="getByIf" resultType="com.xx.entity.Doctor">
         SELECT * FROM tb_doctor
         <where>
-            <if test="doctor.hospital!=null">
+            <if test="doctor.id!=0">
+                and id =#{doctor.id}
+            </if>
+            <if test="doctor.hospital!=''">
                 and to_pinyin(hospital)LIKE to_pinyin("%${doctor.hospital}%")
             </if>
-            <if test="doctor.ks!=null">
+            <if test="doctor.ks!=''">
                 and ks LIKE "%${doctor.ks}%"
             </if>
-            <if test="doctor.zc!=null">
+            <if test="doctor.zc!=''">
                 and zc LIKE "%${doctor.zc}%"
             </if>
-            <if test="doctor.addr!=null">
+            <if test="doctor.addr!=''">
                 and addr LIKE "%${doctor.addr}%"
             </if>
         </where>
         LIMIT #{pageNum},#{pageSize}
     </select>
 
+    <select id="getByHos" resultType="com.xx.entity.Doctor">
+        SELECT * FROM tb_doctor where  hospital=#{hos}
+    </select>
+
     <select id="totel" resultType="int">
         SELECT count(*) FROM tb_doctor
         <where>
-            <if test="doctor.hospital!=null">
+            <if test="doctor.hospital!=''">
                 and to_pinyin(hospital)LIKE to_pinyin("%${doctor.hospital}%")
             </if>
-            <if test="doctor.ks!=null">
+            <if test="doctor.ks!=''">
                 and ks LIKE "%${doctor.ks}%"
             </if>
-            <if test="doctor.zc!=null">
+            <if test="doctor.zc!=''">
                 and zc LIKE "%${doctor.zc}%"
             </if>
-            <if test="doctor.addr!=null">
+            <if test="doctor.addr!=''">
                 and addr LIKE "%${doctor.addr}%"
             </if>
         </where>

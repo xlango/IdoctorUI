@@ -27,6 +27,12 @@ public class DoctorController {
         return doctorService.getByIf(pageNum,pageSize,doctor);
     }
 
+    @ApiOperation(value="根据医院查询医生", notes="根据医院查询医生")
+    @PostMapping("/getByHos")
+    public List<Doctor> getByHos(String hos){
+        return doctorService.getByHos(hos);
+    }
+
     @ApiOperation(value="删除医生", notes="删除医生")
     @PostMapping("/delete")
     public int delete(int[] ids){

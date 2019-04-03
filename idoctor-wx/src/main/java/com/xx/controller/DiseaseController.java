@@ -29,8 +29,8 @@ public class DiseaseController {
 
     @ApiOperation(value="模糊多条件查询疾病信息", notes="模糊多条件查询疾病信息")
     @PostMapping("/getByIfLike")
-    public List<Disease> getByIfLike(int pageNum, int pageSize,String buwei,String keshi,String name){
-        return diseaseService.getByIfLike(pageNum,pageSize,buwei,keshi,name);
+    public List<Disease> getByIfLike(int pageNum, int pageSize,Disease disease){
+        return diseaseService.getByIfLike(pageNum,pageSize,disease);
     }
 
     @ApiOperation(value="删除疾病", notes="删除疾病")

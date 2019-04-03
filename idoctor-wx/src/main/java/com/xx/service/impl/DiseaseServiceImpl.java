@@ -20,8 +20,8 @@ public class DiseaseServiceImpl implements IDiseaseService {
     }
 
     @Override
-    public List<Disease> getByIfLike(int pageNum, int pageSize, String buwei, String keshi,String name) {
-        return diseaseMapper.getByIfLike((pageNum-1)*pageSize,pageSize,buwei,keshi,name);
+    public List<Disease> getByIfLike(int pageNum, int pageSize, Disease disease) {
+        return diseaseMapper.getByIfLike((pageNum-1)*pageSize,pageSize,disease);
     }
 
     @Override

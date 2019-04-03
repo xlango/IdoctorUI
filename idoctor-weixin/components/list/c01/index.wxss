@@ -1,0 +1,113 @@
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xingxing:before {
+  content: "\e855";
+}
+
+.list {
+  font-size: 27rpx;
+}
+
+.list >.item {
+  width: 690rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #f8f8fa;
+  padding: 40rpx 0 0 0;
+  margin: 0 30rpx;
+}
+
+.list >.item >image {
+  height: 130rpx;
+  width: 130rpx;
+  float: left;
+  border-radius: 15rpx;
+  margin: 5rpx 20rpx 5rpx 5rpx;
+}
+
+.list > .item >.row {
+  width: 530rpx;
+  float: right;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.list > .item > .row >text {
+  display: block;
+  float: left;
+}
+
+.list > .item > .row.row1 {
+}
+
+.list > .item > .row.row1 >.name {
+  width: 145rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.list > .item > .row.row1 .hot {
+  width: 200rpx;
+  float: left;
+  line-height: 30rpx;
+  margin-top: 8rpx;
+  height: 30rpx;
+}
+
+.list > .item > .row.row1 .hot .iconfont {
+  font-size: 25rpx;
+  color: #bdc5d4;
+}
+
+.list > .item > .row.row1 .loc {
+  float: right;
+}
+
+.list > .item > .row.row2 {
+  color: #bdc9d5;
+}
+
+.list > .item > .row.row2 >.info-loc {
+  width: 300rpx;
+}
+
+.list > .item > .row.row2 >.info-age,
+.list > .item > .row.row2 >.info-work-age {
+  width: 100rpx;
+  float: right;
+  text-align: right;
+}
+
+.list > .item > .row.row3 {
+  font-size: 28rpx;
+}
+
+.list > .item > .row.row3 >.grade {
+  width: 180rpx;
+  float: left;
+}
+
+.list > .item > .row.row3 >.sum {
+  float: right;
+  text-align: right;
+}
+
+.list > .item > .row.row4 {
+  margin-top: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #bdc9d5;
+  border-top: 1rpx solid #f8f8fa;
+}
+
+.list > .item > .row.row4 >text {
+  width: 132rpx;
+  text-align: center;
+  float: left;
+}

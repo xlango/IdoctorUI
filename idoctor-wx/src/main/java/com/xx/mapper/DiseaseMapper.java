@@ -10,7 +10,7 @@ import java.util.List;
 public interface DiseaseMapper {
 
     List<Disease> all(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize);
-    List<Disease> getByIfLike(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize,@Param("buwei")String buwei,@Param("keshi")String keshi,@Param("name")String name);
+    List<Disease> getByIfLike(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize,@Param("dis")Disease dis);
     int totel(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize,@Param("buwei")String buwei,@Param("keshi")String keshi,@Param("name")String name);
     int delete(int[] ids);
 
