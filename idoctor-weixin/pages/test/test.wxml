@@ -1,4 +1,0 @@
-<!--pages/test/test.wxml-->
-<text>pages/test/test.wxml</text>
-<button  bindtap='getToken'>申请令牌</button>
-<button  bindtap='checkSession'>检查登录状态</button>

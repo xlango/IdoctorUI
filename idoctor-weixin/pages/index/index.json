@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "filter": "/components/filter/c01/index",
-    "list":"/components/list/c01/index",
-    "nav": "/components/navigation/c01/index",
-    "search": "/components/search/c01/index",
-    "login":"/components/login/c01/index"
-  }
-}

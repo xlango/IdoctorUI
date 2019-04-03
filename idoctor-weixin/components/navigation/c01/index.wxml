@@ -1,6 +1,0 @@
-<view class='navigation'>
-  <navigator hover-class="none" wx:for="{{nav}}" wx:key="{{item}}" url='{{item.link}}'>
-    <image src='{{item.img}}'></image>
-    <text>{{item.name}}</text>
-  </navigator>
-</view>

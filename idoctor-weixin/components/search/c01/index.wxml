@@ -1,4 +1,0 @@
-<view class='search'>
-  <text class='district' bindtap='selectCitys'>{{district}}</text>
-  <text class='search-input' bindtap='search'>{{placeholder}}</text>
-</view>

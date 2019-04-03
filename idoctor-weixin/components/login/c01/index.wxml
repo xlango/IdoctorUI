@@ -1,6 +1,0 @@
-<view wx:if="{{canIUse}}" class='login'>
-  <view class='avatar'>
-    <open-data type="userAvatarUrl"></open-data>
-  </view>
-  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权</button>
-</view>
