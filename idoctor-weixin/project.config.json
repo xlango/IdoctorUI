@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -92,6 +92,21 @@
 					"id": -1,
 					"name": "disdetail",
 					"pathName": "pages/disdetail/disdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "druglist",
+					"pathName": "pages/druglist/druglist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "drugdetail",
+					"pathName": "pages/drugdetail/drugdetail",
+					"query": "",
 					"scene": null
 				}
 			]

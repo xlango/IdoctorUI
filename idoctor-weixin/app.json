@@ -20,7 +20,8 @@
     "pages/doctordetail/doctordetail",
     "pages/dislist/dislist",
     "pages/disdetail/disdetail",
-    "pages/druglist/druglist"
+    "pages/druglist/druglist",
+    "pages/drugdetail/drugdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

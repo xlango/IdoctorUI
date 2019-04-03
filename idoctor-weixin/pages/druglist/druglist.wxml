@@ -1,2 +1,117 @@
-<!--pages/druglist/druglist.wxml-->
-<text>pages/druglist/druglist.wxml</text>
+<!-- 过滤栏 -->
+<view class='filter'>
+  <text class="tui-menu-list {{isShowTop1 ? 'tui-shangjiantou' : 'tui-xiajiantou'}}" bindtap="showFrom" data-param="1">类型</text>
+  <text class="tui-menu-list {{isShowTop2 ? 'tui-shangjiantou' : 'tui-xiajiantou'}}" bindtap="showFrom" data-param="2">医保</text>
+  <text class="tui-menu-list {{isShowTop3 ? 'tui-shangjiantou' : 'tui-xiajiantou'}}" bindtap="showFrom" data-param="3">产国</text>
+  <text class="" bindtap='_show'>筛选</text>
+</view>
+
+<!-- 身体部位 -->
+<view class="{{isShowTop1 ? 'topShow' : 'topHide'}}">
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">当前类型:</text>
+  <view>
+    <button type="primary" size="mini" data-text="{{jb}}" style="margin:15rpx;">{{jb}}</button>
+  </view>
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">所有类型:</text>
+  <block wx:for="{{jboneList}}">
+    <view class="tui-btn-content btn-list">
+      <button size="mini" bindtap="getDrugByJb" data-text="{{item}}">{{item}}</button>
+    </view>
+  </block>
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">所有子类型:</text>
+  <block wx:for="{{jbtwoList}}">
+    <view class="tui-btn-content btn-list">
+      <button size="mini" bindtap="getDrugByJbTwo" data-text="{{item}}">{{item}}</button>
+    </view>
+  </block>
+</view>
+<!-- 医保 -->
+<view class=" {{isShowTop2 ? 'topShow' : 'topHide'}}">
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">当前医保类型:</text>
+  <view>
+    <button type="primary" size="mini" data-text="{{yibao}}" style="margin:15rpx;">{{yibao}}</button>
+  </view>
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">所有医保类型:</text>
+  <block wx:for="{{yibaoList}}">
+    <view class="tui-btn-content btn-list">
+      <button size="mini" bindtap="getDrugByYibao" data-text="{{item}}">{{item}}</button>
+    </view>
+  </block>
+</view>
+<!-- 产国 -->
+<view class="{{isShowTop3 ? 'topShow' : 'topHide'}}">
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">当前产国:</text>
+  <view>
+    <button type="primary" size="mini" data-text="{{changuo}}" style="margin:15rpx;">{{changuo}}</button>
+  </view>
+  <text style="width:100%;margin:10rpx;font-size:30rpx;">所有产国:</text>
+  <view wx:for="{{changuoList}}">
+    <view class="tui-btn-content btn-list">
+      <button size="mini" bindtap="getDrugByChanguo" data-text="{{item}}">{{item}}</button>
+    </view>
+  </view>
+</view>
+
+
+<!-- 右侧伸缩过滤框 -->
+<view class='filterRight rightHide {{showFilter?"rightShow":""}}'>
+  <view class='field {{showFilter?"fieldShow":""}}'>
+  <view class='block b1'>
+      <text class='title'>选择中西药</text>
+      <view class='content' wx:for="{{zhognxiList}}">
+        <view class="btn-list-pup">
+          <button size="mini" bindtap="getDrugByZhongxi" data-text="{{item}}">{{item}}</button>
+        </view>
+      </view>
+  </view>
+  <view class='block b1'>
+      <text class='title'>选择中西药</text>
+      <view class='content' wx:for="{{chufangList}}">
+        <view class="btn-list-pup">
+          <button size="mini" bindtap="getDrugByChufang" data-text="{{item}}">{{item}}</button>
+        </view>
+      </view>
+  </view>
+    <view class='block b1'>
+      <text class='title'>根据名称搜索</text>
+      <view class='content'>
+        <input auto-focus placeholder="输入名称" style="margin:20rpx;" bindblur="onBlurDrugByName" />
+      </view>
+    </view>
+  </view>
+  <view class='bottom {{showFilter?"bottomShow":""}}'>
+    <text class='reset'>重置</text>
+    <view class='finish' catchtap='_finish'>完成
+    </view>
+  </view>
+  <view class='back' bindtap='_hide'></view>
+</view>
+
+<!--疾病列表-->
+<view class='list'>
+  <view class='item' wx:for="{{list}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTap'>
+    <image src="{{item.img}}" />
+    <view class='row row1'>
+      <text class='name line-dec'>{{item.name}}</text>
+      <view class='hot'>
+        <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
+      </view>
+      <text class='loc'>{{item.zhongxi}}</text>
+    </view>
+
+    <view class='row row2'>
+      <text class='info-loc'>{{item.chufang}}</text>
+      <text class='info-age'>{{item.yibao1}}</text>
+      <text class='info-work-age'>{{item.yibao1}}</text>
+    </view>
+
+    <view class='row row3'>
+      <text class='grade  line-dec'>{{item.jb}}</text>
+      <view class='sum'>{{item.changuo}}</view>
+    </view>
+
+    <view class='row row4'>
+      <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+    </view>
+  </view>
+</view>

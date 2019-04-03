@@ -15,6 +15,9 @@
     <select id="getByIf" resultType="com.xx.entity.Drug">
         SELECT * FROM tb_drug
         <where>
+            <if test="drug.id!=0">
+                and id =#{drug.id}
+            </if>
             <if test="drug.name!=''">
                 and to_pinyin(name) LIKE to_pinyin("%${drug.name}%")
             </if>

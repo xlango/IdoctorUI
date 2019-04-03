@@ -1,0 +1,117 @@
+<!-- 头部 -->
+<view class='header'>
+  <image src="{{drug.img}}" />
+  <view class='row row1'>
+    <text class='name line-dec'>{{drug.name}}</text>
+    <view class='hot'>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+      <text class="iconfont icon-xingxing"></text>
+    </view>
+  </view>
+  <view class='row row2'>
+    <text>{{drug.yibao}}</text>
+    <text class='gold'>{{drug.zhongxi}}</text>
+  </view>
+  <view class='row row3'>
+    <text>{{drug.changuo}}</text>
+  </view>
+  <view class='row row4'>
+    <text>{{drug.jb}}</text>
+    <text class='price'>{{drug.chufang}}</text>
+  </view>
+</view>
+<!-- 疾病 -->
+<view class='introduction'>
+  <text class='title'>治疗疾病</text>
+  <textarea class="long-dec {{isFold1?'hide':'show'}}" bindtap="showAll" data-param="1">{{drug.jb}}</textarea>
+</view>
+<!-- 成分 -->
+<view class='introduction'>
+  <text class='title'>成分</text>
+  <textarea class="long-dec {{isFold2?'hide':'show'}}" bindtap="showAll" data-param="2">{{drug.chengfen}}</textarea>
+</view>
+<!-- 主治 -->
+<view class='introduction'>
+  <text class='title'>主治</text>
+  <textarea class="long-dec {{isFold3?'hide':'show'}}" bindtap="showAll" data-param="3">{{drug.zhuzhi}}</textarea>
+</view>
+<!-- 用量 -->
+<view class='introduction'>
+  <text class='title'>用法用量</text>
+  <textarea  class="long-dec {{isFold4?'hide':'show'}}" bindtap="showAll" data-param="4">{{drug.yongliang}}</textarea>
+</view>
+<!-- 不良效果 -->
+<view class='introduction'>
+  <text class='title'>不良反应</text>
+  <textarea class="long-dec {{isFold5?'hide':'show'}}" bindtap="showAll" data-param="5">{{drug.buliang}}</textarea>
+</view>
+<!-- 禁忌 -->
+<view class='introduction'>
+  <text class='title'>禁忌</text>
+  <textarea class="long-dec {{isFold6?'hide':'show'}}" bindtap="showAll" data-param="6">{{drug.jingji}}</textarea>
+</view>
+<!-- 注意 -->
+<view class='introduction'>
+  <text class='title'>注意事项</text>
+  <textarea class="long-dec {{isFold7?'hide':'show'}}" bindtap="showAll" data-param="7">{{drug.zhuyi}}</textarea>
+</view>
+<!--药物相互作用 -->
+<view class='introduction'>
+  <text class='title'>药物相互作用</text>
+  <textarea class="long-dec {{isFold8?'hide':'show'}}" bindtap="showAll" data-param="8">{{drug.xianghu}}</textarea>
+</view>
+
+<!-- 贮藏 -->
+<view class='introduction'>
+  <text class='title'>贮藏</text>
+  <textarea class="long-dec {{isFold9?'hide':'show'}}" bindtap="showAll" data-param="9">{{drug.chucang}}</textarea>
+</view>
+
+<!-- 有效期 -->
+<view class='introduction'>
+  <text class='title'>有效期</text>
+  <textarea class="long-dec {{isFold10?'hide':'show'}}" bindtap="showAll" data-param="10">{{drug.youxiaoqi}}</textarea>
+</view>
+<!-- 批准文号 -->
+<view class='introduction'>
+  <text class='title'>批准文号</text>
+  <textarea class="long-dec {{isFold11?'hide':'show'}}" bindtap="showAll" data-param="11">{{drug.piwen}}</textarea>
+</view>
+<!-- 生产企业 -->
+<view class='introduction'>
+  <text class='title'>生产企业</text>
+  <textarea class="long-dec {{isFold12?'hide':'show'}}" bindtap="showAll" data-param="12">{{drug.gongsi}}</textarea>
+</view>
+
+<view class='comment'>
+  <text class='title'>服务评价</text>
+  <text class='good'>(好评率85%)</text>
+  <text class='total'>25条评论</text>
+  <view class='item' wx:for="{{comment}}">
+    <view class='row1'>
+      <text>张女士</text>
+      <view class='hot'>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+        <text class="iconfont icon-xingxing"></text>
+      </view>
+    </view>
+    <view class='row2'>
+      大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生
+    </view>
+    <view class='row1'>
+      <text>医疗陪护</text>
+      <text>2018.6.12</text>
+    </view>
+  </view>
+</view>
+<view class='footer'>
+  <text class='freeTime' bindtap='freeTime'>空闲日历</text>
+  <text class='collect'>加入收藏</text>
+  <text class='appointment' bindtap='orderTap'>立即预约</text>
+</view>

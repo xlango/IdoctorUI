@@ -65,7 +65,7 @@
   <view class='back' bindtap='_hide'></view>
 </view>
 
-<!--疾病列表-->
+<!--药品列表-->
 <view class='list'>
   <view class='item' wx:for="{{list}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTap'>
     <image src="{{item.img}}" />
