@@ -1,0 +1,3 @@
+class Heattype(object):
+
+    name=""

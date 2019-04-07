@@ -1,0 +1,3 @@
+class Doctorlog(object):
+
+    code=""

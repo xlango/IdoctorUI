@@ -1,0 +1,16 @@
+class Disease(object):
+
+    name = ""
+    buwei = ""
+    keshi = ""
+    yongyao = ""
+    question = ""
+    anwser = ""
+    binyin = ""
+    zhengzhuang = ""
+    jiancha = ""
+    yufang = ""
+    zhiliao = ""
+    jianbie = ""
+    binfazheng = ""
+    img=""

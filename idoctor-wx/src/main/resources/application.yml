@@ -1,12 +1,19 @@
 server:
-  port: 8000
+  port: 443
+  ssl:
+    key-store: server.keystore
+    key-alias: tomcat
+    enabled: true
+    key-password: 123456
+    key-store-type: JKS
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/idata?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: wolaoda.sheigandong
+#    password: wolaoda.sheigandong
+    password: 123456
   data:
     elasticsearch:
       cluster-name: elasticsearch
@@ -44,4 +51,5 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
 
