@@ -86,7 +86,8 @@ Page({
     provice: "",
     zc:"",
     btnProviceColor: "",
-    hosname:""
+    hosname:"",
+    pageNum:1,
   },
 
   /**
@@ -147,7 +148,41 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      pageNum: this.data.pageNum+1
+    });
+    console.log(this.data.pageNum)
+    wx.request({
+      url: gburl + "doctor/getByIf",
+      method: "POST",
+      data: {
+        "pageNum": this.data.pageNum,
+        "pageSize": 5,
+        "addr": this.data.addr,
+        "ks": this.data.ks,
+        "zc": this.data.zc,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json', // 添加这个配置
+      success: (res) => {
+        console.log(res.data);
+        var newlist = this.data.list.concat(res.data)
+        this.setData({
+          list: newlist
+        });
+      }
+    });
+    wx.showNavigationBarLoading() //在标题栏中显示加载
 
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+    console.log(this.data.list)
   },
 
   /**

@@ -26,7 +26,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "巨蚁医护",
+    "navigationBarTitleText": "哎呀医生",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },

@@ -8,22 +8,22 @@ Component({
       type:Array,
       value: [{
         name: '预约',
-        img: 'http://cdf30088.xuanxueyl.cn/images/icon_home_1@3x.png',
+        img: '/res/image/icon_home_1@3x.png',
         link: '/pages/hoslist/hoslist?city=成都'
       },
       {
         name: '疾病',
-        img: 'http://cdf30088.xuanxueyl.cn/images/icon_home_2@3x.png',
+        img: '/res/image/icon_home_2@3x.png',
         link: '../dislist/dislist'
       },
       {
         name: '药品',
-        img: 'http://cdf30088.xuanxueyl.cn/images/icon_home_3@3x.png',
-        link: '../order/index?id=3'
+        img: '/res/image/icon_my_service@3x.png',
+        link: '../druglist/druglist'
       },
       {
         name: '设备',
-        img: 'http://cdf30088.xuanxueyl.cn/images/icon_home_4@3x.png',
+        img: '/res/image/icon_home_4@3x.png',
         link: '../order/index?id=4'
       }]
     }

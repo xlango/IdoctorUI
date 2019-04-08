@@ -5,7 +5,8 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
@@ -30,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -106,6 +107,13 @@
 					"id": -1,
 					"name": "drugdetail",
 					"pathName": "pages/drugdetail/drugdetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "drugdetail",
+					"pathName": "pages/druglist/druglist",
 					"query": "",
 					"scene": null
 				}
