@@ -1,0 +1,91 @@
+/* pages/login/login.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #ffffffa9
+}
+
+.login{
+  position: relative;
+  width: 100%;
+  height: 100%
+}
+.login-bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1；
+}
+.login-wrap{
+  position: absolute;
+  padding:20rpx 60rpx;
+  z-index: 2;
+  width: 540rpx;
+  left: 50%;
+  top: 65%;
+  /* box-shadow:0 10rpx 20rpx 0px #888888; */
+  transform: translate3d(-50%,-50%,0);
+  border-radius: 16rpx;
+  /* background-color: #fff; */
+}
+
+.login-btn{
+  margin: 100rpx 0;
+  text-align: center;
+}
+.login-btn button{
+  /* color: #fff; */
+  width: 350rpx;
+  height: 100rpx;
+  line-height: 80rpx;
+  /* border-color: #fff; */
+  background: #f3f6f8a9;
+}
+.login-btn .btn1{
+  width: 65%;
+  margin-right: 90rpx;
+  margin-top: 70rpx;
+  background-color: rgb(245, 243, 238);
+  color: rgb(24, 22, 22);
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn .btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+
+.login-btn .btn1::after {
+  border-radius: 15rpx;
+  border: 0; 
+}
+
+.login-btn .btn2{
+  width: 65%;
+  margin-right: 90rpx;
+  margin-top: 65rpx;
+  background-color: rgb(245, 243, 238);
+  color: rgb(24, 22, 22);
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-btn .btnImg2 {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.login-btn .btn2:after {
+  border-radius: 15rpx;
+  border: 0; 
+}
