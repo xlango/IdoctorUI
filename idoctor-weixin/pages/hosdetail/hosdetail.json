@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "医院信息"
+  "navigationBarTitleText": "医院信息",
+  "usingComponents": {
+    "WxComment": "/WxComment/component/WxComment/WxComment"
+  }
 }

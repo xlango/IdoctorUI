@@ -1,106 +1,56 @@
-// pages/test/test.js
-var baseUrl='http://z.cn/api/v1';
+var rs=""
+// 语音转文字
+var plugin = requirePlugin('WechatSI')
+let manager = plugin.getRecordRecognitionManager()
+// 检测是否有语音并进行识别
+manager.onRecognize = function (res) {
+  console.log('current result==', res.result)
+  // 识别成功，停止识别
+  manager.stop()
+}
+manager.onStart = function (res) {
+  console.log('录音状态==', res.msg)
+}
+// 录音结束时，再次启动录音
+manager.onStop = function (res) {
+  console.log('record file path', res.tempFilePath)
+  // 停止识别，获取最后识别的结果
+  console.log('result', res.result)
+  rs = res.result
+}
+manager.onError = function (res) {
+  console.error('error msg', res.msg)
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    msg: ""
+  },
   
+  // 按下按钮的时候触发
+  startrecorderHandel() {
+    // 开始录音
+    manager.start({
+    });
+  },
+  // 松开按钮的时候触发-发送录音
+  sendrecorderHandel() {
+    // 结束录音
+    manager.stop();
+    this.setData({
+      msg: rs.split("。")[0]
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  /**
-   * 获取接口信息
-   */
-  getToken:function(){
-   //调用登录接口
-   wx.login({
-     success:function(res){
-       console.log('code');
-       var code = res.code;
-       console.log(code);
-     
-      wx.request({
-        url: baseUrl +'/token/user?XDEBUG_SESSION_START=18540',
-        data:{
-          code:code
-        },
-        method:'POST',
-        success:function(res){
-          console.log(res.data);
-          wx.setStorageSync('toKen', res.data.token);
-        },
-        fail:function(res){
-          console.log(res.data);
-        }
-      })
-     }
-   })
-  },
-  //检查登录状态
-  checkSession:function(){
-     wx.checkSession({
-       success:function(){
-         console.log('session success');
-       },
-       fail:function(){
-         console.log('session fail');
-       }
-     })
+    wx.authorize({
+      scope: 'record'
+    })
   }
 })
