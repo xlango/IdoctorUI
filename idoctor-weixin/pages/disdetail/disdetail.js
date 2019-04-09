@@ -17,6 +17,7 @@ Page({
     isFold7: true,
     isFold8: true,
     isFold9: true,
+    article_id: "",
 
   },
 
@@ -25,7 +26,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      article_id: "dis"+options.id
       //id:1
     });
     this.getDisById(this.data.id)

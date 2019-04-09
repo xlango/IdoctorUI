@@ -8,6 +8,7 @@ Page({
     comment: [1, 2],
     id: 0,
     doc: null,
+    article_id: "",
 
   },
 
@@ -16,7 +17,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      article_id: "doc" + options.id
       //id:1
     });
     this.getDocById(this.data.id)

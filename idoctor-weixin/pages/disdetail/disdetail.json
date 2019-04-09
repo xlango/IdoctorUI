@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "疾病信息"
+  "navigationBarTitleText": "疾病信息",
+  "usingComponents": {
+    "WxComment": "/WxComment/component/WxComment/WxComment"
+  }
 }

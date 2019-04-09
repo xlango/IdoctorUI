@@ -70,30 +70,10 @@
   <textarea></textarea>
 </view>
 
-<view class='comment'>
-  <text class='title'>服务评价</text>
-  <text class='good'>(好评率85%)</text>
-  <text class='total'>25条评论</text>
-  <view class='item' wx:for="{{comment}}">
-    <view class='row1'>
-      <text>张女士</text>
-      <view class='hot'>
-        <text class="iconfont icon-xingxing"></text>
-        <text class="iconfont icon-xingxing"></text>
-        <text class="iconfont icon-xingxing"></text>
-        <text class="iconfont icon-xingxing"></text>
-        <text class="iconfont icon-xingxing"></text>
-      </view>
-    </view>
-    <view class='row2'>
-      大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生大幅度发生
-    </view>
-    <view class='row1'>
-      <text>医疗陪护</text>
-      <text>2018.6.12</text>
-    </view>
-  </view>
+<view class="WxComment">
+  <WxComment tipOne=" " tipTwo="" submitBtnText="回复" articleID="{{article_id}}" contentLen='1' theme="light"></WxComment>
 </view>
+<view style='height: 95rpx;'></view>
 <view class='footer'>
   <text class='freeTime' bindtap='freeTime'>空闲日历</text>
   <text class='collect'>加入收藏</text>

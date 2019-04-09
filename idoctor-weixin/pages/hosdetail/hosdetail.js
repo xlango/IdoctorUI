@@ -8,7 +8,7 @@ Page({
     comment: [1, 2],
     id:0,
     hos:null,
-    article_id: 0,
+    article_id: "",
 
   },
 
@@ -18,7 +18,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       id: options.id,
-      article_id: options.id
+      article_id: "hos"+options.id
     });
     this.getHosById(this.data.id)
   },
