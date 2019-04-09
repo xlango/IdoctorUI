@@ -34,7 +34,7 @@ Component({
   methods: {
     selectCitys:function(){
       wx.navigateTo({
-        url: '/pages/citys/index'
+        url: '/pages/citys/select-city/select-city'
       })
     },
     search:function(){

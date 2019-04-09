@@ -13,6 +13,7 @@
     "pages/calendar/index",
     "pages/search/index",
     "pages/citys/index",
+    "pages/citys/select-city/select-city",
     "pages/favorite/index",
     "pages/test/test",
     "pages/hoslist/hoslist",
