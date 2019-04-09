@@ -1,0 +1,72 @@
+.top {
+  position: relative;
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto;
+  padding: 30rpx 0;
+  text-align: center;
+}
+
+.top .user {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+}
+
+.top .photo {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  right: 0;
+  bottom: 30rpx;
+}
+
+.login-btn{
+  margin: 3rpx 0;
+  text-align: center;
+}
+
+.header, .order, .progress, .block {
+  border-bottom: 1rpx solid #f8f8fa;
+  width: 690rpx;
+  margin: 0 30rpx;
+  overflow: hidden;
+}
+
+.header {
+  padding-bottom: 20rpx;
+}
+
+.header > image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin: 20rpx auto 25rpx auto;
+  display: block;
+}
+
+.header > text {
+  display: block;
+  text-align: center;
+}
+
+.block {
+  padding: 15rpx 0;
+}
+
+.block>.row {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+}
+
+.block>.row > .dot {
+  font-size: 30rpx;
+  padding-right: 10rpx;
+}
+
+.block>.row > .jump {
+  float: right;
+  font-size: 28rpx;
+}
+

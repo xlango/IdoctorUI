@@ -4,13 +4,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    progress:[1,2,3,4,5]
+    progress: [1, 2, 3, 4, 5]
   },
 
   //跳转详情页
   progressTap: function (e) {
     wx.navigateTo({
-      url: '../progress/index?id=1'
+      url: '../../../progress/index?id=1'
+    })
+  },
+  login: function (e) {
+    wx.navigateTo({
+      url: '../selectlogin/selectlogin'
     })
   },
 
@@ -18,14 +23,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: options => {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: () => {
-    
+
   },
 
   /**

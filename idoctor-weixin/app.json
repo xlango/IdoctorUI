@@ -5,7 +5,9 @@
     "pages/order/index",
     "pages/list/index",
     "pages/collect/index",
-    "pages/home/index",
+    "pages/homes/home/home",
+    "pages/homes/phonelogin/phonelogin",
+    "pages/homes/selectlogin/selectlogin",
     "pages/progress/index",
     "pages/operation/index",
     "pages/calendar/index",
@@ -45,7 +47,7 @@
         "text": "收藏"
       },
       {
-        "pagePath": "pages/home/index",
+        "pagePath": "pages/homes/home/home",
         "iconPath": "res/toolbar/icon_my@3x.png",
         "selectedIconPath": "res/toolbar/icon_my_h@3x.png",
         "text": "我的"

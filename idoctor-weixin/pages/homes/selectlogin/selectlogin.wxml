@@ -1,0 +1,22 @@
+<!--pages/login/login.wxml-->
+<view class='login'>
+  <view class='login-wrap'>
+    <!-- <form bindsubmit="formSubmit"> -->
+    <view class='login-btn'>
+      <button class='btn1' open-type='openSetting' bindtap='login'>
+        <image class='btnImg' src='/image/wechat.png'></image>
+        <view>微信授权登陆</view>
+      </button>
+
+      <button class='btn2'  bindtap='register'>
+      <image class='btnImg2' src='/image/dianhua.png'></image>
+      <view>
+      手机号码登陆
+      </view>
+      </button>
+    </view>
+    <!-- </form> -->
+
+  </view>
+
+</view>
