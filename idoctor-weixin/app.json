@@ -23,7 +23,8 @@
     "pages/dislist/dislist",
     "pages/disdetail/disdetail",
     "pages/druglist/druglist",
-    "pages/drugdetail/drugdetail"
+    "pages/drugdetail/drugdetail",
+    "pages/authtest/authtest"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -60,9 +61,14 @@
     "position": "bottom"
   },
   "plugins": {
-       "WechatSI": {
-          "version": "0.2.2",
-          "provider": "wx069ba97219f66d99"
+    "WechatSI": {
+      "version": "0.2.2",
+      "provider": "wx069ba97219f66d99"
     }
-  } 
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
 }

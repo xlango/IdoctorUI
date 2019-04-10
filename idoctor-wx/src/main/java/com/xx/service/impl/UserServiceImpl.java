@@ -2,6 +2,7 @@ package com.xx.service.impl;
 
 import com.xx.entity.Admin;
 import com.xx.entity.Body;
+import com.xx.entity.User;
 import com.xx.mapper.UserMapper;
 import com.xx.service.IBodyService;
 import com.xx.service.IUserService;
@@ -46,5 +47,15 @@ public class UserServiceImpl implements IUserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public User getByOpenid(String openid) {
+        return userMapper.getByOpenid(openid);
+    }
+
+    @Override
+    public int add(User user) {
+        return userMapper.add(user);
     }
 }

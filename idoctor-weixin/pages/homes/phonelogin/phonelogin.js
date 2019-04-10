@@ -79,13 +79,14 @@ Page({
       });
     }
     util.wxRequest({
-      url: ports.doLogin,
-      method: 'POST',
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        phone: _this.data.phone,
-        verifycode: _this.data.code
-      }
+      // url: ports.doLogin,
+      // method: 'POST',
+      // header: { 'content-type': 'application/x-www-form-urlencoded' },
+      // data: {
+      //   phone: _this.data.phone,
+      //   verifycode: _this.data.code
+      // }
+      
     }).then(res => {
       if (res.status === 0) {
         return util.updateToken().then((res) => {

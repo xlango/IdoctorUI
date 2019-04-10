@@ -3,7 +3,7 @@
   <view class='login-wrap'>
     <!-- <form bindsubmit="formSubmit"> -->
     <view class='login-btn'>
-      <button class='btn1' open-type='openSetting' bindtap='login'>
+      <button class='btn1'open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGetUserInfo">
         <image class='btnImg' src='/image/wechat.png'></image>
         <view>微信授权登陆</view>
       </button>

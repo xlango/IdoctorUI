@@ -23,4 +23,26 @@
         </set>
         where username=#{admin.username} and password=#{admin.password}
     </update>
+
+    <select id="getByOpenid" resultType="com.xx.entity.User">
+        SELECT * FROM tb_user where openid=#{openid}
+    </select>
+
+    <insert id="add" parameterType="com.xx.entity.User">
+        INSERT INTO tb_user (age,
+                               phone,
+                               password,
+                               avatarUrl,
+                               nickName,
+                               gender,
+                               openid)
+              VALUES   (#{user.age},
+                         #{user.phone},
+                         #{user.password},
+                         #{user.avatarUrl},
+                         #{user.nickName},
+                         #{user.gender},
+                         #{user.openid}
+                          )
+    </insert>
 </mapper>

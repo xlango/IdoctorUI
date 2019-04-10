@@ -2,6 +2,7 @@ package com.xx.mapper;
 
 import com.xx.entity.Admin;
 import com.xx.entity.Body;
+import com.xx.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,8 @@ public interface UserMapper {
     Admin getByUsername(@Param("username")String username);
 
     int updateAdminPwd(@Param("admin") Admin admin,@Param("newpwd") String newpwd);
+
+    User getByOpenid(@Param("openid") String  openid);
+
+    int add(@Param("user")User user);
 }

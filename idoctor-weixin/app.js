@@ -93,6 +93,6 @@ App({
    * 全局变量
    */
   globalData: {
-    url: "https://39.108.147.36/"
+    url: "http://localhost:8000/"
   }
 })

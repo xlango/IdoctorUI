@@ -1,6 +1,7 @@
 package com.xx.service;
 
 import com.xx.entity.Admin;
+import com.xx.entity.User;
 
 public interface IUserService {
 
@@ -13,4 +14,8 @@ public interface IUserService {
     Admin getByUsername(String username);
 
     boolean updateAdminPwd(Admin admin ,String newpwd);
+
+    User getByOpenid(String  openid);
+
+    int add(User user);
 }

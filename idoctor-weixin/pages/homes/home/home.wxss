@@ -70,3 +70,10 @@
   font-size: 28rpx;
 }
 
+.hide{
+  display: none;
+  width: 100rpx;
+}
+.show{
+
+}
