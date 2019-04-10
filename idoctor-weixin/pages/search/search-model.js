@@ -93,6 +93,10 @@ function wxSearchClear() {
 // 点击提示或者关键字、历史记录时的操作
 function wxSearchKeyTap(e) {
   search(e.target.dataset.key);
+  wx.setStorage({
+    key: 'city',
+    data: e.target.dataset.key
+  })
 }
 
 // 确任或者回车

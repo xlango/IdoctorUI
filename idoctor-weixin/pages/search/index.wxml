@@ -9,8 +9,8 @@
     </view>
   </view>
     <view class="weui-search-bar__cancel-btn" bindtap="wxSearchConfirm">
-         <text wx:if="{{wxSearchData.value.length>0}}" data-key='search'>搜索</text>
-         <text wx:else data-key='back'>返回</text>
+         <text wx:if="{{wxSearchData.value.length>0}}" data-key='search' bindtap="retIndex">确定</text>
+         <text wx:else data-key='back' bindtap="retIndex">返回</text>
      </view>
 </view>
 
@@ -28,7 +28,7 @@
 
     <view wx:if="{{wxSearchData.his[0]}}" class="wxSearchHistory" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
       <view class="wxSearchHistoryItem">
-        <text class="wxSearchHistoryItemTitle">搜索记录</text>
+        <text class="wxSearchHistoryItemTitle">历史搜索</text>
         <!--text class="wxSearchHistoryItemDel" bindtap="wxSearchDeleteAll">删除</text-->
         <icon type="clear" bindtap="wxSearchDeleteAll" size="18" />
       </view>
@@ -39,8 +39,18 @@
       </view>
     </view>
 
+<view class="wxSearchKey" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
+      <text class="wxSearchTitle">省</text>
+      <view class="wxSearchKeyList">
+        <block wx:for="{{proviceList}}">
+          <view class="wxSearchKeyItem" bindtap="getCity" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+
     <view class="wxSearchKey" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
-      <text wx:if="{{wxSearchData.hotKeys[0]}}" class="wxSearchTitle">搜索热点</text>
+      <text wx:if="{{wxSearchData.hotKeys[0]}}" class="wxSearchTitle">选择城市</text>
       <view class="wxSearchKeyList">
         <block wx:for="{{wxSearchData.hotKeys}}">
           <view class="wxSearchKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>

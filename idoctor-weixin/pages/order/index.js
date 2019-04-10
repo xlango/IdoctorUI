@@ -5,7 +5,11 @@ Page({
    */
   data: {
     date:'2016-09-01',
-    region: ['广东省', '广州市', '海珠区']
+    region: ['广东省', '广州市', '海珠区'],
+    docid:0,
+    docname:"",
+    dochos:"",
+    
   },
   bindDateChange: function (e) {
     this.setData({
@@ -31,7 +35,12 @@ Page({
   onLoad: function(options) {
     console.log(options);
     wx.setNavigationBarTitle({
-      title: options.id
+      title: options.name
+    })
+    this.setData({
+      docid: options.id,
+      docname: options.name,
+      dochos: options.hos,
     })
   },
 
@@ -82,5 +91,6 @@ Page({
    */
   onShareAppMessage: () => {
 
-  }
+  },
+  
 })

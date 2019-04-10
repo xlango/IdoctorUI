@@ -25,6 +25,17 @@
   padding-left: 30rpx;
   float: left;
 }
+
+.order >.row .test{
+  border-radius: 10rpx;
+  width:660rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  padding-left: 30rpx;
+  float: left;
+}
+
+
 .footer{
   width: 750rpx;
   position: fixed;

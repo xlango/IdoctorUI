@@ -96,5 +96,10 @@ Page({
       }
     });
   },
-
+  //跳转回订单
+  orderTap: function (e) {
+    wx.navigateTo({
+      url: '../order/index?id=' + this.data.id + "&name=" + this.data.doc.name + "&hos=" + this.data.doc.hospital
+    })
+  },
 })

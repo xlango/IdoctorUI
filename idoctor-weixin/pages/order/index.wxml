@@ -1,4 +1,4 @@
-<view class='info'>服务说明</view>
+<view class='info'>预约信息填写</view>
 <view class='order'>
   <view class='row'>
     <text class='title'>姓名</text>
@@ -9,24 +9,41 @@
     <input class='input' placeholder="请输入手机号" />
   </view>
   <view class='row'>
-    <text class='title'>服务时间</text>
-    <picker mode="date" value='{{date}}' start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <text class='title'>医院名称</text>
+    <input class='input' placeholder="请输入医院名称" disabled='true' value='{{dochos}}'/>
+  </view>
+  <view class='row'>
+    <text class='title'>医生姓名</text>
+    <input class='input' placeholder="请输入医生姓名" disabled='true' value='{{docname}}'/>
+  </view>
+  <view class='row'>
+    <text class='title'>就诊日期</text>
+    <picker mode="date" value='{{date}}' start="2015-04-10" end="2100-01-01" bindchange="bindDateChange">
       <view class='input'>{{date}}</view>
     </picker>
   </view>
   <view class='row'>
-    <text class='title'>服务地点</text>
+    <text class='title'>地理位置</text>
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
     <view class="input">
       {{region[0]}}，{{region[1]}}，{{region[2]}}
     </view>
   </picker>
   </view>
-  <view class='row'>
+  <!-- <view class='row'>
     <text class='title'>护工</text>
     <view class='input' bindtap='listTap'>请先选择'服务时间'和'服务地点'</view>
+  </view> -->
+  <view class='row'>
+    <text class='title'>病症情况</text>
+    <input class='input'  placeholder="请输入病症" auto-height />
+  </view>
+  <view class='row'>
+    <text class='title'></text>
+    <input class='test'  placeholder=""  />
   </view>
 </view>
+
 <view class='footer'>
   <text class='amount'>—— ——</text>
   <text class='pay'>支付费用</text>
