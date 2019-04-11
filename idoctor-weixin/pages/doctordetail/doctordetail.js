@@ -102,4 +102,12 @@ Page({
       url: '../order/index?id=' + this.data.id + "&name=" + this.data.doc.name + "&hos=" + this.data.doc.hospital
     })
   },
+
+  //跳转空闲日历
+  freeTime: function (e) {
+    wx.navigateTo({
+      url: '../calendar/index?id=1'
+    })
+  },
+
 })

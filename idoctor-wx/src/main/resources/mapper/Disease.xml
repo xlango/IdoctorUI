@@ -50,4 +50,26 @@
             #{ids}
         </foreach>
     </delete>
+
+    <!--更新-->
+    <update id="update"  parameterType="com.xx.entity.Disease">
+        UPDATE tb_doctor
+        <trim prefix="set" suffixOverrides=",">
+            <if test="dis.name!=''">name=#{dis.name},</if>
+            <if test="dis.buwei!=''">buwei=#{dis.buwei},</if>
+            <if test="dis.keshi!=''">keshi=#{dis.keshi},</if>
+            <if test="dis.yongyao!=''">yongyao=#{dis.yongyao},</if>
+            <if test="dis.question!=''">question=#{dis.question},</if>
+            <if test="dis.anwser!=''">anwser=#{dis.anwser},</if>
+            <if test="dis.binyin!=''">binyin=#{dis.binyin},</if>
+            <if test="dis.zhengzhuang!=''">zhengzhuang=#{dis.zhengzhuang},</if>
+            <if test="dis.jiancha!=''">jiancha=#{dis.jiancha},</if>
+            <if test="dis.yufang!=''">yufang=#{dis.yufang},</if>
+            <if test="dis.zhiliao!=''">zhiliao=#{dis.zhiliao},</if>
+            <if test="dis.jianbie!=''">jianbie=#{dis.jianbie},</if>
+            <if test="dis.binfazheng!=''">binfazheng=#{dis.binfazheng},</if>
+            <if test="dis.img!=''">img=#{dis.img},</if>
+        </trim>
+        WHERE id=#{dis.id}
+    </update>
 </mapper>

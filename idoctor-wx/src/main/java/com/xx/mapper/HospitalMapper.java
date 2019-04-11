@@ -14,4 +14,5 @@ public interface HospitalMapper {
     List<String> allLevel();
     int totel(@Param("pageNum")int pageNum, @Param("pageSize")int pageSize,@Param("hospital")Hospital hospital);
     int delete(int[] ids);
+    int update(@Param("hos") Hospital hos);
 }

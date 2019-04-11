@@ -1,4 +1,4 @@
-// pages/doctorlist/doctorlist.js
+// pages/hoslist/hoslist.js
 var app = getApp()
 var gburl = app.globalData.url
 Page({
@@ -7,42 +7,8 @@ Page({
    */
   data: {
     list: [],
-    ksList: [
-      "内科",
-      "外科",
-      "妇产科",
-      "男科",
-      "生殖健康",
-      "儿科",
-      "五官科",
-      "肿瘤科",
-      "皮肤性病科",
-      "精神心理科",
-      "感染科",
-      "老年病科",
-      "肝病科",
-      "急诊科",
-      "中医科",
-      "体检保健科",
-      "职业病科",
-      "营养科",
-      "传染科",
-      "整形美容科",
-      "其他"
-    ],
-    zcList:[
-      "院长",
-      "医生",
-      "技师",
-      "护师",
-      "医师",
-      "科长",
-      "检验师",
-      "药师",
-      "讲师",
-      "主任",
-      "其他"
-    ],
+    typeList: ["专科医院", "中医医院", "传染病医院", "儿童医院", "口腔医院", "妇幼保健医院", "心血管医院", "眼科医院", "综合医院", "肿瘤医院", "门诊医院", "骨伤医院", "骨科医院", "其他", "未知"],
+    levelList: ["三级甲等", "三级乙等", "三级丙等", "二级甲等", "二级乙等", "二级丙等", "一级甲等", "一级乙等", "一级丙等", "三级特等", "三级医院", "二级医院", "一级医院", "互联网甲等", "未定级", "其他"],
     proviceList: [
       "直辖市",
       "广东省",
@@ -82,31 +48,20 @@ Page({
     isShowTop2: false,
     isShowTop3: false,
     addr: "",
-    ks:"",
+    type: "",
+    level: "",
     provice: "",
-    zc:"",
     btnProviceColor: "",
-    hosname:"",
-    pageNum:1,
+    hosName: "",
+    pageNum: 1
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.name)
-    if (options.name != undefined){
-      this.setData({
-        hosname: options.name
-      });
-      this.getDocByHos(this.data.hosname)
-    }else{
-      this.setData({
-        addr: ""
-      });
-      this.getDoctorList(this.data.addr, "", "", "")
-    }
-    
+    this.getYuyueList()
   },
 
   /**
@@ -149,26 +104,27 @@ Page({
    */
   onReachBottom: function () {
     this.setData({
-      pageNum: this.data.pageNum+1
+      pageNum: this.data.pageNum + 1
     });
     console.log(this.data.pageNum)
     wx.request({
-      url: gburl + "doctor/getByIf",
+      url: gburl + "hospital/getByIf",
       method: "POST",
       data: {
         "pageNum": this.data.pageNum,
         "pageSize": 5,
         "addr": this.data.addr,
-        "ks": this.data.ks,
-        "zc": this.data.zc,
+        "type": this.data.type,
+        "level": this.data.level,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       dataType: 'json', // 添加这个配置
       success: (res) => {
-        console.log(res.data);
+        //console.log(res.data);
         var newlist = this.data.list.concat(res.data)
+        console.log(newlist);
         this.setData({
           list: newlist
         });
@@ -181,7 +137,7 @@ Page({
       // complete
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
+    }, 10000);
     console.log(this.data.list)
   },
 
@@ -192,19 +148,14 @@ Page({
 
   },
   /**
-   * 请求医院列表
+   * 请求预约列表
    */
-  getDoctorList: function (addr, ks, zc, hospital) {
+  getYuyueList: function () {
     wx.request({
-      url: gburl + "doctor/getByIf",
+      url: gburl + "yuyue/getByIf",
       method: "POST",
       data: {
-        "pageNum": 1,
-        "pageSize": 5,
-        "addr": addr,
-        "ks": ks,
-        "zc": zc,
-        "hospital": hospital
+        "userid": "owczT5I7QQ6TmZz2DMaZYo-wVP5Y",
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -239,7 +190,7 @@ Page({
   },
   _finish() {
     //触发回调
-    this.getDoctorList("", "","", this.data.hosname)
+    this.triggerEvent("finish")
   },
   showFrom(e) {
     var param = e.target.dataset.param;
@@ -249,83 +200,25 @@ Page({
       isShowTop3: param == 3 ? (!this.data.isShowTop3) : false,
     });
   },
-  getDocByKs: function (el) {
+  getHosByType: function (el) {
     console.log(el.target.dataset.text);
     this.setData({
-      ks: el.target.dataset.text
+      type: el.target.dataset.text
     });
-    this.getDoctorList(this.data.addr, this.data.ks, this.data.zc, "")
+    this.getHosList(this.data.addr, this.data.type, this.data.level, "")
   },
-  getDocByZc: function (el) {
-    console.log(el.target.dataset.text);
-    this.setData({
-      zc: el.target.dataset.text
-    });
-    this.getDoctorList(this.data.addr, this.data.ks, this.data.zc, "")
-  },
-  getCity: function (el) {
-    wx.request({
-      url: gburl + "addr/getCityByProvice",
-      method: "POST",
-      data: {
-        "provice": el.target.dataset.text
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      dataType: 'json', // 添加这个配置
-      success: (res) => {
-        console.log(res.data);
-        this.setData({
-          cityList: res.data,
-          provice: el.target.dataset.text,
-          addr: el.target.dataset.text
-        });
-      }
-    });
-  },
-  selectCity: function (el) {
-    console.log(el.target.dataset.text);
-    this.setData({
-      addr: el.target.dataset.text
-    });
-    this.getDoctorList(this.data.addr, this.data.ks, this.data.zc, "")
-  },
-   //跳转详情页
+
+
+
+  //跳转详情页
   detailTap: function (e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../doctordetail/doctordetail?id=' + id
+      url: '../hosdetail/hosdetail?id=' + id
     })
   },
-  //根据医院搜索医生
-  onBlurDocByHos: function (e){
+  onBlurHosByName: function (e) {
     console.log(e.detail.value);
-    this.getDoctorList("", "", "", e.detail.value)
-  },
-  getDocByHos: function (hos) {
-    wx.request({
-      url: gburl + "doctor/getByHos",
-      method: "POST",
-      data: {
-        "hos": hos
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      dataType: 'json', // 添加这个配置
-      success: (res) => {
-        console.log(res.data);
-        this.setData({
-          list: res.data
-        });
-      }
-    });
-  },
-  //跳转空闲日历
-  freeTime: function (e) {
-    wx.navigateTo({
-      url: '../calendar/index?id=1'
-    })
+    this.getHosList("", "", "", e.detail.value)
   },
 })

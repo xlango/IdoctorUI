@@ -61,10 +61,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      addr: ""
-    });
-    this.getHosList(this.data.addr,"","","")
+    
   },
 
   /**
@@ -78,7 +75,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      
+    var that = this
+    wx.getStorage({
+      key: 'city',
+      success(res) {
+        //console.log(res.data)
+        that.getHosList(res.data, "", "", "")
+        that.setData({
+          addr: res.data,
+        })
+      }
+    })
   },
 
   /**
@@ -140,7 +147,7 @@ Page({
       // complete
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
-    }, 1500);
+    }, 10000);
     console.log(this.data.list)
   },
 

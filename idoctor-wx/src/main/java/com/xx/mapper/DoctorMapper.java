@@ -16,4 +16,6 @@ public interface DoctorMapper {
     int totel(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize, @Param("doctor")Doctor doctor);
 
     int delete(int[] ids);
+
+    int update(@Param("doc") Doctor doc);
 }

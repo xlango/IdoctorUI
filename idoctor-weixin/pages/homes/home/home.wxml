@@ -8,7 +8,7 @@
   <button class='btn1' size='mini' style='display: {{zhuxiaoSH}};width: 150rpx;' bindtap='zhuxiao'>注销</button>
   </view>
 </view>
-<view class='block'>
+<view class='block' bindtap=''>
   <view class='row'>
     <text class='dot'>●</text>预约记录
     <text class='jump'>跳转</text>

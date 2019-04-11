@@ -85,19 +85,20 @@ Page({
     wx.getStorage({
       key: 'city',
       success(res) {
-        console.log(res.data)
+        //console.log(res.data)
         that.setData({
           district: res.data,
-          addr: res.data
+          addr: res.data,
         })
+        that.getHosList(res.data, "", "", "")
       },
       fail(e) {
         console.log("开始定位")
         that.getLocation();
       }
     })
-
-    this.getHosList(this.data.addr, "", "", "")
+    
+   
 
   },
 
@@ -107,6 +108,7 @@ Page({
   onReady: function() {
     this.filter = this.selectComponent("#filter");
     this.selectComponent("#login").canIUse();
+    
   },
 
   /**
@@ -117,22 +119,18 @@ Page({
     wx.getStorage({
       key: 'city',
       success(res) {
-        console.log(res.data)
+        //console.log(res.data)
+        that.getHosList(res.data, "", "", "")
         that.setData({
           district: res.data,
-          addr: res.data
+          addr: res.data,
         })
       }
     })
-
-    this.getHosList(this.data.addr, "", "", "")
+   
 
   },
-  reloc: function(loc) {
-    this.setData({
-      district: loc
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -312,12 +310,14 @@ Page({
             console.log(res);
             //获得地址
             that.setData({
-              district: res.result.address_component.city
+              district: res.result.address_component.city,
+              addr: res.result.address_component.city,
             })
             wx.setStorage({
               key: 'city',
-              data: that.data.district
+              data: res.result.address_component.city
             })
+            that.getHosList(res.result.address_component.city, "", "", "")
           },
           fail: function(res) {
             console.log(res);

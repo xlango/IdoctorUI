@@ -1,5 +1,5 @@
 .info{
-  background: #D0D5DD;
+  background: rgb(93, 173, 97);
   height: 70rpx;
   line-height: 70rpx;
   text-align: center;
@@ -13,7 +13,7 @@
   font-size: 32rpx;
   font-weight: bold;
   padding: 17rpx 0 0 20rpx;
-  float: left;
+
   line-height: 70rpx;
 }
 .order >.row .input{
@@ -23,7 +23,7 @@
   height: 90rpx;
   line-height: 90rpx;
   padding-left: 30rpx;
-  float: left;
+
 }
 
 .order >.row .test{
@@ -32,7 +32,7 @@
   height: 150rpx;
   line-height: 150rpx;
   padding-left: 30rpx;
-  float: left;
+
 }
 
 
@@ -59,6 +59,13 @@
   color:#989EA6;
   line-height: 80rpx;
   margin:20rpx 30rpx;
-  background: #D0D5DD;
+  background: #FFF;
   float: right;
+}
+
+.btnpay{
+  width: 80%;
+  margin-top: 50rpx;
+  /* color: #fff;
+  background: rgb(131, 207, 101); */
 }

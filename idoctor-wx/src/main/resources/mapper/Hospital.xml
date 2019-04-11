@@ -88,5 +88,29 @@
         </foreach>
     </delete>
 
-
+    <!--更新-->
+    <update id="update"  parameterType="com.xx.entity.Hospital">
+        UPDATE tb_hos
+        <trim prefix="set" suffixOverrides=",">
+            <if test="hos.hosName!=''">hosName=#{hos.hosName},</if>
+            <if test="hos.isAuth!=''">isAuth=#{hos.isAuth},</if>
+            <if test="hos.level!=''">level=#{hos.level},</if>
+            <if test="hos.manage!=''">hosName=#{hos.manage},</if>
+            <if test="hos.img!=''">img=#{hos.img},</if>
+            <if test="hos.tele!=''">tele=#{hos.tele},</if>
+            <if test="hos.addr!=''">hosName=#{hos.addr},</if>
+            <if test="hos.alias!=''">alias=#{hos.alias},</if>
+            <if test="hos.type!=''">type=#{hos.type},</if>
+            <if test="hos.sorce!=''">sorce=#{hos.sorce},</if>
+            <if test="hos.info!=''">info=#{hos.info},</if>
+            <if test="hos.dean!=''">hosName=#{hos.dean},</if>
+            <if test="hos.year!=''">hosName=#{hos.year},</if>
+            <if test="hos.personnum!=''">personnum=#{hos.personnum},</if>
+            <if test="hos.bednum!=''">bednum=#{hos.bednum},</if>
+            <if test="hos.yearoutpnum!=''">yearoutpnum=#{hos.yearoutpnum},</if>
+            <if test="hos.isinsurance!=''">isinsurance=#{hos.isinsurance},</if>
+            <if test="hos.keshi!=''">keshi=#{hos.keshi},</if>
+        </trim>
+        WHERE id=#{hos.id}
+    </update>
 </mapper>

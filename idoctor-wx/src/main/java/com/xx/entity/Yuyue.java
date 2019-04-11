@@ -8,11 +8,13 @@ import lombok.Setter;
 public class Yuyue {
 
     int id;
-    long createTime;
-    int userid;
+    String createTime;
+    String  userid;
     String name;
     String phone;
     String hos;
+    int docid;
     String docname;
     String keshi;
+    String yuyueTime;
 }

@@ -1,5 +1,5 @@
 <!--pages/calendar/calendar.wxml-->
-<text class='title'>护工空闲日历</text>
+<text class='title'>工作日历</text>
 <view class='remark'>
   <text>未标记的日子，表示整日空闲。</text>
   <text>标记‘上午’或‘下午’的日子，表示上午或者下午空闲。</text>
