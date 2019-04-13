@@ -1,0 +1,51 @@
+<!-- main.wxml -->
+<import src="../../utils/template.wxml" />
+<view class="swiper-tab">
+  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">医院</view>
+  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">疾病</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">医生</view>
+  <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">药品</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+  <swiper-item>
+     <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh"> 
+      <view class='listview' wx:for="{{resultdata}}" wx:for-item="item" wx:key="*this">
+      <!-- bindtap="bindViewTap" data-item='{{item}}' -->
+      <!-- template内不使用data="{{...item}}是因为在template内点击事件里面需要用到item，所以不能使用 -->
+      <view>
+         <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+      </view>
+      </view>
+     </scroll-view> 
+  </swiper-item>
+   <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+      <view class='listview' wx:for="{{resultdata1}}" wx:for-item="item" wx:key="*this">
+      <!-- bindtap="bindViewTap" -->
+      <view >
+        <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px"  class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+      <view class='listview' wx:for="{{resultdata2}}" wx:for-item="item" wx:key="*this">
+      <!-- bindtap="bindViewTap" -->
+      <view >
+         <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+      <view class='listview' wx:for="{{resultdata3}}" wx:for-item="item" wx:key="*this">
+      <view >
+        <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+      </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
