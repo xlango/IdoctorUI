@@ -26,7 +26,8 @@
     "pages/drugdetail/drugdetail",
     "pages/authtest/authtest",
     "pages/yuyuelist/yuyuelist",
-    "pages/yuyuedetail/yuyuedetail"
+    "pages/yuyuedetail/yuyuedetail",
+    "pages/shoucang/shoucang"
   ],
   "window": {
     "backgroundTextStyle": "light",
