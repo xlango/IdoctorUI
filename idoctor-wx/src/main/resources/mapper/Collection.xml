@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xx.mapper.YuyueMapper">
+
+
+    <insert id="add" parameterType="com.xx.entity.Yuyue">
+        INSERT INTO tb_yuyue (userid,
+                               name,
+                               phone,
+                               hos,
+                               docname,
+                               keshi,
+                               createTime,
+                               yuyueTime,
+                               docid
+                               )
+              VALUES   (#{yuyue.userid},
+                         #{yuyue.name},
+                         #{yuyue.phone},
+                         #{yuyue.hos},
+                         #{yuyue.docname},
+                         #{yuyue.keshi},
+                         #{yuyue.createTime},
+                         #{yuyue.yuyueTime},
+                         #{yuyue.docid}
+                          )
+    </insert>
+
+    <select id="getByIf" resultType="com.xx.entity.Yuyue">
+        SELECT * FROM tb_yuyue
+        <where>
+            <if test="yuyue.id!=0">
+                and id =#{yuyue.id}
+            </if>
+            <if test="yuyue.userid!=null">
+                and userid =#{yuyue.userid}
+            </if>
+            <if test="yuyue.yuyueTime!=''">
+                and yuyueTime LIKE "%${yuyue.yuyueTime}%"
+            </if>
+            <if test="yuyue.state!=0">
+                and state =#{yuyue.state}
+            </if>
+        </where>
+        ORDER BY  yuyueTime DESC
+    </select>
+
+    <!--取消预约-->
+    <update id="cancelYuyue" parameterType="com.xx.entity.Yuyue" >
+        update tb_yuyue
+        <set>
+            <if test="yuyue.state != 0">state=#{yuyue.state},</if>
+        </set>
+        where id=#{yuyue.id}
+    </update>
+</mapper>
