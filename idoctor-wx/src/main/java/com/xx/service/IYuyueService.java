@@ -9,4 +9,6 @@ public interface IYuyueService {
     int add(Yuyue yuyue);
 
     List<Yuyue> getByIf(Yuyue yuyue);
+
+    int cancelYuyue(Yuyue yuyue);
 }

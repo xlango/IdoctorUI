@@ -25,4 +25,9 @@ public class YuyueServiceImpl implements IYuyueService {
     public List<Yuyue> getByIf(Yuyue yuyue) {
         return yuyueMapper.getByIf(yuyue);
     }
+
+    @Override
+    public int cancelYuyue(Yuyue yuyue) {
+        return yuyueMapper.cancelYuyue(yuyue);
+    }
 }

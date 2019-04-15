@@ -1,0 +1,169 @@
+/* pages/yuyuedetail/yuyuedetail.wxss */page {
+  background: #f8f8f9;
+}
+
+.pregress {
+  position: relative;
+  width: 750rpx;
+  height: 150rpx;
+  background: #f8f8f9;
+}
+
+.pregress >.line {
+  width: 590rpx;
+  height: 10rpx;
+  background: #fff;
+  position: absolute;
+  top: 55rpx;
+  left: 80rpx;
+  z-index: 1;
+}
+
+.pregress >.front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.pregress >.front>.item {
+  width: 187rpx;
+  text-align: center;
+  height: 150rpx;
+  float: left;
+  font-size: 26rpx;
+}
+
+.pregress >.front>.item >.circle {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 40rpx auto 15rpx auto;
+  background: #fff;
+  border-radius: 50%;
+}
+
+
+.pregress >.front>.item >.circle1 {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 40rpx auto 15rpx auto;
+  background: rgb(92, 212, 62);
+  border-radius: 50%;
+}
+.pregress >.front>.item >.circle2 {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 40rpx auto 15rpx auto;
+  background: rgb(204, 38, 38);
+  border-radius: 50%;
+}
+
+/*时间*/
+
+.time, .detial {
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding: 20rpx 30rpx;
+}
+
+.time {
+  height: 80rpx;
+}
+
+.time >.title {
+  font-weight: bold;
+}
+
+.time >.info {
+  font-size: 23rpx;
+  color: #d0d5dd;
+  padding-left: 10rpx;
+}
+
+.time >.remain {
+  display: block;
+  margin-top: 13rpx;
+  font-weight: bold;
+}
+
+.detial>.row {
+  border-bottom: 1rpx solid #d0d5dd;
+  height: 95rpx;
+  margin-bottom: 20rpx;
+}
+
+.detial>.row>.title {
+  font-size: 23rpx;
+  color: #d0d5dd;
+}
+
+.detial>.row>.content {
+  display: block;
+  margin-top: 8rpx;
+}
+
+.detial>.row.nurse {
+  height: 200rpx;
+  border-bottom: none;
+}
+
+.detial>.row.nurse>.info {
+  background: #f8f8f9;
+  height: 125rpx;
+  padding: 20rpx 25rpx;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+}
+
+.detial>.row.nurse>.info > image {
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 10rpx;
+  display: block;
+  float: left;
+  margin-right: 20rpx;
+}
+
+.detial>.row.nurse>.info > .name {
+  float: left;
+  display: block;
+  font-size: 29rpx;
+  margin-bottom: 10rpx;
+  font-weight: bold;
+  width: 480rpx;
+}
+
+.detial>.row.nurse>.info > .company,.detial>.row.nurse>.info > .position{
+  float: left;
+  display: block;
+  width: 480rpx;
+  margin-bottom: 8rpx;
+  font-size: 26rpx;
+  color:#d0d5dd;
+}
+.footer1{
+  background: #fff;
+  height: 130rpx;
+  line-height: 130rpx;
+  position: absolute;
+  bottom: 0;
+  width: 690rpx;
+  padding:0 30rpx;
+  left:0;
+}
+
+.footer1>.total{
+  font-size:33rpx;
+  color: red;
+  font-weight: bold;
+}
+.footer1>.pay{
+  float: right;
+  background: #BDC5D4;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding:0 50rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-top:30rpx;
+}

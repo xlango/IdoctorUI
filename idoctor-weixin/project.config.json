@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -143,6 +143,26 @@
 					"name": "yuyuelist",
 					"pathName": "pages/yuyuelist/yuyuelist",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "collect",
+					"pathName": "pages/collect/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "operation",
+					"pathName": "pages/operation/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "yuyuedetal",
+					"pathName": "pages/yuyuedetail/yuyuedetail",
 					"scene": null
 				}
 			]

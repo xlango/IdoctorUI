@@ -38,4 +38,10 @@ public class YuyueController {
     public List<Yuyue> getByIf(Yuyue yuyue) {
         return yuyueService.getByIf(yuyue);
     }
+
+    @ApiOperation(value = "取消预约", notes = "取消预约")
+    @PostMapping("/cancel")
+    public int cancelYuyue(Yuyue yuyue) {
+        return yuyueService.cancelYuyue(yuyue);
+    }
 }

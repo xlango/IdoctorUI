@@ -7,61 +7,42 @@ Page({
    */
   data: {
     list: [],
-    typeList: ["专科医院", "中医医院", "传染病医院", "儿童医院", "口腔医院", "妇幼保健医院", "心血管医院", "眼科医院", "综合医院", "肿瘤医院", "门诊医院", "骨伤医院", "骨科医院", "其他", "未知"],
-    levelList: ["三级甲等", "三级乙等", "三级丙等", "二级甲等", "二级乙等", "二级丙等", "一级甲等", "一级乙等", "一级丙等", "三级特等", "三级医院", "二级医院", "一级医院", "互联网甲等", "未定级", "其他"],
-    proviceList: [
-      "直辖市",
-      "广东省",
-      "广西",
-      "海南省",
-      "河北省",
-      "山西省",
-      "内蒙古",
-      "江苏省",
-      "浙江省",
-      "安徽省",
-      "福建省",
-      "江西省",
-      "山东省",
-      "河南省",
-      "湖北省",
-      "湖南省",
-      "辽宁省",
-      "吉林省",
-      "黑龙江省",
-      "陕西省",
-      "甘肃省",
-      "青海省",
-      "宁夏",
-      "新疆",
-      "四川省",
-      "贵州省",
-      "云南省",
-      "西藏",
-      "香港",
-      "台湾",
-      "澳门"
-    ],
-    cityList: [],
-    showFilter: false,
-    isShowTop1: false,
-    isShowTop2: false,
-    isShowTop3: false,
-    addr: "",
-    type: "",
-    level: "",
-    provice: "",
-    btnProviceColor: "",
-    hosName: "",
-    pageNum: 1
-
+    pageNum: 1,
+    state:0,
+    userid:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getYuyueList()
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        //console.log(res.data)
+        that.setData({
+          userid: res.data.openid,
+        })
+        that.getYuyueList(res.data.openid, 0)
+      },
+      fail(e) {
+        var that = this
+        wx.showModal({
+          title: '提示',
+          content: '您还未登录，立即前往',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '../homes/selectlogin/selectlogin'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })  
+      }
+    })
   },
 
   /**
@@ -108,14 +89,11 @@ Page({
     });
     console.log(this.data.pageNum)
     wx.request({
-      url: gburl + "hospital/getByIf",
+      url: gburl + "yuyue/getByIf",
       method: "POST",
       data: {
-        "pageNum": this.data.pageNum,
-        "pageSize": 5,
-        "addr": this.data.addr,
-        "type": this.data.type,
-        "level": this.data.level,
+        "userid": "owczT5I7QQ6TmZz2DMaZYo-wVP5Y",
+        "state": this.data.state
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -123,10 +101,8 @@ Page({
       dataType: 'json', // 添加这个配置
       success: (res) => {
         //console.log(res.data);
-        var newlist = this.data.list.concat(res.data)
-        console.log(newlist);
         this.setData({
-          list: newlist
+          list: res.data
         });
       }
     });
@@ -150,12 +126,13 @@ Page({
   /**
    * 请求预约列表
    */
-  getYuyueList: function () {
+  getYuyueList: function (userid,state) {
     wx.request({
       url: gburl + "yuyue/getByIf",
       method: "POST",
       data: {
-        "userid": "owczT5I7QQ6TmZz2DMaZYo-wVP5Y",
+        "userid": userid,
+        "state": state
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -191,30 +168,31 @@ Page({
   _finish() {
     //触发回调
     this.triggerEvent("finish")
-  },
-  showFrom(e) {
-    var param = e.target.dataset.param;
+  }, 
+  getHestory: function () {
     this.setData({
-      isShowTop1: param == 1 ? (!this.data.isShowTop1) : false,
-      isShowTop2: param == 2 ? (!this.data.isShowTop2) : false,
-      isShowTop3: param == 3 ? (!this.data.isShowTop3) : false,
+      state: 1
     });
+    this.getYuyueList(this.data.userid,1)
   },
-  getHosByType: function (el) {
-    console.log(el.target.dataset.text);
+  getWait: function () {
     this.setData({
-      type: el.target.dataset.text
+      state: 2
     });
-    this.getHosList(this.data.addr, this.data.type, this.data.level, "")
+    this.getYuyueList(this.data.userid, 2)
   },
-
-
+  getCancel: function () {
+    this.setData({
+      state: 3
+    });
+    this.getYuyueList(this.data.userid, 3)
+  },
 
   //跳转详情页
   detailTap: function (e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../hosdetail/hosdetail?id=' + id
+      url: '../yuyuedetail/yuyuedetail?id=' + id + "&&openid=" + this.data.userid
     })
   },
   onBlurHosByName: function (e) {

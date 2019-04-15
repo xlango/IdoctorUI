@@ -111,6 +111,12 @@ Page({
       }
     })  
    
+  },
+  toYuyue: function (e) {
+    wx.navigateTo({
+      url: '../../yuyuelist/yuyuelist'
+    })
+
   }
 
 })

@@ -1,0 +1,64 @@
+<view class='pregress'>
+  <view class='line'></view>
+  <view class='front'>
+  <view class='item'style='display:{{show0}};'>
+      <view class='circle2'></view>
+      <text>预约取消</text>
+    </view>
+    <view class='item'style='display:{{show1}};'>
+      <view class='circle1'></view>
+      <text>在线预约</text>
+    </view>
+    <view class='item'style='display:{{show2}};' >
+    <!-- style='display: none;' -->
+      <view class='circle1' ></view>
+      <text>等待就诊</text>
+    </view>
+    <view class='item'style='display:{{show3}};'>
+      <view class='circle1' ></view>
+      <text>赴约中</text>
+    </view>
+    <view class='item'style='display:{{show4}};'>
+      <view class='circle1'></view>
+      <text>完成</text>
+    </view>
+  </view>
+</view>
+<view class='time'>
+  <text class='title'>剩余前往就诊时间</text>
+  <text class='info'>(超时预约失效)</text>
+  <text class='remain'>00:30:00</text>
+</view>
+<view class='detial'>
+  <view class='row'>
+    <text class='title'>姓名</text>
+    <text class='content'>{{yuyue.name}}</text>
+  </view>
+  <view class='row'>
+    <text class='title'>手机号</text>
+    <text class='content'>{{yuyue.phone}}</text>
+  </view>
+  <view class='row'>
+    <text class='title'>就诊医院</text>
+    <text class='content'>{{yuyue.hos}}</text>
+  </view>
+  <view class='row'>
+    <text class='title'>就诊时间</text>
+    <text class='content'>{{yuyue.yuyueTime}}</text>
+  </view>
+  <view class='row nurse' bindtap='toDocDetail'>
+    <text class='title'>预约医生</text>
+    <view class='info'>
+      <image src="{{doc.imgurl}}" />
+      <text class='name'>{{doc.name}}</text>
+      <text class='company'>{{doc.ks}}</text>
+      <text class='position'>{{doc.sc}}</text>
+    </view>
+  </view>
+</view>
+<view class='footer1'>
+  <text class='total'></text>
+  <text class='pay' style='display:{{show0}};'>删除记录</text>
+  <text class='pay' style='display:{{show2}};'>删除记录</text>
+  <text class='pay' style='display:{{show5}};' bindtap='cancel'>取消预约</text>
+</view>

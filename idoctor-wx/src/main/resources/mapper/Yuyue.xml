@@ -31,13 +31,28 @@
     <select id="getByIf" resultType="com.xx.entity.Yuyue">
         SELECT * FROM tb_yuyue
         <where>
+            <if test="yuyue.id!=0">
+                and id =#{yuyue.id}
+            </if>
             <if test="yuyue.userid!=null">
                 and userid =#{yuyue.userid}
             </if>
             <if test="yuyue.yuyueTime!=''">
                 and yuyueTime LIKE "%${yuyue.yuyueTime}%"
             </if>
+            <if test="yuyue.state!=0">
+                and state =#{yuyue.state}
+            </if>
         </where>
-        ORDER BY  createTime ASC
+        ORDER BY  yuyueTime DESC
     </select>
+
+    <!--取消预约-->
+    <update id="cancelYuyue" parameterType="com.xx.entity.Yuyue" >
+        update tb_yuyue
+        <set>
+            <if test="yuyue.state != 0">state=#{yuyue.state},</if>
+        </set>
+        where id=#{yuyue.id}
+    </update>
 </mapper>

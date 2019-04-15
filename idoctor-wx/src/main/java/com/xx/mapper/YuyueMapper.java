@@ -14,4 +14,6 @@ public interface YuyueMapper {
     int add(@Param("yuyue") Yuyue yuyue);
 
     List<Yuyue> getByIf(@Param("yuyue") Yuyue yuyue);
+
+    int cancelYuyue(@Param("yuyue") Yuyue yuyue);
 }

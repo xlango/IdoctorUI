@@ -17,4 +17,5 @@ public class Yuyue {
     String docname;
     String keshi;
     String yuyueTime;
+    int state;
 }
