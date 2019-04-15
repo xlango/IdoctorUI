@@ -2,50 +2,39 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xx.mapper.YuyueMapper">
+<mapper namespace="com.xx.mapper.CollectionMapper">
 
 
-    <insert id="add" parameterType="com.xx.entity.Yuyue">
-        INSERT INTO tb_yuyue (userid,
-                               name,
-                               phone,
-                               hos,
-                               docname,
-                               keshi,
-                               createTime,
-                               yuyueTime,
-                               docid
+    <insert id="add" parameterType="com.xx.entity.Collection">
+        INSERT INTO tb_collection (type,
+                               openid,
+                               cid,
+                               createTime
                                )
-              VALUES   (#{yuyue.userid},
-                         #{yuyue.name},
-                         #{yuyue.phone},
-                         #{yuyue.hos},
-                         #{yuyue.docname},
-                         #{yuyue.keshi},
-                         #{yuyue.createTime},
-                         #{yuyue.yuyueTime},
-                         #{yuyue.docid}
+              VALUES   (#{col.type},
+                         #{col.openid},
+                         #{col.cid},
+                         #{col.createTime}
                           )
     </insert>
 
-    <select id="getByIf" resultType="com.xx.entity.Yuyue">
-        SELECT * FROM tb_yuyue
-        <where>
-            <if test="yuyue.id!=0">
-                and id =#{yuyue.id}
-            </if>
-            <if test="yuyue.userid!=null">
-                and userid =#{yuyue.userid}
-            </if>
-            <if test="yuyue.yuyueTime!=''">
-                and yuyueTime LIKE "%${yuyue.yuyueTime}%"
-            </if>
-            <if test="yuyue.state!=0">
-                and state =#{yuyue.state}
-            </if>
-        </where>
-        ORDER BY  yuyueTime DESC
+    <select id="getHosCol" resultType="com.xx.entity.Hospital">
+       SELECT * FROM tb_hos WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=1)
+        ORDER BY  createTime DESC
     </select>
+    <select id="getDocCol" resultType="com.xx.entity.Doctor">
+       SELECT * FROM tb_doctor WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=2)
+        ORDER BY  createTime DESC
+    </select>
+    <select id="getDisCol" resultType="com.xx.entity.Disease">
+       SELECT * FROM tb_disease WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=3)
+        ORDER BY  createTime DESC
+    </select>
+    <select id="getDrugCol" resultType="com.xx.entity.Drug">
+       SELECT * FROM tb_drug WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=4)
+        ORDER BY  createTime DESC
+    </select>
+
 
     <!--取消预约-->
     <update id="cancelYuyue" parameterType="com.xx.entity.Yuyue" >

@@ -1,19 +1,20 @@
 package com.xx.mapper;
 
-import com.xx.entity.Admin;
-import com.xx.entity.User;
-import com.xx.entity.Yuyue;
+import com.xx.entity.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface YuyueMapper {
+public interface CollectionMapper {
 
-    int add(@Param("yuyue") Yuyue yuyue);
+    int add(@Param("col") Collection collection);
 
-    List<Yuyue> getByIf(@Param("yuyue") Yuyue yuyue);
+    List<Hospital> getHosCol(@Param("col") Collection collection);
+    List<Doctor> getDocCol(@Param("col") Collection collection);
+    List<Disease> getDisCol(@Param("col") Collection collection);
+    List<Drug> getDrugCol(@Param("col") Collection collection);
 
-    int cancelYuyue(@Param("yuyue") Yuyue yuyue);
+    int cancelCollection(@Param("col") Collection collection);
 }
