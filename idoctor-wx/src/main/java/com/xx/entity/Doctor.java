@@ -27,4 +27,5 @@ public class Doctor {
     String addr;
     String imgurl;
 
+    String createTime;
 }

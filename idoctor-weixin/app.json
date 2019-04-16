@@ -27,6 +27,7 @@
     "pages/authtest/authtest",
     "pages/yuyuelist/yuyuelist",
     "pages/yuyuedetail/yuyuedetail",
+    "pages/yule/yule",
     "pages/shoucang/shoucang"
   ],
   "window": {
@@ -45,10 +46,16 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/test/test",
+        "pagePath": "pages/shoucang/shoucang",
+        "iconPath": "res/toolbar/039c3545154e521cc02d89e2b34d838.png",
+        "selectedIconPath": "res/toolbar/3d119bd8a3706fbad9300bd420ec85b.png",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/yule/yule",
         "iconPath": "res/toolbar/icon_collection@3x.png",
         "selectedIconPath": "res/toolbar/icon_collection_h@3x.png",
-        "text": "收藏"
+        "text": "娱乐"
       },
       {
         "pagePath": "pages/homes/home/home",

@@ -19,29 +19,33 @@
     </insert>
 
     <select id="getHosCol" resultType="com.xx.entity.Hospital">
-       SELECT * FROM tb_hos WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=1)
-        ORDER BY  createTime DESC
+       SELECT d.*,c.createTime FROM tb_hos d
+        JOIN tb_collection c ON d.id=c.cid
+        WHERE c.openid=#{col.openid} AND c.type=1 ORDER BY c.createTime DESC
     </select>
     <select id="getDocCol" resultType="com.xx.entity.Doctor">
-       SELECT * FROM tb_doctor WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=2)
-        ORDER BY  createTime DESC
+       SELECT d.*,c.createTime FROM tb_doctor d
+        JOIN tb_collection c ON d.id=c.cid
+        WHERE c.openid=#{col.openid} AND c.type=2 ORDER BY c.createTime DESC
     </select>
     <select id="getDisCol" resultType="com.xx.entity.Disease">
-       SELECT * FROM tb_disease WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=3)
-        ORDER BY  createTime DESC
+      SELECT d.*,c.createTime FROM tb_disease d
+        JOIN tb_collection c ON d.id=c.cid
+        WHERE c.openid=#{col.openid} AND c.type=3 ORDER BY c.createTime DESC
     </select>
     <select id="getDrugCol" resultType="com.xx.entity.Drug">
-       SELECT * FROM tb_drug WHERE id in (SELECT cid FROM tb_collection WHERE openid=#{col.openid} AND type=4)
-        ORDER BY  createTime DESC
+      SELECT d.*,c.createTime FROM tb_drug d
+        JOIN tb_collection c ON d.id=c.cid
+        WHERE c.openid=#{col.openid} AND c.type=4 ORDER BY c.createTime DESC
+    </select>
+
+    <select id="isCol" resultType="com.xx.entity.Collection">
+      SELECT * FROM tb_collection WHERE openid=#{col.openid} AND cid=#{col.cid} AND type=#{col.type}
     </select>
 
 
-    <!--取消预约-->
-    <update id="cancelYuyue" parameterType="com.xx.entity.Yuyue" >
-        update tb_yuyue
-        <set>
-            <if test="yuyue.state != 0">state=#{yuyue.state},</if>
-        </set>
-        where id=#{yuyue.id}
-    </update>
+    <!--取消收藏-->
+    <delete id="cancelCollection" parameterType="com.xx.entity.Collection">
+        delete from tb_collection where openid=#{col.openid} AND cid=#{col.cid} AND type=#{col.type}
+    </delete>
 </mapper>

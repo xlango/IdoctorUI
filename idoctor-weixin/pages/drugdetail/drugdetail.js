@@ -18,7 +18,9 @@ Page({
     isFold8: true,
     isFold9: true,
     article_id: "",
-
+    cancelCol: "none",
+    addCol: "block",
+    openid: "",
   },
 
   /**
@@ -30,6 +32,35 @@ Page({
       article_id: "drug" + options.id
       //id:1
     });
+
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        //console.log(res.data)
+        that.setData({
+          openid: res.data.openid,
+        })
+        that.isCol(options.id)
+      },
+      fail(e) {
+        var that = this
+        wx.showModal({
+          title: '提示',
+          content: '您还未登录，立即前往',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '../homes/selectlogin/selectlogin'
+              })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+    })
+
     this.getDrugById(this.data.id)
   },
 
@@ -118,6 +149,80 @@ Page({
       isFold8: param == 8 ? (!this.data.isFold8) : true,
       isFold9: param == 9 ? (!this.data.isFold9) : true,
     })
-  }
+  },
+
+  isCol: function (id) {
+    var that = this
+    wx.request({
+      url: gburl + "collection/isCol",
+      method: "POST",
+      data: {
+        "cid": id,
+        "type": 4,
+        "openid": this.data.openid
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json', // 添加这个配置
+      success: (res) => {
+        console.log(res.data);
+        if (res.data > 0) {
+          that.setData({
+            cancelCol: "block",
+            addCol: "none",
+          });
+        } else {
+          that.setData({
+            cancelCol: "none",
+            addCol: "block",
+          });
+        }
+
+      }
+    });
+  },
+
+  // 添加收藏
+  addCollection: function () {
+    wx.request({
+      url: gburl + "collection/add",
+      method: "POST",
+      data: {
+        "type": 4,
+        "cid": this.data.id,
+        "openid": this.data.openid
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json', // 添加这个配置
+      success: (res) => {
+        console.log(res.data);
+        this.isCol(this.data.id)
+      }
+    });
+  },
+
+  //取消收藏
+  cancelCollection: function () {
+    wx.request({
+      url: gburl + "collection/cancel",
+      method: "POST",
+      data: {
+        "type": 4,
+        "cid": this.data.id,
+        "openid": this.data.openid
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json', // 添加这个配置
+      success: (res) => {
+        console.log(res.data);
+        this.isCol(this.data.id)
+      }
+    });
+  },
 
 })

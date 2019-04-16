@@ -20,23 +20,33 @@ public class CollectionServiceImpl implements ICollectionService {
         return collectionMapper.add(collection);
     }
 
+    @Override
+    public List<Hospital> getHosCol(Collection collection) {
+        return collectionMapper.getHosCol(collection);
+    }
 
     @Override
-    public List<Object> getCol(Collection collection) {
-        if (collection.getType()==1){
-            return Collections.singletonList(collectionMapper.getHosCol(collection));
-        }
-        if (collection.getType()==2){
-            return Collections.singletonList(collectionMapper.getDocCol(collection));
-        }
-        if (collection.getType()==3){
-            return Collections.singletonList(collectionMapper.getDisCol(collection));
-        }
-        return Collections.singletonList(collectionMapper.getDrugCol(collection));
+    public List<Doctor> getDocCol(Collection collection) {
+        return collectionMapper.getDocCol(collection);
+    }
+
+    @Override
+    public List<Disease> getDisCol(Collection collection) {
+        return collectionMapper.getDisCol(collection);
+    }
+
+    @Override
+    public List<Drug> getDrugCol(Collection collection) {
+        return collectionMapper.getDrugCol(collection);
     }
 
     @Override
     public int cancelCollection(Collection collection) {
         return collectionMapper.cancelCollection(collection);
+    }
+
+    @Override
+    public Collection isCol(Collection collection) {
+        return collectionMapper.isCol(collection);
     }
 }

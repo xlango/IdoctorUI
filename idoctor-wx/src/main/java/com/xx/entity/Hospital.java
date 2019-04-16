@@ -27,4 +27,6 @@ public class Hospital {
     String  isinsurance;
     String  keshi;
 
+    String createTime;
+
 }

@@ -176,7 +176,12 @@
   float: left;
   background: #d0d5dd;
 }
-
+.footer>.collect1 {
+  display: block;
+  width: 140rpx;
+  float: left;
+  background: #cc2222;
+}
 .footer > .appointment {
   display: block;
   width: 470rpx;

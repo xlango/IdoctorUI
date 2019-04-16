@@ -17,4 +17,6 @@ public interface CollectionMapper {
     List<Drug> getDrugCol(@Param("col") Collection collection);
 
     int cancelCollection(@Param("col") Collection collection);
+
+    Collection isCol(@Param("col") Collection collection);
 }

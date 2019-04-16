@@ -9,7 +9,12 @@ public interface ICollectionService {
 
     int add(Collection collection);
 
-    List<Object> getCol(Collection collection);
+    List<Hospital> getHosCol(Collection collection);
+    List<Doctor> getDocCol(Collection collection);
+    List<Disease> getDisCol(Collection collection);
+    List<Drug> getDrugCol(Collection collection);
 
     int cancelCollection(Collection collection);
+
+    Collection isCol(Collection collection);
 }

@@ -26,4 +26,6 @@ public class Drug {
     String piwen;
     String gongsi;
     String img;
+
+    String createTime;
 }

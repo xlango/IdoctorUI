@@ -77,6 +77,7 @@
 <view style='height: 95rpx;'></view>
 <view class='footer'>
   <text class='freeTime' bindtap='freeTime'>空闲日历</text>
-  <text class='collect'>加入收藏</text>
+ <text class='collect1' style='display:{{cancelCol}};' bindtap='cancelCollection'>取消收藏</text>
+  <text class='collect'  style='display:{{addCol}};' bindtap='addCollection'>加入收藏</text>
   <text class='appointment' bindtap='orderTap'>立即预约</text>
 </view>

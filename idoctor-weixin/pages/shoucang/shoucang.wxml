@@ -1,51 +1,124 @@
-<!-- main.wxml -->
-<import src="./utils/template.wxml" />
+<!-- <import src="./utils/template.wxml" /> -->
 <view class="swiper-tab">
   <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">医院</view>
   <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">疾病</view>
   <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">医生</view>
   <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">药品</view>
 </view>
+<view current="{{currentTab}}" class="swiper"  bindchange="bindChange"></view>
 
-<swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
-  <swiper-item>
-     <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh"> 
-      <view class='listview' wx:for="{{resultdata}}" wx:for-item="item" wx:key="*this">
-      <!-- bindtap="bindViewTap" data-item='{{item}}' -->
-      <!-- template内不使用data="{{...item}}是因为在template内点击事件里面需要用到item，所以不能使用 -->
-      <view>
-         <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+<!--医院列表-->
+<view class='list' style='display:{{hosShow}};'>
+  <view class='item' wx:for="{{hosList}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTaphos'>
+    <image src="{{item.img}}" />
+    <view class='row row1'>
+      <text class='name'>{{item.hosName}}</text>
+      <view class='hot'>
+        <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
       </view>
+      <text class='loc'>{{item.location}}</text>
+    </view>
+
+    <view class='row row2'>
+      <text class='info-loc'>{{item.addr}}</text>
+      <text class='info-age'>{{item.manage}}</text>
+      <text class='info-work-age'>{{item.type}}</text>
+    </view>
+
+    <view class='row row3'>
+      <text class='grade'>{{item.addr1}}</text>
+      <view class='sum'>{{item.sorce}}分</view>
+    </view>
+
+    <view class='row row4'>
+      <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+    </view>
+  </view>
+</view>
+
+<!--医生列表-->
+<view class='list' style='display:{{docShow}};'>
+  <view class='item' wx:for="{{docList}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTapdoc'>
+    <image src="{{item.imgurl}}" />
+    <view class='row row1'>
+      <text class='name'>{{item.name}}</text>
+      <view class='hot'>
+        <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
       </view>
-     </scroll-view> 
-  </swiper-item>
-   <swiper-item>
-    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-      <view class='listview' wx:for="{{resultdata1}}" wx:for-item="item" wx:key="*this">
-      <!-- bindtap="bindViewTap" -->
-      <view >
-        <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
+      <text class='loc'>{{item.location}}</text>
+    </view>
+
+    <view class='row row2'>
+      <text class='info-loc'>{{item.hospital}}</text>
+      <text class='info-age'>{{item.ks}}</text>
+      <text class='info-work-age'>{{item.zc}}</text>
+    </view>
+
+    <view class='row row3'>
+      <text class='grade'>{{item.grade}}</text>
+      <view class='sum'>{{item.sorce}}</view>
+    </view>
+
+    <view class='row row4'>
+      <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+    </view>
+  </view>
+</view>
+
+<!--药品列表-->
+<view class='list' style='display:{{disShow}};'>
+  <view class='item' wx:for="{{disList}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTapdis'>
+    <image src="{{item.img}}" />
+    <view class='row row1'>
+      <text class='name line-dec'>{{item.name}}</text>
+      <view class='hot'>
+        <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
       </view>
+      <text class='loc'>{{item.location}}</text>
+    </view>
+
+    <view class='row row2'>
+      <!-- <text class='info-loc'>{{item.keshi1}}</text>
+      <text class='info-age'>{{item.keshi1}}</text>
+      <text class='info-work-age'>{{item.keshi1}}</text> -->
+    </view>
+
+    <view class='row row3'>
+      <text class='grade  line-dec'>{{item.keshi}}</text>
+      <view class='sum'>{{item.buwei}}</view>
+    </view>
+
+    <view class='row row4'>
+      <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+    </view>
+  </view>
+</view>
+
+<!--疾病列表-->
+<view class='list'style='display:{{drugShow}};'>
+  <view class='item' wx:for="{{drugList}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTapdrug'>
+    <image src="{{item.img}}" />
+    <view class='row row1'>
+      <text class='name line-dec'>{{item.name}}</text>
+      <view class='hot'>
+        <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
       </view>
-    </scroll-view>
-  </swiper-item>
-  <swiper-item>
-    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px"  class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-      <view class='listview' wx:for="{{resultdata2}}" wx:for-item="item" wx:key="*this">
-      <!-- bindtap="bindViewTap" -->
-      <view >
-         <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
-      </view>
-      </view>
-    </scroll-view>
-  </swiper-item>
-  <swiper-item>
-    <scroll-view scroll-y="{{true}}" style="height:{{winHeight}}px" class="list" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
-      <view class='listview' wx:for="{{resultdata3}}" wx:for-item="item" wx:key="*this">
-      <view >
-        <template  is="{{item.type == '29' ? 'joy-text' : (item.type == '10' ? 'joy-pic' : (item.type == '41' ? 'joy-video' : 'joy-pic'))}}" data="{{item}}"></template>
-      </view>
-      </view>
-    </scroll-view>
-  </swiper-item>
-</swiper>
+      <text class='loc'>{{item.zhongxi}}</text>
+    </view>
+
+    <view class='row row2'>
+      <text class='info-loc'>{{item.chufang}}</text>
+      <text class='info-age'>{{item.yibao1}}</text>
+      <text class='info-work-age'>{{item.yibao1}}</text>
+    </view>
+
+    <view class='row row3'>
+      <text class='grade  line-dec'>{{item.jb}}</text>
+      <view class='sum'>{{item.changuo}}</view>
+    </view>
+
+    <view class='row row4'>
+      <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+    </view>
+  </view>
+</view>

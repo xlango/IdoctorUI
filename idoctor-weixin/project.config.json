@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 21,
 			"list": [
 				{
 					"id": -1,
@@ -170,6 +170,20 @@
 					"id": -1,
 					"name": "shoucang",
 					"pathName": "pages/shoucang/shoucang",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shoucang",
+					"pathName": "pages/shoucang/shoucang",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shoucanghos",
+					"pathName": "pages/shoucang/hos/hos",
 					"scene": null
 				}
 			]

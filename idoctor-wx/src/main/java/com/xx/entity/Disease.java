@@ -23,5 +23,5 @@ public class Disease {
     String binfazheng;
     String img;
 
-
+    String createTime;
 }
