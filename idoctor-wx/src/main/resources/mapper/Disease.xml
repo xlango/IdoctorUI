@@ -53,22 +53,22 @@
 
     <!--更新-->
     <update id="update"  parameterType="com.xx.entity.Disease">
-        UPDATE tb_doctor
+        UPDATE tb_disease
         <trim prefix="set" suffixOverrides=",">
-            <if test="dis.name!=''">name=#{dis.name},</if>
-            <if test="dis.buwei!=''">buwei=#{dis.buwei},</if>
-            <if test="dis.keshi!=''">keshi=#{dis.keshi},</if>
-            <if test="dis.yongyao!=''">yongyao=#{dis.yongyao},</if>
-            <if test="dis.question!=''">question=#{dis.question},</if>
-            <if test="dis.anwser!=''">anwser=#{dis.anwser},</if>
-            <if test="dis.binyin!=''">binyin=#{dis.binyin},</if>
-            <if test="dis.zhengzhuang!=''">zhengzhuang=#{dis.zhengzhuang},</if>
-            <if test="dis.jiancha!=''">jiancha=#{dis.jiancha},</if>
-            <if test="dis.yufang!=''">yufang=#{dis.yufang},</if>
-            <if test="dis.zhiliao!=''">zhiliao=#{dis.zhiliao},</if>
-            <if test="dis.jianbie!=''">jianbie=#{dis.jianbie},</if>
-            <if test="dis.binfazheng!=''">binfazheng=#{dis.binfazheng},</if>
-            <if test="dis.img!=''">img=#{dis.img},</if>
+            <if test="dis.name!=null">name=#{dis.name},</if>
+            <if test="dis.buwei!=null">buwei=#{dis.buwei},</if>
+            <if test="dis.keshi!=null">keshi=#{dis.keshi},</if>
+            <if test="dis.yongyao!=null">yongyao=#{dis.yongyao},</if>
+            <if test="dis.question!=null">question=#{dis.question},</if>
+            <if test="dis.anwser!=null">anwser=#{dis.anwser},</if>
+            <if test="dis.binyin!=null">binyin=#{dis.binyin},</if>
+            <if test="dis.zhengzhuang!=null">zhengzhuang=#{dis.zhengzhuang},</if>
+            <if test="dis.jiancha!=null">jiancha=#{dis.jiancha},</if>
+            <if test="dis.yufang!=null">yufang=#{dis.yufang},</if>
+            <if test="dis.zhiliao!=null">zhiliao=#{dis.zhiliao},</if>
+            <if test="dis.jianbie!=null">jianbie=#{dis.jianbie},</if>
+            <if test="dis.binfazheng!=null">binfazheng=#{dis.binfazheng},</if>
+            <if test="dis.img!=null">img=#{dis.img},</if>
         </trim>
         WHERE id=#{dis.id}
     </update>

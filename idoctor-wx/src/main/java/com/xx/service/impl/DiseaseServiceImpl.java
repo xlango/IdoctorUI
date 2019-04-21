@@ -28,4 +28,9 @@ public class DiseaseServiceImpl implements IDiseaseService {
     public int delete(int[] ids) {
         return diseaseMapper.delete(ids);
     }
+
+    @Override
+    public int update(Disease dis) {
+        return diseaseMapper.update(dis);
+    }
 }

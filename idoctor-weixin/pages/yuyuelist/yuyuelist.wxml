@@ -1,6 +1,6 @@
 <!-- 过滤栏 -->
 <view class='filter'>
-  <text class="tui-menu-list" bindtap="getHestory" >历史</text>
+  <text class="tui-menu-list" bindtap="getHestory" >已完成</text>
   <text class="tui-menu-list" bindtap="getWait" >待就诊</text>
   <text class="tui-menu-list" bindtap="getCancel">被取消</text>
   <text class="" bindtap='_show'>筛选</text>
@@ -13,9 +13,9 @@
     <view class='block b2'>
       <text class='title'>选择时间段</text>
       <view class='content'>
-        <input placeholder='最低年龄' placeholder-class='placeholdercolor' value='{{startTime}}'/>
+        <input placeholder='开始' placeholder-class='placeholdercolor' value='{{startTime}}'/>
         <text>~</text>
-        <input placeholder='最高年龄' placeholder-class='placeholdercolor' value='{{endTime}}'/>
+        <input placeholder='结束' placeholder-class='placeholdercolor' value='{{endTime}}'/>
       </view>
     </view>
   </view>

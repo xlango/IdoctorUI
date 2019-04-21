@@ -11,4 +11,6 @@ public interface IYuyueService {
     List<Yuyue> getByIf(Yuyue yuyue);
 
     int cancelYuyue(Yuyue yuyue);
+
+    int delete(int id);
 }

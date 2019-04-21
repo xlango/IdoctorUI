@@ -33,4 +33,9 @@ public class DrugServiceImpl implements IDrugService {
         return drugMapper.delete(ids);
     }
 
+    @Override
+    public int update(Drug drug) {
+        return drugMapper.update(drug);
+    }
+
 }

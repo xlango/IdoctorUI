@@ -196,7 +196,26 @@ Page({
     }) 
   },
 
-
+  deleteReport: function () {
+    wx.request({
+      url: gburl + "yuyue/delete",
+      method: "GET",
+      data: {
+        "id":this.data.yuyueid,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      dataType: 'json', // 添加这个配置
+      success: (res) => {
+        if(res.data>0){
+          wx.navigateTo({
+            url: '../yuyuelist/yuyuelist'
+          })
+        }
+      }
+    });
+  },
   toDocDetail:function(){
     wx.navigateTo({
       url: '../doctordetail/doctordetail?id=' + this.data.doc.id

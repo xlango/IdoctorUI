@@ -38,4 +38,10 @@ public class DoctorController {
     public int delete(int[] ids){
         return doctorService.delete(ids);
     }
+
+    @ApiOperation(value="更新医生", notes="更新医生")
+    @PostMapping("/update")
+    public int update(Doctor doctor){
+        return doctorService.update(doctor);
+    }
 }

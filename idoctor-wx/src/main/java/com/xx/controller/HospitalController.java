@@ -41,4 +41,10 @@ public class HospitalController {
     public int delete(int[] ids){
         return hospitalService.delete(ids);
     }
+
+    @ApiOperation(value="更新医院", notes="更新医院")
+    @PostMapping("/update")
+    public int update(Hospital hospital){
+        return hospitalService.update(hospital);
+    }
 }

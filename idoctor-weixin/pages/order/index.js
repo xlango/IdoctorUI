@@ -97,6 +97,22 @@ Page({
 
   },
   addYuyue: function (name, phone, hos, docname, yuyueTime, docid, userid){
+    if(name=="1"){
+      wx.showModal({
+        title: "失败提醒",
+        content: '预约失败',
+        showCancel: false,
+        confirmText: '确定',
+        success: function (res) {
+          if (res.confirm) {
+            // wx.switchTab({
+            //   url: '/pages/homes/home/home'
+            // })
+          }
+        }
+      });
+      return
+    }
     wx.request({
       url: gburl + "yuyue/add",
       method: "POST",
@@ -133,6 +149,7 @@ Page({
       }
     });
   },
+  
   yuyue:function(){
     console.log(this.data.name)
     console.log(this.data.phone)

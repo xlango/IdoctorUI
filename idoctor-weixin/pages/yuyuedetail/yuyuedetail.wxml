@@ -58,7 +58,7 @@
 </view>
 <view class='footer1'>
   <text class='total'></text>
-  <text class='pay' style='display:{{show0}};'>删除记录</text>
-  <text class='pay' style='display:{{show2}};'>删除记录</text>
+  <text class='pay' style='display:{{show0}};' bindtap='deleteReport'>删除记录</text>
+  <text class='pay' style='display:{{show2}};' bindtap='deleteReport'>删除记录</text>
   <text class='pay' style='display:{{show5}};' bindtap='cancel'>取消预约</text>
 </view>

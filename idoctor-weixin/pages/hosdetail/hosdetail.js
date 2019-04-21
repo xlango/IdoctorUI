@@ -12,6 +12,7 @@ Page({
     cancelCol:"none",
     addCol:"block",
     openid:"",
+    isFold1: true,
   },
 
   /**
@@ -205,4 +206,12 @@ Page({
       }
     });
   },
+
+  showAll: function (e) {
+    var param = e.target.dataset.param;
+    this.setData({
+      isFold1: param == 1 ? (!this.data.isFold1) : true,
+    })
+  },
+
 })

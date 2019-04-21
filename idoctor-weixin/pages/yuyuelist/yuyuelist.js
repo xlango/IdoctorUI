@@ -92,7 +92,7 @@ Page({
       url: gburl + "yuyue/getByIf",
       method: "POST",
       data: {
-        "userid": "owczT5I7QQ6TmZz2DMaZYo-wVP5Y",
+        "userid": userid,
         "state": this.data.state
       },
       header: {
@@ -171,15 +171,15 @@ Page({
   }, 
   getHestory: function () {
     this.setData({
-      state: 1
+      state: 2
     });
-    this.getYuyueList(this.data.userid,1)
+    this.getYuyueList(this.data.userid,2)
   },
   getWait: function () {
     this.setData({
-      state: 2
+      state: 1
     });
-    this.getYuyueList(this.data.userid, 2)
+    this.getYuyueList(this.data.userid, 1)
   },
   getCancel: function () {
     this.setData({

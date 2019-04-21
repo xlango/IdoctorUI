@@ -387,11 +387,16 @@
 					'	<td> ' + obj.name + ' </td>' +
 					'	<td> <span class="name">' + obj.buwei + '</span> </td>' +
 					'	<td> <span class="name">' + obj.keshi + '</span> </td>' +
-					'	<td><span class="badge badge-complete"id="btn_update_'+obj.id+'">更新</span>' +
+					'	<td><button class="badge badge-complete" value="'+obj.id+'" onclick="toUpdate(this)">更新</button>' +
 					'	</td>' +
 					'</tr>';
 				$("#table-list").append(el);
 
+			}
+
+			function toUpdate(obj){
+				console.log(obj.value)
+				window.location.href = "updatedis.html?id="+obj.value;
 			}
 
 			//身体部位

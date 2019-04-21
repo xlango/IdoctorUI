@@ -42,4 +42,10 @@ public class DrugController {
         return drugService.delete(ids);
     }
 
+    @ApiOperation(value="更新药品", notes="更新药品")
+    @PostMapping("/update")
+    public int update(Drug drug){
+        return drugService.update(drug);
+    }
+
 }

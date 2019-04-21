@@ -388,7 +388,7 @@
 					'	<td> <span class="product">' + obj.hospital + '</span> </td>' +
 					'	<td><span class="count">' + obj.ks + '</span></td>' +
 					'	<td>' +
-					'		<span class="badge badge-complete" id="btn_update_' + obj.id + '">更新</span>' +
+					'		<button class="badge badge-complete" value="'+obj.id+'" onclick="toUpdate(this)">更新</button>' +
 					'	</td>' +
 					'</tr>';
 				$("#table-list").append(el);
@@ -519,6 +519,11 @@
 						alert("删除数量：" + d);
 					}
 				});
+			}
+			
+			function toUpdate(obj){
+				console.log(obj.value)
+				window.location.href = "updatedoc.html?id="+obj.value;
 			}
 		</script>
 	</body>

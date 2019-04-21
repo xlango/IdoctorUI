@@ -61,24 +61,24 @@
     <update id="update"  parameterType="com.xx.entity.Doctor">
         UPDATE tb_doctor
         <trim prefix="set" suffixOverrides=",">
-            <if test="doc.name!=''">name=#{doc.name},</if>
-            <if test="doc.zc!=''">zc=#{doc.zc},</if>
-            <if test="doc.hospital!=''">hospital=#{doc.hospital},</if>
-            <if test="doc.ks!=''">ks=#{doc.ks},</if>
-            <if test="doc.jxzc!=''">jxzc=#{doc.jxzc},</if>
-            <if test="doc.xzzc!=''">xzzc=#{doc.xzzc},</if>
-            <if test="doc.xw!=''">xw=#{doc.xw},</if>
-            <if test="doc.sc!=''">sc=#{doc.sc},</if>
-            <if test="doc.introduction!=''">introduction=#{doc.introduction},</if>
-            <if test="doc.honor!=''">honor=#{doc.honor},</if>
-            <if test="doc.paper!=''">paper=#{doc.paper},</if>
-            <if test="doc.url!=''">url=#{doc.url},</if>
-            <if test="doc.tel!=''">tel=#{doc.tel},</if>
-            <if test="doc.fax!=''">fax=#{doc.fax},</if>
-            <if test="doc.zipcode!=''">zipcode=#{doc.zipcode},</if>
-            <if test="doc.email!=''">email=#{doc.email},</if>
-            <if test="doc.addr!=''">url=#{doc.addr},</if>
-            <if test="doc.imgurl!=''">url=#{doc.imgurl},</if>
+            <if test="doc.name!=null">name=#{doc.name},</if>
+            <if test="doc.zc!=null">zc=#{doc.zc},</if>
+            <if test="doc.hospital!=null">hospital=#{doc.hospital},</if>
+            <if test="doc.ks!=null">ks=#{doc.ks},</if>
+            <if test="doc.jxzc!=null">jxzc=#{doc.jxzc},</if>
+            <if test="doc.xzzc!=null">xzzc=#{doc.xzzc},</if>
+            <if test="doc.xw!=null">xw=#{doc.xw},</if>
+            <if test="doc.sc!=null">sc=#{doc.sc},</if>
+            <if test="doc.introduction!=null">introduction=#{doc.introduction},</if>
+            <if test="doc.honor!=null">honor=#{doc.honor},</if>
+            <if test="doc.paper!=null">paper=#{doc.paper},</if>
+            <if test="doc.url!=null">url=#{doc.url},</if>
+            <if test="doc.tel!=null">tel=#{doc.tel},</if>
+            <if test="doc.fax!=null">fax=#{doc.fax},</if>
+            <if test="doc.zipcode!=null">zipcode=#{doc.zipcode},</if>
+            <if test="doc.email!=null">email=#{doc.email},</if>
+            <if test="doc.addr!=null">addr=#{doc.addr},</if>
+            <if test="doc.imgurl!=null">imgurl=#{doc.imgurl},</if>
         </trim>
         WHERE id=#{doc.id}
     </update>

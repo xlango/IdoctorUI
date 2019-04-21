@@ -1,10 +1,10 @@
 <!-- main.wxml -->
 <import src="./utils/template.wxml" />
 <view class="swiper-tab">
-  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">医院</view>
-  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">疾病</view>
-  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">医生</view>
-  <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">药品</view>
+  <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">推荐</view>
+  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">文字</view>
+  <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">图片</view>
+  <view class="tab-item {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">视频</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">

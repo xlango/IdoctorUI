@@ -10,4 +10,5 @@ public interface IDiseaseService {
     List<Disease> all(int pageNum, int pageSize);
     List<Disease> getByIfLike(int pageNum,int pageSize,Disease disease);
     int delete(int[] ids);
+    int update(Disease dis);
 }

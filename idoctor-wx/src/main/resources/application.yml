@@ -1,11 +1,11 @@
 server:
-  port: 443
-  ssl:
-    key-store: server.keystore
-    key-alias: tomcat
-    enabled: true
-    key-password: 123456
-    key-store-type: JKS
+  port: 8000
+#  ssl:
+#    key-store: server.keystore
+#    key-alias: tomcat
+#    enabled: true
+#    key-password: 123456
+#    key-store-type: JKS
 
 spring:
   datasource:

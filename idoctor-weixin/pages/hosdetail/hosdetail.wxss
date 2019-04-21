@@ -189,3 +189,20 @@
   float: right;
   background: #bdc5d4;
 }
+
+
+.long-dec{
+  display: -webkit-box;/*关键属性*/
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;/* 关键属性 */
+  -webkit-line-clamp:3;/* 关键属性 */
+  overflow: hidden;/* 关键属性 */
+  text-overflow:ellipsis;/* 超出内容显示省略号*/
+}
+.hide{
+ display: -webkit-box;
+}
+.show{
+ display: block;
+}

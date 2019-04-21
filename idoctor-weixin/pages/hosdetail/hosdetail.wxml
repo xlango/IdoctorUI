@@ -30,8 +30,8 @@
 </view>
 <!-- 医院介绍 -->
 <view class='introduction'>
-  <text class='title'>医院介绍</text>
-  <textarea>{{hos.info}}</textarea>
+  <text class='title' >医院介绍</text>
+  <textarea class="long-dec {{isFold1?'hide':'show'}}" bindtap="showAll" data-param="1">{{hos.info}}</textarea>
 </view>
 <!-- 地址 -->
 <view class='introduction'>

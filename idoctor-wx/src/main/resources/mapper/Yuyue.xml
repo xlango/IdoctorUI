@@ -55,4 +55,9 @@
         </set>
         where id=#{yuyue.id}
     </update>
+
+
+    <delete id="delete" parameterType="int">
+        delete from tb_yuyue where id=#{id}
+    </delete>
 </mapper>

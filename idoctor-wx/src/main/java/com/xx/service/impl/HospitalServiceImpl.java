@@ -34,4 +34,9 @@ public class HospitalServiceImpl implements IHospitalService {
         return hospitalMapper.delete(ids);
     }
 
+    @Override
+    public int update(Hospital hos) {
+        return hospitalMapper.update(hos);
+    }
+
 }

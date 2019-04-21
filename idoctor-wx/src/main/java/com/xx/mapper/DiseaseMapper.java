@@ -13,5 +13,5 @@ public interface DiseaseMapper {
     List<Disease> getByIfLike(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize,@Param("dis")Disease dis);
     int totel(@Param("pageNum")int pageNum,@Param("pageSize")int pageSize,@Param("buwei")String buwei,@Param("keshi")String keshi,@Param("name")String name);
     int delete(int[] ids);
-
+    int update(@Param("dis") Disease dis);
 }

@@ -26,27 +26,27 @@
 <!-- 医生介绍 -->
 <view class='introduction'>
   <text class='title'>医院介绍 </text>
-  <textarea>{{doc.introduction}}</textarea>
+  <textarea class="long-dec {{isFold1?'hide':'show'}}" bindtap="showAll" data-param="1">{{doc.introduction}}</textarea>
 </view>
 <!-- 医生擅长 -->
 <view class='introduction'>
   <text class='title'>医生擅长</text>
-  <textarea>{{doc.sc}}</textarea>
+  <textarea class="long-dec {{isFold2?'hide':'show'}}" bindtap="showAll" data-param="2">{{doc.sc}}</textarea>
 </view>
 <!-- 荣誉 -->
 <view class='introduction'>
   <text class='title'>医生荣誉</text>
-  <textarea>{{doc.honor}}</textarea>
+  <textarea class="long-dec {{isFold3?'hide':'show'}}" bindtap="showAll" data-param="3">{{doc.honor}}</textarea>
 </view>
 <!-- 论文 -->
 <view class='introduction'>
   <text class='title'>发布论文</text>
-  <textarea>{{doc.paper}}</textarea>
+  <textarea class="long-dec {{isFold4?'hide':'show'}}" bindtap="showAll" data-param="4">{{doc.paper}}</textarea>
 </view>
 <!-- 地址 -->
 <view class='introduction'>
   <text class='title'>医生地址</text>
-  <textarea>{{doc.addr}}</textarea>
+  <textarea class="long-dec {{isFold5?'hide':'show'}}" bindtap="showAll" data-param="5">{{doc.addr}}</textarea>
 </view>
 <view class='work'>
   <text class='title'>联系信息</text>

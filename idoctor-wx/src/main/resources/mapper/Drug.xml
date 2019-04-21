@@ -76,24 +76,24 @@
     <update id="update"  parameterType="com.xx.entity.Drug">
         UPDATE tb_drug
         <trim prefix="set" suffixOverrides=",">
-            <if test="drug.chufang!=''">chufang=#{drug.chufang},</if>
-            <if test="drug.zhongxi!=''">zhongxi=#{drug.zhongxi},</if>
-            <if test="drug.yibao!=''">yibao=#{drug.yibao},</if>
-            <if test="drug.changuo!=''">changuo=#{drug.changuo},</if>
-            <if test="drug.jb!=''">jb=#{drug.jb},</if>
-            <if test="drug.name!=''">name=#{drug.name},</if>
-            <if test="drug.chengfen!=''">chengfen=#{drug.chengfen},</if>
-            <if test="drug.zhuzhi!=''">zhuzhi=#{drug.zhuzhi},</if>
-            <if test="drug.yongliang!=''">yongliang=#{drug.yongliang},</if>
-            <if test="drug.buliang!=''">buliang=#{drug.buliang},</if>
-            <if test="drug.jingji!=''">jingji=#{drug.jingji},</if>
-            <if test="drug.zhuyi!=''">zhuyi=#{drug.zhuyi},</if>
-            <if test="drug.xianghu!=''">xianghu=#{drug.xianghu},</if>
-            <if test="drug.chucang!=''">chucang=#{drug.chucang},</if>
-            <if test="drug.youxiaoqi!=''">youxiaoqi=#{drug.youxiaoqi},</if>
-            <if test="drug.piwen!=''">piwen=#{drug.piwen},</if>
-            <if test="drug.gongsi!=''">gongsi=#{drug.gongsi},</if>
-            <if test="drug.img!=''">img=#{drug.img},</if>
+            <if test="drug.chufang!=null">chufang=#{drug.chufang},</if>
+            <if test="drug.zhongxi!=null">zhongxi=#{drug.zhongxi},</if>
+            <if test="drug.yibao!=null">yibao=#{drug.yibao},</if>
+            <if test="drug.changuo!=null">changuo=#{drug.changuo},</if>
+            <if test="drug.jb!=null">jb=#{drug.jb},</if>
+            <if test="drug.name!=null">name=#{drug.name},</if>
+            <if test="drug.chengfen!=null">chengfen=#{drug.chengfen},</if>
+            <if test="drug.zhuzhi!=null">zhuzhi=#{drug.zhuzhi},</if>
+            <if test="drug.yongliang!=null">yongliang=#{drug.yongliang},</if>
+            <if test="drug.buliang!=null">buliang=#{drug.buliang},</if>
+            <if test="drug.jingji!=null">jingji=#{drug.jingji},</if>
+            <if test="drug.zhuyi!=null">zhuyi=#{drug.zhuyi},</if>
+            <if test="drug.xianghu!=null">xianghu=#{drug.xianghu},</if>
+            <if test="drug.chucang!=null">chucang=#{drug.chucang},</if>
+            <if test="drug.youxiaoqi!=null">youxiaoqi=#{drug.youxiaoqi},</if>
+            <if test="drug.piwen!=null">piwen=#{drug.piwen},</if>
+            <if test="drug.gongsi!=null">gongsi=#{drug.gongsi},</if>
+            <if test="drug.img!=null">img=#{drug.img},</if>
         </trim>
         WHERE id=#{drug.id}
     </update>

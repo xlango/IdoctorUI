@@ -12,4 +12,5 @@ public interface IDrugService {
 
     List<Drug> getByIf(int pageNum, int pageSize, Drug drug);
     int delete(int[] ids);
+    int update(Drug drug);
 }

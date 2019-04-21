@@ -5,10 +5,7 @@ import com.xx.service.IYuyueService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,5 +40,11 @@ public class YuyueController {
     @PostMapping("/cancel")
     public int cancelYuyue(Yuyue yuyue) {
         return yuyueService.cancelYuyue(yuyue);
+    }
+
+    @ApiOperation(value = "删除预约记录", notes = "删除预约记录")
+    @GetMapping("/delete")
+    public int delete(int id) {
+        return yuyueService.delete(id);
     }
 }

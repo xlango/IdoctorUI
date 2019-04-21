@@ -12,8 +12,22 @@ Page({
     cancelCol: "none",
     addCol: "block",
     openid: "",
+    isFold1: true,
+    isFold2: true,
+    isFold3: true,
+    isFold4: true,
+    isFold5: true,
   },
-
+  showAll: function (e) {
+    var param = e.target.dataset.param;
+    this.setData({
+      isFold1: param == 1 ? (!this.data.isFold1) : true,
+      isFold2: param == 2 ? (!this.data.isFold2) : true,
+      isFold3: param == 3 ? (!this.data.isFold3) : true,
+      isFold4: param == 4 ? (!this.data.isFold4) : true,
+      isFold5: param == 5 ? (!this.data.isFold5) : true,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

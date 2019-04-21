@@ -28,4 +28,9 @@ public class DoctorServiceImpl implements IDoctorService {
     public int delete(int[] ids) {
         return doctorMapper.delete(ids);
     }
+
+    @Override
+    public int update(Doctor doc) {
+        return doctorMapper.update(doc);
+    }
 }

@@ -12,4 +12,6 @@ public interface IHospitalService {
 
     List<String> allLevel();
     int delete(int[] ids);
+
+    int update(Hospital hos);
 }

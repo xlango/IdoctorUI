@@ -38,4 +38,10 @@ public class DiseaseController {
     public int delete(int[] ids){
         return diseaseService.delete(ids);
     }
+
+    @ApiOperation(value="更新疾病", notes="更新疾病")
+    @PostMapping("/update")
+    public int update(Disease disease){
+        return diseaseService.update(disease);
+    }
 }

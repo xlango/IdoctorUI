@@ -30,4 +30,9 @@ public class YuyueServiceImpl implements IYuyueService {
     public int cancelYuyue(Yuyue yuyue) {
         return yuyueMapper.cancelYuyue(yuyue);
     }
+
+    @Override
+    public int delete(int id) {
+        return yuyueMapper.delete(id);
+    }
 }

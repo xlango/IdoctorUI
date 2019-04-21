@@ -48,7 +48,7 @@
 								</li>
 							</ul>
 						</li>
-						<li>
+						<li class="active">
 							<a href="hospital.html"> <i class="menu-icon fa fa-table"></i>医院管理</a>
 						</li>
 						<li>
@@ -67,15 +67,14 @@
 							</ul>
 						</li>
 
-
 						<li>
 							<a href="disease.html"><i class="menu-icon fa fa-street-view"></i>疾病管理</a>
 						</li>
 						<!-- /.menu-title -->
-						<li  class="active">
-							<a href="drug.html" > <i class="menu-icon fa fa-glass"></i>药品管理</a>
+						<li>
+							<a href="drug.html"> <i class="menu-icon fa fa-glass"></i>药品管理</a>
 						</li>
-						
+
 						<li class="menu-item-has-children dropdown">
 							<a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>统计排行</a>
 							<ul class="sub-menu children dropdown-menu">
@@ -213,7 +212,7 @@
 						<div class="col-sm-4">
 							<div class="page-header float-left">
 								<div class="page-title">
-									<h1>药品</h1>
+									<h1 id="hosName">医院名称</h1>
 								</div>
 							</div>
 						</div>
@@ -225,9 +224,9 @@
 											<a href="#">后台管理</a>
 										</li>
 										<li>
-											<a href="#">药品</a>
+											<a href="#">医院</a>
 										</li>
-										<li class="active">列表</li>
+										<li class="active">更新</li>
 									</ol>
 								</div>
 							</div>
@@ -238,105 +237,93 @@
 
 			<div class="content">
 				<div class="row" style="margin-bottom: 20px;">
-					<div class="col-lg-2">
-						<select id="select-jb-one" class="form-control">
-							<option value="">药品类型</option>
-						</select>
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<strong>详细信息</strong>
+							</div>
+							<div class="card-body card-block">
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="text-input" class=" form-control-label">医院别名</label></div>
+									<div class="col-12 col-md-9"><input type="text" id="alias" placeholder="别名" class="form-control"></div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="text-input" class=" form-control-label">院长</label></div>
+									<div class="col-12 col-md-9"><input type="text" id="dean" placeholder="院长" class="form-control"></div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="email-input" class=" form-control-label">国家认证</label></div>
+									<div class="col-12 col-md-9">
+										<select id="select-isAuth" class="form-control">
+											<option value="已认证">已认证</option>
+											<option value="未认证">未认证</option>
+										</select>
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="password-input" class=" form-control-label">医院等级</label></div>
+									<div class="col-12 col-md-9">
+										<select id="select-level" class="form-control">
+											<option value="">等级</option>
+											<!--此处填充所有医院等级-->
+										</select>
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="disabled-input" class=" form-control-label">经营类型</label></div>
+									<div class="col-12 col-md-9">
+										<select id="select-type" class="form-control">
+											<option value="">类型</option>
+											<!--此处填充所有医院类型-->
+										</select>
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="text-input" class=" form-control-label">官方电话</label></div>
+									<div class="col-12 col-md-9"><input type="text" id="tel" rows="9" placeholder="0000-00000000" class="form-control"></div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="textarea-input" class=" form-control-label">地址</label></div>
+									<div class="col-12 col-md-9"><textarea id="addr" rows="3" placeholder="地址" class="form-control"></textarea></div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="textarea-input" class=" form-control-label">医院简介</label></div>
+									<div class="col-12 col-md-9"><textarea id="info" rows="9" placeholder="医院简介" class="form-control"></textarea></div>
+								</div>
+								<div class="row form-group">
+									<div class="col col-md-3"><label for="textarea-input" class=" form-control-label">医院科室</label></div>
+									<div class="col-12 col-md-9"><textarea id="keshi" rows="9" placeholder="医院科室" class="form-control"></textarea></div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                </button>
+								<button type="reset" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-ban"></i> Reset
+                                </button>
+							</div>
+						</div>
+
 					</div>
-					<div class="col-lg-2">
-						<input type="text" id="input-name" class="form-control-success form-control" placeholder="药品名称" />
-					</div>
-					<div class="col-lg-2">
-						<select id="select-chufang" class="form-control">
-							<option value="">处方类型</option>
-							<option value="OTC非处方药物（甲类）">OTC非处方药物（甲类）</option>
-							<option value="OTC非处方药物（乙类）">OTC非处方药物（乙类）</option>
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-zhongxi" class="form-control">
-							<option value="">中西</option>
-							<option value="中成药">中成药</option>
-							<option value="西药">西药</option>
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-changuo" class="form-control">
-							<option value="">产国</option>
-							<option value="国产">国产</option>
-							<option value="外用药">外用药</option>
-							<option value="进口">进口</option>
-						</select>
-					</div>
-					<div class="col-lg-2">
-						<select id="select-yibao" class="form-control">
-							<option value="">医保类型</option>
-							<option value="医保甲类">医保甲类</option>
-							<option value="医保乙类">医保乙类</option>
-							<option value="限工伤保险">限工伤保险</option>
-							<option value="非医保">非医保</option>
-						</select>
-					</div>
-					<div class="col-lg-2" style="margin-top: 20px;">
-						<select id="select-jb-two" class="form-control">
-							<option value=""></option>
-							<!--此处填充二级基疾病-->
-						</select>
-					</div>
+
 				</div>
 				<div class="animated fadeIn">
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="card">
 								<div class="table-stats order-table ov-h">
-									<table class="table ">
-										<thead>
-											<tr>
-												<th class="serial"><input type="checkbox" /></th>
-												<th class="serial">ID</th>
-												<th class="avatar">图片</th>
-												<th>名称</th>
-												<th>处方</th>
-												<th>中西</th>
-												<th>医保</th>
-												<th>产国</th>
-												<th>疾病</th>
-												<th>操作</th>
-											</tr>
-										</thead>
-										<tbody id="table-list">
-											<!--此处填充医生列表-->
-										</tbody>
-									</table>
+
 								</div>
 								<!-- /.table-stats -->
 							</div>
 						</div>
 						<div class="col-lg-8">
-							<button class="btn btn-outline-danger" type="submit" id="btn-delete">删除</button>
+							<button class="btn btn-outline-info" type="submit" id="btn-save">保存</button>
+							<button class="btn btn-outline-info" type="submit" id="btn-back" onclick="toback()">返回</button>
 						</div>
 						<div class="col-lg-4">
-							<ul class="pagination">
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(-1)">上一页</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(0)">首页</button>
-								</li>
-								<li>
-									<button id="now-page" class="btn btn-outline-secondary btn-sm" type="button">1</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" value="" id="end-page" onclick="">尾页</button>
-								</li>
-								<li>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(1)">下一页</button>
-								</li>
-								<li>
-									<input oninput = "value=value.replace(/[^\d]/g,'')"  style="width: 30px;margin-left: 10px;" id="input-pageNum"></input>
-									<button class="btn btn-outline-secondary btn-sm" type="button" onclick="turnPage(2)">跳转</button>
-								</li>
-							</ul>
+
 						</div>
 					</div>
 				</div>
@@ -375,92 +362,99 @@
 		<script>
 			var $ = jQuery.noConflict();
 
-			//获取医生列表
-			getDrugList(1, "", "", "", "", "");
+			//获取url参数
+			function urlParam() {
+				var str = location.href; //取得整个地址栏
+				var param = str.split("=");
+				console.log(decodeURI(param[1]));
+				return decodeURI(param[1]);
+			}
+			//获取医院
+			getHos(urlParam());
 
-			//获取所有一级疾病
-			getJBAllOne();
+			//获取所有科室列表
+			getLevelAll();
 
+			//获取所有省
+			getProvAll();
 
-			function getDrugList(pageNum, name, chufang, changuo, jb, zhongxi,yibao) {
+			//获取所有类型
+			getTypeAll();
+
+			function getHos(id) {
 				jQuery.ajax({
-					url: "http://127.0.0.1:8000/drug/getByIf",
+					url: "http://127.0.0.1:8000/hospital/getByIf",
 					data: {
-						pageNum: pageNum,
-						pageSize: 5,
-						name: name,
-						chufang: chufang,
-						changuo: changuo,
-						jb: jb,
-						zhongxi: zhongxi,
-						yibao:yibao
+						pageNum: 1,
+						pageSize: 1,
+						id: id,
+
 					},
 					type: 'POST',
 					dataType: "json",
+					//async: false,
 					success: function(d) {
-						$("#table-list").empty();
-						for(i = 0; i < d.length; i++) {
-							addElDrugList(d[i]);
-							//console.log(d[i].hosName);
-						}
+						console.log(d[0].isAuth);
+						$("#hosName").html(d[0].hosName)
+						$("#alias").val(d[0].alias)
+						$("#dean").val(d[0].dean)
+						$("#select-isAuth").val(d[0].isAuth)
+						$("#select-level").val(d[0].level)
+						$("#select-type").val(d[0].type.split("/")[1])
+						$("#tel").val(d[0].tele)
+						$("#addr").val(d[0].addr)
+						$("#info").val(d[0].info)
+						$("#keshi").val(d[0].keshi)
 					}
 				});
 			}
 
-			function addElDrugList(obj) {
-				var el = '<tr>' +
-					'	<td class="serial"><input type="checkbox" name="doctor" value="'+obj.id+'"/></td>' +
-					'	<td class="serial">' + obj.id + '</td>' +
-					'	<td class="avatar">' +
-					'		<div class="round-img">' +
-					'			<a href="#"><img class="rounded-circle" src="' + obj.img + '" alt=""></a>' +
-					'		</div>' +
-					'	</td>' +
-					'	<td> ' + obj.name + ' </td>' +
-					'	<td> <span class="name">' + obj.chufang + '</span> </td>' +
-					'	<td> <span class="name">' + obj.zhongxi + '</span> </td>' +
-					'	<td> <span class="name">' + obj.yibao + '</span> </td>' +
-					'	<td> <span class="name">' + obj.changuo + '</span> </td>' +
-					'	<td> <span class="name">' + obj.jb + '</span> </td>' +
-					'	<td><button class="badge badge-complete" value="'+obj.id+'" onclick="toUpdate(this)">更新</button>' +
-					'	</td>' +
-					'</tr>';
-				$("#table-list").append(el);
-
-			}
-
-
-			function toUpdate(obj){
-				console.log(obj.value)
-				window.location.href = "updatedrug.html?id="+obj.value;
-			}
-
-			//二级疾病
-			function getJBByOne(one) {
+			//等级
+			function getLevelAll() {
 				jQuery.ajax({
-					url: "http://127.0.0.1:8000/drug/getDrugTwoByOne",
-					data:{
-						one:one
-					},
-					type: 'POST',
-					dataType: "json",
-					success: function(d) {
-						for(i = 0; i < d.length; i++) {
-							addElOption("select-jb-two", d[i]);
-						}
-					}
-				});
-			}
-
-			//一级疾病
-			function getJBAllOne() {
-				jQuery.ajax({
-					url: "http://127.0.0.1:8000/drug/allDrugOne",
+					url: "http://127.0.0.1:8000/hospital/allLevel",
 					type: 'GET',
 					dataType: "json",
 					success: function(d) {
 						for(i = 0; i < d.length; i++) {
-							addElOption("select-jb-one", d[i]);
+							addElOption("select-level", d[i]);
+							//console.log(d[i]);
+						}
+					}
+				});
+			}
+
+			//类型
+			function getTypeAll() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/hospital/allType",
+					type: 'GET',
+					dataType: "json",
+					success: function(d) {
+						for(i = 0; i < d.length; i++) {
+							addElOption("select-type", d[i]);
+							//console.log(d[i]);
+						}
+					}
+				});
+			}
+
+			//省
+			function getProvAll() {
+				jQuery.ajax({
+					url: "http://127.0.0.1:8000/addr/allProvice",
+					type: 'GET',
+					dataType: "json",
+					success: function(d) {
+						for(i = 0; i < d.length; i++) {
+							if(d[i] == "直辖市") {
+								addElOption("select-prov", "北京市");
+								addElOption("select-prov", "上海市");
+								addElOption("select-prov", "天津市");
+								addElOption("select-prov", "重庆市");
+							} else {
+								addElOption("select-prov", d[i]);
+							}
 							//console.log(d[i]);
 						}
 					}
@@ -472,107 +466,47 @@
 				$("#" + container).append(el);
 			}
 
-			function publicSearch(pageNum) {
-				var chufang = $("#select-chufang").val();
-				var name = $("#input-name").val();
-				var zhongxi = $("#select-zhongxi").val();
-				var changuo = $("#select-changuo").val();
-				var yibao = $("#select-yibao").val();
-				var jb = $("#select-jb-two").val();
-				console.log(chufang, name, zhongxi, changuo, yibao);
-				getDrugList(pageNum, name, chufang, changuo, jb, zhongxi,yibao);
-			}
 
-			//选择处方类型
-			$("#select-chufang").change(function() {
-				publicSearch(1);
-			});
-			//输入药品名称
-			$("#input-name").blur(function() {
-				if($("#input-name").val() != "") {
-					publicSearch(1);
-				}
-			});
-			//选择中西
-			$("#select-zhongxi").change(function() {
-				publicSearch(1);
-			});
-			//选择产国
-			$("#select-changuo").change(function() {
-				publicSearch(1);
-			});
-			//选择医保
-			$("#select-yibao").change(function() {
-				publicSearch(1);
-			});
-			//选择二级疾病
-			$("#select-jb-two").change(function() {
-				publicSearch(1);
-			});
-			//选择一级疾病
-			$("#select-jb-one").change(function() {
-				$("#select-jb-two").empty();
-				var one=$("#select-jb-one").val();
-				getJBByOne(one);
-				$("#select-jb-two").focus();
-			});
-			
-			//翻页
-			function turnPage(type){
-				var nowpage=$("#now-page").html();
-				console.log(parseInt(nowpage));
-				if(parseInt(type)==1){
-					publicSearch(parseInt(nowpage)+1);
-					$("#now-page").html(parseInt(nowpage)+1);
-				}
-				if(parseInt(type)==-1){
-					if(parseInt(nowpage)==1){
-						publicSearch(1);
-						$("#now-page").html(1);
-					}else{
-						publicSearch(parseInt(nowpage)-1);
-						$("#now-page").html(parseInt(nowpage)-1);
-					}
-				}
-				if(parseInt(type)==0){
-					publicSearch(1);
-					$("#now-page").html(1);
-				}
-				
-				if(parseInt(type)==2){
-					var pagenum=$("#input-pageNum").val();
-					if(pagenum!=""){
-						publicSearch(pagenum);
-						$("#now-page").html(pagenum);
-					}	
-				}
-			}
-			
-			$("#btn-delete").click(function() {
-				var ids=new Array();
-				$('input:checkbox[name=doctor]:checked').each(function(k) {
-						ids.push($(this).val());
-				});
-				//alert(ids);
-				 if(ids != null) {
-					deleteButh(ids);
-				}
-			})
 
-			//删除
-			function deleteButh(ids) {
+
+
+			$("#btn-save").click(function() {
+				var alias = $("#alias").val()
+				var dean = $("#dean").val()
+				var isAuth = $("#select-isAuth").val()
+				var level = $("#select-level").val()
+				var type = $("#select-type").val()
+				var tel = $("#tel").val()
+				var addr = $("#addr").val()
+				var info = $("#info").val()
+				var keshi = $("#keshi").val()
 				jQuery.ajax({
-					url: "http://127.0.0.1:8000/drug/delete",
-					traditional:true,
+					url: "http://127.0.0.1:8000/hospital/update",
 					data: {
-						ids: ids
+						id:urlParam(),
+						alias: alias,
+						dean: dean,
+						isAuth: isAuth,
+						level: level,
+						type: type,
+						tele: tel,
+						addr: addr,
+						info: info,
+						keshi: keshi
 					},
 					type: 'POST',
 					dataType: "json",
+					//async: false,
 					success: function(d) {
-						alert("删除数量：" + d);
+						if(d>0){
+							alert("保存成功");
+						}
 					}
 				});
+			})
+
+			function toback() {
+				window.location.href = "hospital.html";
 			}
 		</script>
 	</body>

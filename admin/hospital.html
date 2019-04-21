@@ -212,7 +212,7 @@
 						<div class="col-sm-4">
 							<div class="page-header float-left">
 								<div class="page-title">
-									<h1>疾病</h1>
+									<h1>医院</h1>
 								</div>
 							</div>
 						</div>
@@ -224,7 +224,7 @@
 											<a href="#">后台管理</a>
 										</li>
 										<li>
-											<a href="#">疾病</a>
+											<a href="#">医院</a>
 										</li>
 										<li class="active">列表</li>
 									</ol>
@@ -421,7 +421,7 @@
 					'	<td><span class="count">' + obj.type + '</span></td>' +
 					'	<td><span class="count">' + obj.manage + '</span></td>' +
 					'	<td>' +
-					'		<span class="badge badge-complete" id="btn_update_'+obj.id+'">更新</span>' +
+					'		<button class="badge badge-complete" value="'+obj.id+'" onclick="toUpdate(this)">更新</button>' +
 					'	</td>' +
 					'</tr>';
 				$("#table-list").append(el);
@@ -580,8 +580,15 @@
 					dataType: "json",
 					success: function(d) {
 						alert("删除数量：" + d);
+						getHosList(1, "", "", "", "", "", "", "");
 					}
 				});
+			}
+			
+			
+			function toUpdate(obj){
+				console.log(obj.value)
+				window.location.href = "updatehos.html?id="+obj.value;
 			}
 		</script>
 	</body>
