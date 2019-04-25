@@ -28,6 +28,7 @@
     "pages/yuyuelist/yuyuelist",
     "pages/yuyuedetail/yuyuedetail",
     "pages/yule/yule",
+    "pages/chat/chat",
     "pages/shoucang/shoucang"
   ],
   "window": {

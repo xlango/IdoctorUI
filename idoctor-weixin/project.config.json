@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 22,
 			"list": [
 				{
 					"id": -1,
@@ -184,6 +184,13 @@
 					"id": -1,
 					"name": "shoucanghos",
 					"pathName": "pages/shoucang/hos/hos",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "chat",
+					"pathName": "pages/chat/chat",
 					"scene": null
 				}
 			]
