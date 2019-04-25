@@ -14,7 +14,8 @@
                                keshi,
                                createTime,
                                yuyueTime,
-                               docid
+                               docid,
+                               state
                                )
               VALUES   (#{yuyue.userid},
                          #{yuyue.name},
@@ -24,7 +25,8 @@
                          #{yuyue.keshi},
                          #{yuyue.createTime},
                          #{yuyue.yuyueTime},
-                         #{yuyue.docid}
+                         #{yuyue.docid},
+                         #{yuyue.state}
                           )
     </insert>
 

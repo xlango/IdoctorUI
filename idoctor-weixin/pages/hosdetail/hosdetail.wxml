@@ -36,6 +36,7 @@
 <!-- 地址 -->
 <view class='introduction'>
   <text class='title'>医院地址</text>
+  <image src='../../res/image/address.png' style='width:50rpx;height:50rpx;' bindtap='locationThis'/>
   <textarea>{{hos.addr}}</textarea>
 </view>
 <view class='work'>

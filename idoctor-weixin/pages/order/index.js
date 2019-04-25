@@ -1,3 +1,5 @@
+// 在需要使用的js文件中，导入js
+var util = require('../../utils/time.js');
 var app = getApp()
 var gburl = app.globalData.url
 Page({
@@ -38,6 +40,8 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
+    var time = util.formatTime(new Date()).split(" ")[0].split("/")
+    console.log("当前时间" + time[0] + "-" + time[1] + "-" + time[2])
     wx.setNavigationBarTitle({
       title: options.name
     })
@@ -45,6 +49,7 @@ Page({
       docid: options.id,
       docname: options.name,
       dochos: options.hos,
+      date: time[0] + "-" + time[1] + "-" + time[2]
     })
   },
 
@@ -97,10 +102,10 @@ Page({
 
   },
   addYuyue: function (name, phone, hos, docname, yuyueTime, docid, userid){
-    if(name=="1"){
+    if (name.replace(/\s+/g, '') == "" || phone.replace(/\s+/g, '') == ""){
       wx.showModal({
         title: "失败提醒",
-        content: '预约失败',
+        content: '请完善必填项',
         showCancel: false,
         confirmText: '确定',
         success: function (res) {
@@ -123,7 +128,8 @@ Page({
         "docname": docname,
         "yuyueTime": yuyueTime,
         "docid": docid,
-        "userid": userid
+        "userid": userid,
+        "state":1
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'

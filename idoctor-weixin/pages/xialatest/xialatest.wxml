@@ -1,5 +1,6 @@
 <!--pages/accordion/accordion.wxml-->
-<view class="uploader-img">
+<!-- <view class="uploader-img">
   
 </view>
-<view class='weui-uploader__input'>xxx</view>
+<view class='weui-uploader__input'>xxx</view> -->
+<button type="default" bindtap="openMap">打开地图</button>

@@ -2,11 +2,11 @@
 <view class='order'>
   <view class='row'>
     <text class='title'>姓名</text>
-    <input class='input' placeholder="请输入姓名" value='{{name}}' bindinput='nameInput'/>
+    <input class='input' placeholder="请输入姓名(必填)" value='{{name}}' bindinput='nameInput'/>
   </view>
   <view class='row'>
     <text class='title'>手机号</text>
-    <input class='input' placeholder="请输入手机号" value='{{phone}}' bindinput='phoneInput'/>
+    <input class='input' placeholder="请输入手机号(必填)" value='{{phone}}' bindinput='phoneInput'/>
   </view>
   <view class='row'>
     <text class='title'>医院名称</text>
@@ -18,7 +18,7 @@
   </view>
   <view class='row'>
     <text class='title'>就诊日期</text>
-    <picker mode="date" value='{{date}}' start="2019-04-11" end="2100-01-01" bindchange="bindDateChange">
+    <picker mode="date" value='{{date}}' start="{{date}}" end="2100-01-01" bindchange="bindDateChange">
       <view class='input'>{{date}}</view>
     </picker>
   </view>

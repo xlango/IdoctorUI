@@ -1,5 +1,7 @@
 var app = getApp()
 var gburl = app.globalData.url
+var QQMapWX = require('../../utils/map/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
   /**
    * 页面的初始数据
@@ -13,6 +15,8 @@ Page({
     addCol:"block",
     openid:"",
     isFold1: true,
+    lat:0,
+    lng:0,
   },
 
   /**
@@ -52,6 +56,11 @@ Page({
     })
     
     this.getHosById(this.data.id)
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: '5HUBZ-E5FHQ-MDQ5U-GIIHX-PMY4F-IMFQG'
+    });
+
   },
 
   /**
@@ -213,5 +222,40 @@ Page({
       isFold1: param == 1 ? (!this.data.isFold1) : true,
     })
   },
+  locationThis: function () {
+    var that=this
+    // 调用接口
+    qqmapsdk.search({
+      keyword: that.data.hos.addr + that.data.hos.hosName,
+      success: function (res) {
+        console.log(res.data[0].location.lat, res.data[0].location.lng);
+        // that.setData({
+        //   lat: res.data[0].location.lat,
+        //   lng: res.data[0].location.lng,
+        // })
+        that.showMap(res.data[0].location.lat, res.data[0].location.lng, that.data.hos.hosName)
+      },
+      fail: function (res) {
+        console.log(res);
+      },
 
+    });
+   
+  },
+  showMap: function (lat, lng, name){
+    var that = this
+    wx.getLocation({
+      type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
+      success: function (res) {
+        console.info(lat, lng)
+        // success
+        wx.openLocation({
+          name:name,
+          latitude: lat, // 纬度，范围为-90~90，负数表示南纬
+          longitude: lng, // 经度，范围为-180~180，负数表示西经
+          scale: 10, // 缩放比例
+        })
+      }
+    })
+  }
 })
