@@ -1,0 +1,184 @@
+.top{
+  position: fixed;
+  top: 0;
+  height: 6vh;
+  width: 100%;
+  line-height: 40px;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color:rgba(2, 2, 5, 0.87);
+  box-shadow: 8px -2px 15px rgb(209, 204, 204)
+ 
+}
+ 
+.top-r{
+  position: fixed;
+  left: 15px;
+  color: #7c22d6;
+  font-size: 15px
+}
+.send{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 12vh;
+  line-height: 140px;
+  background-color:#ffffff;
+  text-align: center;
+  box-shadow: 6px -2px 15px rgb(209, 204, 204)
+ 
+}
+.input{
+  position: fixed;
+  width: 100%;
+ 
+  bottom: 10px;
+  
+ 
+ 
+}
+.text{
+  float: left;
+  margin-left: 10px;
+  width: 61%;
+  height: 33px;
+  border-radius:29px;
+  font-size: 12px;
+  background-color: rgb(239, 243, 243);
+  text-align: center;
+  color: #505050
+  }
+.btn{
+  float:left;
+  margin-left: 10px;
+  height: 31px;
+  width: 53px;
+  background-color: rgba(17, 208, 192, 0.88);
+  line-height: 31px;
+font-size: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius:18px;
+  box-shadow:3px 3px 12px -1px #968f96db;
+}
+.btn-d{
+  float:left;
+  margin-left: 8px;
+  height: 31px;
+  width: 52px;
+  background-color: rgb(0, 0, 0);
+  line-height: 31px;
+  color: #fafafa;
+  cursor: pointer;
+  border-radius:18px;
+  box-shadow:3px 3px 12px -1px #968f96db;
+  font-size: 12px
+}
+ 
+.say{
+  float: right;
+  margin-right: 30px;
+  width: 30px;
+  height: 29px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 29px;
+  color: #9f2dee;
+  cursor: pointer;
+  border-radius:7px;
+ 
+}
+ 
+ 
+.que{
+  margin-top: 7vh;
+ 
+  width: 98%;
+  margin-left: 1%;
+ line-height: 32px;
+ margin-bottom: 13vh
+ 
+ 
+}
+ 
+.robort{
+ 
+  width: 65%;
+ 
+  margin-top: 0px
+ 
+ 
+}
+.robort image{
+ margin-bottom: -60px;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+ 
+}
+.robort text{
+  margin-left: 4px;
+  border-radius: 10px;
+ font-size: 14px;
+ color:  rgba(226, 19, 115, 0.788);
+ margin-bottom: -32px;
+ 
+ 
+}
+.isay{
+ 
+  margin-top: 5px
+}
+.isay image{
+  float: right;
+  margin-right: -86vw;
+ width: 30px;
+ height: 30px;
+ border-radius: 7px;
+ background: darkblue 
+ 
+}
+.isay text{
+  margin-right: 5px;
+  float: right;
+  border-radius: 8px;
+ font-size: 14px;
+ 
+ color: rgba(136, 13, 194, 0.664);
+ 
+ 
+ 
+}
+.con{
+  margin-top: 1%;
+  margin-left: 1%;
+  width: 98%;
+ 
+  
+}
+.l-i{
+ 
+  width: 30px;
+}
+.l-t{
+  margin-top: 15px;
+  margin-left: 35px;
+ 
+  border-radius: 15px;
+  
+ 
+}
+.r-i{
+  width: 30px;
+ 
+}
+.r-t{
+  
+  float: right;
+  margin-right: 41px;
+ 
+  border-radius: 15px;
+  
+}
