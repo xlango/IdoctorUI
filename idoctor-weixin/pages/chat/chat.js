@@ -32,7 +32,9 @@ Page({
         })
       }
     })
-
+    var timestamp = Date.parse(new Date());
+    console.log(timestamp+200)
+    this.query(timestamp + 200,6,"肚子疼");
   },
 
 
@@ -43,7 +45,7 @@ Page({
       isay = e.detail.value.says,
       syas = that.data.syas,
       length = syas.length,
-      key = '0d24b555912d4106a4c17bc73e5520f0' //这里填入你得到的图灵机器人的apikey
+      key = 'f4d8fb8fa94646639aed073cb43edf9c' //这里填入你得到的图灵机器人的apikey
 
     console.log(length)
     wx.request({
@@ -61,11 +63,20 @@ Page({
 
 
   },
+  
 
   delectChat: function () {
     let that = this
     that.setData({
       syas: []
+    })
+  },
+  query: function (time, age, query){
+    wx.request({
+      url: 'https://fz.baidu.com/diagnosis/dialog/query?id=33LZ9NR00&sourceId=1&type=&callback=baidu_aiib_callback_dz&age='+age+'&sex=0&ageGroup=2&ageType=5&purl=https://fz.baidu.com/preview/delivery.html&query='+query+'&stamp=' + time+'&sessionId=',
+      success: function (res) {
+        console.log(res.data)
+      }
     })
   }
 

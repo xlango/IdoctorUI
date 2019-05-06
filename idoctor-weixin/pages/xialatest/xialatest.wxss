@@ -1,24 +1,319 @@
-.uploader-img {
-  /* display: block; */
-
-  top: 0;
-  left: 0;
-  width: 636rpx;
-  height: 180rpx;
-  opacity: 1;
-  background-color: firebrick;
+@import "./weui.wxss";
+.picker{
+    padding: 5px;
+    background-color: #eee;
+    margin: 17rpx;
+    
 }
-
-.weui-uploader__input {
-  /* margin-left: 168rpx; */
-  margin-top: 62rpx;
+.picker1{
+    padding: 5px;
+    background-color: #eee;
+    margin: 17rpx;
+    
+}
+.picker-container{
+width: 100%;
+display:flex;
+flex-direction:row;
+flex-wrap:wrap;
+background-color: #eee;
+}
+.section{
+    margin-bottom: 40px;
+}
+.section__title{
+    margin-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/** 整个区域 */
+.wxSearch{
   position: absolute;
-  z-index: 2;
-  top: 0;
+  top: 43px;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  border-top: 1px #eee solid;
+  background-color: rgba(200, 200, 200, 0.1);
+  z-index: 9999;
+}
+
+/** 搜索框下面的提示区域 */
+.wxSearchInner{
+  background-color: #fff;
+}
+
+/** 搜索热点标题 */
+.wxSearchTitle{
+  display: block;
+  padding: 10px 5px 5px 10px;
+  font-size: 13px;
+  text-align: left;
+}
+
+/** 提示样式 */
+.wxSearchMindKeyItem{
+  padding: 10px 5px 10px 15px;
+  margin-left: 10px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  font-size: 13px;
+}
+
+/** 标签样式 */
+.wxSearchKeyList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+
+/** 标签样式 */
+.wxSearchKeyItem{
+  flex: 0 0 18%;
+  font-size: 13px;
   text-align: center;
-  background: cadetblue;
+  border: 1px solid #eee;
+  margin: 5px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 0px;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+/** 搜索记录标题栏 */
+.wxSearchHistoryItem{
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+/** 搜索记录标题 */
+.wxSearchHistoryItemTitle{
+  flex: 8;
+  font-size: 13px;
+}
+
+/** 搜索记录删除按钮 */
+.wxSearchHistoryItemDel{
+  flex: 1;
+  font-size: 13px;
+  text-align: center;
+  padding-top:2px;
+  padding-bottom: 2px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+/** ---------------------- 以下是搜索框的 we-ui 样式--------------------------------*/
+
+/*!
+ * WeUI v1.1.1 (https://github.com/weui/weui-wxss)
+ * Copyright 2017 Tencent, Inc.
+ * Licensed under the MIT license
+ */
+
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #efeff4;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+
+.weui-icon-search {
+  margin-right: 8px;
+  font-size: inherit;
+}
+
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+.weui-search-bar__text {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  background: #fff;
+  border: 1rpx solid #e6e6ea;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+.weui-icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 8px;
+  font-size: 0;
+}
+
+.weui-search-bar__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: #9b9b9b;
+  background: #fff;
+  line-height: 28px;
+}
+
+.weui-search-bar__cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color: #09bb07;
+  white-space: nowrap;
+}
+
+
+/* 医院列表 */
+.list {
+  font-size: 27rpx;
+}
+
+.list >.item {
+  width: 690rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #f8f8fa;
+  padding: 40rpx 0 0 0;
+  margin: 0 30rpx;
+}
+
+.list >.item >image {
+  height: 130rpx;
+  width: 130rpx;
+  float: left;
+  border-radius: 15rpx;
+  margin: 5rpx 20rpx 5rpx 5rpx;
+}
+
+.list > .item >.row {
+  width: 530rpx;
+  float: right;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.list > .item > .row >text {
+  display: block;
+  float: left;
+}
+
+.list > .item > .row.row1 {
+}
+
+.list > .item > .row.row1 >.name {
+  width: 345rpx;
+  font-weight: bold;
+  font-size: 30rpx;
+    font-weight: bold;
+  font-size: 30rpx;
+  display: -webkit-box;/*关键属性*/
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;/* 关键属性 */
+  -webkit-line-clamp:1;/* 关键属性 */
+  overflow: hidden;/* 关键属性 */
+  text-overflow:ellipsis;/* 超出内容显示省略号*/
+}
+
+.list > .item > .row.row1 .hot {
+  width: 200rpx;
+  float: left;
+  line-height: 30rpx;
+  margin-top: 8rpx;
+  height: 30rpx;
+}
+
+.list > .item > .row.row1 .hot .iconfont {
+  font-size: 25rpx;
+  color: #bdc5d4;
+}
+
+.list > .item > .row.row1 .loc {
+  float: right;
+}
+
+.list > .item > .row.row2 {
+  color: #bdc9d5;
+}
+
+.list > .item > .row.row2 >.info-loc {
+  width: 300rpx;
+  
+}
+
+.list > .item > .row.row2 >.info-age, .list > .item > .row.row2 >.info-work-age {
+  width: 100rpx;
+  float: right;
+  text-align: right;
+}
+
+.list > .item > .row.row3 {
+  font-size: 28rpx;
+}
+
+.list > .item > .row.row3 >.grade {
+  width: 350rpx;
+  float: left;
+    font-weight: bold;
+  font-size: 30rpx;
+  display: -webkit-box;/*关键属性*/
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;/* 关键属性 */
+  -webkit-line-clamp:1;/* 关键属性 */
+  overflow: hidden;/* 关键属性 */
+  text-overflow:ellipsis;/* 超出内容显示省略号*/
+}
+
+.list > .item > .row.row3 >.sum {
+  float: right;
+  text-align: right;
+}
+
+.list > .item > .row.row4 {
+  margin-top: 10rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #bdc9d5;
+  border-top: 1rpx solid #f8f8fa;
+}
+
+.list > .item > .row.row4 >text {
+  width: 132rpx;
+  text-align: center;
+  float: left;
 }

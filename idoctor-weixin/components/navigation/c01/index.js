@@ -8,7 +8,7 @@ Component({
       type:Array,
       value: [{
         name: '预约',
-        img: '/res/image/icon_home_1@3x.png',
+        img: '/res/image/icon_home_4@3x.png',
         link: '/pages/hoslist/hoslist?city=成都'
       },
       {
@@ -22,9 +22,9 @@ Component({
         link: '../druglist/druglist'
       },
       {
-        name: '设备',
-        img: '/res/image/icon_home_4@3x.png',
-        link: '../order/index?id=4'
+        name: '导诊',
+        img: '/res/image/icon_home_1@3x.png',
+        link: '../xialatest/xialatest'
       }]
     }
   },

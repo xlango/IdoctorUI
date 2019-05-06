@@ -1,6 +1,120 @@
-<!--pages/accordion/accordion.wxml-->
-<!-- <view class="uploader-img">
-  
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="症状" value="{{zhengzhuang}}" bindinput='inputZZ' />
+      <view class="weui-icon-clear" wx:if="{{wxSearchData.value.length > 0}}" bindtap="wxSearchClear">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+  </view>
+  <view class="weui-search-bar__cancel-btn" bindtap="">
+    <text data-key='back' bindtap="searchZZ">确定</text>
+  </view>
 </view>
-<view class='weui-uploader__input'>xxx</view> -->
-<button type="default" bindtap="openMap">打开地图</button>
+
+<view class="wxSearch" style="'block';height:{{wxSearchData.view.seachHeight}}px;top:{{wxSearchData.view.barHeight}}px;">
+
+  <view class="wxSearchInner">
+
+    <!-- 选择性别年龄 -->
+    <view class="wxSearchMindKey">
+      <view class="wxSearchMindKeyList">
+        <view class="picker-container">
+          <picker bindchange="bindPickerChange" value="{{sex}}" range="{{sexarray}}">
+            <view class="picker">
+              性别：{{sexarray[sex]}}
+            </view>
+          </picker>
+          <picker bindchange="bindAgeChange" value="{{age}}" range="{{agearray}}">
+            <view class="picker">
+              年龄：{{agearray[age]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <!-- 搜索提示部分 -->
+    <view class="wxSearchMindKey">
+      <view class="wxSearchMindKeyList">
+        <block wx:for="{{wxSearchData.tipKeys}}">
+          <view class="wxSearchMindKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view wx:if="{{wxSearchData.his[0]}}" class="wxSearchHistory" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
+      <view class="wxSearchHistoryItem">
+        <text class="wxSearchHistoryItemTitle">历史搜索</text>
+        <!--text class="wxSearchHistoryItemDel" bindtap="wxSearchDeleteAll">删除</text-->
+        <icon type="clear" bindtap="wxSearchDeleteAll" size="18" />
+      </view>
+      <view class="wxSearchKeyList">
+        <block wx:for="{{wxSearchData.his}}">
+          <view class="wxSearchKeyItem" bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class="wxSearchKey" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
+      <text wx:if="{{selectZZ}}" class="wxSearchTitle">您是否有以下症状？（可多选）</text>
+      <view class="wxSearchKeyList">
+        <block wx:for="{{selectZZ}}">
+          <view class="wxSearchKeyItem" bindtap="choiseZZ" data-key="{{item.title}}">{{item.title}}</view>
+        </block>
+        <!-- <view class="wxSearchKeyItem" bindtap="getCity" data-key="都没有">都没有</view> -->
+      </view>
+
+    </view>
+
+
+    <view class="wxSearchKey" style="display:{{wxSearchData.value.length>0 ? 'none':'block'}}">
+      <text wx:if="{{jianyiKS}}" class="wxSearchTitle">建议科室</text>
+      <view class="wxSearchKeyList">
+        <block wx:for="{{jianyiKS}}">
+          <view class="wxSearchKeyItem" bindtap="loadingTap" data-key="{{item.departmentName}}">{{item.departmentName}}</view>
+        </block>
+      </view>
+    </view>
+
+
+    <view class="" style="display:block">
+      <text wx:if="{{hosList}}" class="wxSearchTitle">推荐医院</text>
+      <view class="wxSearchKeyList">
+        <!--医院列表-->
+        <view class='list'>
+          <view class='item' wx:for="{{hosList}}" wx:key="{{item}}" data-id='{{item.id}}' bindtap='detailTap'>
+            <image src="{{item.img}}" />
+            <view class='row row1'>
+              <text class='name'>{{item.hosName}}</text>
+              <view class='hot'>
+                <text wx:for="{{item.hot}}" wx:for-item="hot" wx:key="{{hot}}" class="iconfont icon-xingxing"></text>
+              </view>
+              <text class='loc'>{{item.location}}</text>
+            </view>
+
+            <view class='row row2'>
+              <text class='info-loc'>{{item.addr}}</text>
+              <text class='info-age'>{{item.manage}}</text>
+              <text class='info-work-age'>{{item.type}}</text>
+            </view>
+
+            <view class='row row3'>
+              <text class='grade'>{{item.addr1}}</text>
+              <view class='sum'>{{item.sorce}}分</view>
+            </view>
+
+            <view class='row row4'>
+              <text wx:for="{{item.workRange}}" wx:for-item="range" wx:key="{{range}}">{{range}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<loading hidden="{{loadingHidden}}">
+        搜索推荐医院中...
+</loading>

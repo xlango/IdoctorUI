@@ -1,11 +1,12 @@
 server:
-  port: 8000
-#  ssl:
-#    key-store: server.keystore
-#    key-alias: tomcat
-#    enabled: true
-#    key-password: 123456
-#    key-store-type: JKS
+  port: 443
+  ssl:
+    #key-store: server.keystore
+    key-store: classpath:2024317_idoctor.site.pfx
+    #key-alias: tomcat
+    enabled: true
+    key-store-type: PKCS12
+    key-store-password: sTQaNcVu
 
 spring:
   datasource:

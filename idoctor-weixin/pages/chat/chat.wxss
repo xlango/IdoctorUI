@@ -1,7 +1,7 @@
 .top{
   position: fixed;
   top: 0;
-  height: 6vh;
+  height: 6vh;  
   width: 100%;
   line-height: 40px;
   background-color: #ffffff;
