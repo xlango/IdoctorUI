@@ -7,9 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tittle: "Let's Chat",
+    tittle: "AI聊天助手",
     syas: [{
-      'robot': '我是XX，来跟我聊天吧！'
+      'robot': '我是AI，来跟我聊天吧！'
 
     }],
     headLeft: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4139308026,2925331886&fm=26&gp=0.jpg',

@@ -20,3 +20,9 @@
     <text class='jump'>跳转</text>
   </view>
 </view>
+<view class='block' bindtap='toAI'>
+  <view class='row'>
+    <text class='dot'>●</text>AI助手
+    <text class='jump'>跳转</text>
+  </view>
+</view>

@@ -182,7 +182,7 @@ Page({
       method: "POST",
       data: {
         "pageNum": 1,
-        "pageSize": 3,
+        "pageSize": 10,
         "addr": addr,
         "keshi": keshi,
       },
@@ -215,7 +215,7 @@ Page({
       that.setData({
         loadingHidden: true
       }); 
-    }, 15000);
+    }, 20000);
   },
 
 })

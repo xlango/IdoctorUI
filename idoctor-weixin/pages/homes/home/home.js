@@ -117,6 +117,12 @@ Page({
       url: '../../yuyuelist/yuyuelist'
     })
 
+  },
+  toAI: function (e) {
+    wx.navigateTo({
+      url: '../../chat/chat'
+    })
+
   }
 
 })

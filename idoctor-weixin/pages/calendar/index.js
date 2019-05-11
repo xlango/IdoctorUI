@@ -13,7 +13,7 @@ Page({
     lastDay: null,
     firstDay: null,
     weekArr: ['日', '一', '二', '三', '四', '五', '六'],
-    year: null
+    year: null,
   },
   //获取日历相关参数
   dataTime: function () {
